@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>092-打开窗口.html</title>
+</head>
+<body>
+	<button id="btn">打开页面</button>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		// window.open();
+		// window.open("about:blank");
+		// window.open("http://www.kuazhu.com");
+		// window.open("http://www.kuazhu.com","_self");
+		// window.open("http://www.kuazhu.com","_blank");
+		var newWin=window.open("http://www.kuazhu.com","_blank");
+		console.log(newWin);
+	}
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>078-获取兄弟节点.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li id="li3">3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+<script>
+	var List=document.getElementById('list');
+	var nodesChild=List.childNodes;
+	console.log("1::::",nodesChild);
+	var li3=document.getElementById('li3');
+	var nextNodes=li3.nextSibling;
+	console.log("2::::",nextNodes);
+	var preNodes=li3.previousSibling;
+	console.log("3::::",preNodes);
+	var nextElementNodes=li3.nextElementSibling;
+	console.log("4::::",nextElementNodes);
+	var preElementNodes=li3.previousElementSibling;
+	console.log("5::::",preElementNodes);
+
+
+</script>
+</html>

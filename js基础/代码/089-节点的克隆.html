@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>089-节点的克隆.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">克隆</button>
+	<div id="box">
+		<p>我是段落</p>
+	</div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	oBtn.onclick=function(){
+		var newBox=oBox.cloneNode(true);
+		// console.log( newBox);
+		document.body.appendChild(newBox);
+	}
+
+</script>
+</html>

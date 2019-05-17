@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>112-client相关取值.html</title>
+	<style>
+	body{
+		width: 3000px;
+		height: 3000px;
+	}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(document.compatMode);
+	if(document.compatMode==="CSS1Compat"){//标准模式下
+		console.log("document.documentElement.clientWidth:::",document.documentElement.clientWidth);
+		console.log("document.documentElement.clientHeight:::",document.documentElement.clientHeight);
+	}else{//混乱模式下
+		console.log("document.body.clientWidth:::",document.body.clientWidth);
+		console.log("document.body.clientHeight:::",document.body.clientHeight);
+	}
+	console.log("window.innerWidth::::",window.innerWidth);//获取视口宽度（包括滚动条）
+	console.log("window.innerHeight::::",window.innerHeight);//获取视口高度（包括滚动条）
+</script>
+</html>

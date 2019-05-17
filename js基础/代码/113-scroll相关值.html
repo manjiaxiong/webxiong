@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>113-scroll相关值.html</title>
+	<style>
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	// console.log("document.documentElement.scrollLeft:::",document.documentElement.scrollLeft);
+	// console.log("document.documentElement.scrollTop:::",document.documentElement.scrollTop);
+	// console.log("document.body.scrollLeft:::",document.body.scrollLeft);
+	// console.log("document.body.scrollTop:::",document.body.scrollTop);
+	console.log("document.documentElement.scrollWidth:::",document.documentElement.scrollWidth);
+	console.log("document.documentElement.scrollHeight:::",document.documentElement.scrollHeight);
+	// console.log("window.pageXOffset:::",window.pageXOffset);
+	// console.log("window.pageYOffset::::",window.pageYOffset);
+	// var iScroT=0,iScroL=0;
+	console.log("iScroL=",window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft);
+	console.log("iScrolT=",window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop);
+</script>
+</html>

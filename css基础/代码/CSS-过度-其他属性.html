@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS-过度-其他属性.html</title>
+	<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+		ul{
+			width: 600px;
+			height: 800px;
+			border: 1px solid #000;
+			margin: 0px auto;
+		}
+		ul li{
+			width: 100px;
+			height: 100px;
+			background: red;
+			margin-top: 10px;
+			line-height: 100px;
+			text-align: center;
+			list-style: none;
+			transition-property: margin-left;
+			transition-duration: 3s;
+			/*transition-delay: 2s;*/
+		}
+		ul:hover li{
+			margin-left: 500px;
+		}
+		li:nth-child(1){
+		transition-timing-function: normal;
+		}
+		li:nth-child(2){
+		transition-timing-function: ease;
+		}
+		li:nth-child(3){
+		transition-timing-function: linear;
+		}
+		li:nth-child(4){
+		transition-timing-function: ease-in;
+		}
+		li:nth-child(5){
+		transition-timing-function: normal;
+		}
+		li:nth-child(6){
+		transition-timing-function: normal;
+		}
+		
+		li:nth-child(7){
+		transition-timing-function: normal;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>默认</li>
+		<li>ease</li>
+		<li>linear</li>
+		<li>ease-in</li>
+		<li>ease-out</li>
+		<li>ease-in-out</li>
+		<li>cubic-bezier</li>
+	</ul>
+</body>
+</html>

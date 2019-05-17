@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5-16作业.html</title>
+</head>
+<body>
+	<input type="text" id="txt1">数字1
+	<input type="text" id="txt2">数字2
+	=<input type="text" id="txt3">数字3
+	<button id="btn">点击</button>
+</body>
+<script>
+	var oTxt1=document.getElementById('txt1');
+	var oTxt2=document.getElementById('txt2');
+	var oTxt3=document.getElementById('txt3');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		var sval1=parseInt(oTxt1.value);
+		var sval2=parseInt(oTxt2.value);
+		var sval3=sval2-sval1;
+		oTxt3.value=sval1+sval3*Math.random();
+	}
+</script>
+</html>

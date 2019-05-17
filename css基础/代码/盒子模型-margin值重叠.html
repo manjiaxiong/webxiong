@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子模型</title>
+	<style>
+		.son1{
+			width: 200px;
+			height: 200px;
+			background: #f00;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			background: #ff0;
+			/*border-top: 1px solid black;*/
+			/*padding-top: 1px;*/
+			overflow: hidden;
+		}
+		.son2{
+			width: 100px;
+			height: 100px;
+			background: #f0f;
+			margin-top: 20px;
+			/*padding-top: 20px;*/
+		}
+	</style>
+</head>
+<body>
+	<div class="son1"></div>
+	<div class="father">
+		<div class="son2"></div>
+	</div>
+</body>
+</html>

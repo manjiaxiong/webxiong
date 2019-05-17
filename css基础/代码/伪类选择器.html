@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		[href="#"]:link{
+			color: red;
+		}
+		a:visited{
+			color: green;
+		}
+		a:hover{
+			color: blue;
+		}
+		a:active{
+			color: skyblue;
+		}
+		p:after{
+			content:"这是";
+		}
+		p:before{
+			content: "fdqf";
+		}
+		[type="text"]:focus{
+			outline-color: red;
+		}
+		
+	</style>
+</head>
+<body>
+	<p>内容</p>
+	<a href="#">链接</a><br>
+	账户：<input type="text">
+</body>
+</html>

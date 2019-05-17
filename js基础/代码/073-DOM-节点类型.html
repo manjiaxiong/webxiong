@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>073-DOM-节点类型.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script>
+	var oLi=document.getElementById('list');
+	var Li=oLi.childNodes;
+	console.log(Li);
+	for(var i=0;i<Li.length;i++){
+		if(Li[i].nodeType==1){
+			Li[i].style.background="red";
+		}
+
+	}
+
+	console.log(document.nodeType);
+	console.log(oLi.nodeType);
+	console.log(Li[0].nodeType);
+
+</script>
+</html>

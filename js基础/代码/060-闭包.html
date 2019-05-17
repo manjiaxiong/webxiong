@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>060-闭包.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function tn(){
+		var a=1;
+		function tn2(){
+			console.log("tn2:::",a);
+			tn3();
+		}
+		function tn3(){
+			console.log("tn3:::",a);
+		}
+		tn2();
+	}
+	tn();
+</script>
+</html>

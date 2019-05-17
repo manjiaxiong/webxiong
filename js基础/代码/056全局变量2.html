@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>056全局变量2.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a=1
+	function sh(){
+		//此时 var a;
+		console.log(a);//undefined    因为函数表达式定义的函数没有函数声明的提升,只有变量声明提升(JS函数中用var声明的所有变量(不涉及赋值)都被提前到函数的顶部,不用var声明的变量会添加到全局环境中)
+		 var a=2;//系统把 var a;自动加到函数顶部
+		 // console.log(arguments.callee);
+		function sh1(){
+			console.log(a);
+		}
+		sh1();
+	}
+	sh();
+	console.log(a);
+	console.log(window);
+</script>
+</html>

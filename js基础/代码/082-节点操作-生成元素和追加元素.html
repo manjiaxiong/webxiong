@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>082-节点操作-生成元素和追加元素.html</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">节点操作</button>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		var oDiv=document.createElement('div');//此时只生成但是在页面出现！
+		console.log(oDiv);
+		document.body.appendChild(oDiv);
+	}
+</script>
+</html>

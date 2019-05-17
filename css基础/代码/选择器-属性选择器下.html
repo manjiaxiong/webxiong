@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性选择器下</title>
+	<style>
+	/*	
+		[title]{
+			color: red;
+		}*/
+		/*[title |= kuaizhu]{
+			color: red;
+		}*/
+		/*[title^=kuaizhu]{
+			color: red;		}*/
+			/*[title$=com]{
+				color: red;
+			}*/
+			/*[title~=com]{
+				color: red;
+			}*/
+			[title*=com]{
+				color: red;
+			}
+			[href="#"]:link{
+				color: green;
+
+			}
+	</style>
+</head>
+<body>
+	<a href="#">	我是a</a>
+	<a href="#" title="#">title="#"</a><br>
+	<a href="#" title="kuaizhu">title="kuaizhu"</a><br>
+	<a href="#" title="kuaizhu.com">title="kuaizhu.com"</a><br>
+	<a href="#" title="kuaizhu-com">title="kuaizhu-com"</a><br>
+	<a href="#" title="kuaizhu com">title="kuaizhu com"</a><br>
+	<a href="#" title="kuaizhu com cn">title="kuaizhu com cn"</a><br>
+	<a href="#" title="com">title="com"</a><br>
+</body>
+</html>

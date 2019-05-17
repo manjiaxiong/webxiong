@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>倒计时.html</title>
+	<style>
+		body{
+			background-color: black;
+		}
+		div{
+			text-align: center;
+			font-size: 40px;
+			color: white;
+			margin: 200px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		
+	</div>
+</body>
+<script>
+	var timer=document.getElementById('timer');
+	var endDay=new Date("2019-5-18 18:00:00");
+	function tostr(num){
+			return	num<10? "0"+num:""+num;
+	}
+	function contTime(){
+		var allMinSec=(endDay.getTime()- Date.now())/1000;
+		if(allMinSec<=0){
+			allMinSec=0;
+		}
+		var iHour=parseInt(allMinSec/3600);
+		var iMinu=parseInt(allMinSec%3600/60);
+		var isec=parseInt(allMinSec%3600%60);
+		timer.innerHTML="距离活动结束还有"+tostr(iHour)+"小时"+tostr(iMinu)+"分"+tostr(isec)+"秒";
+	}
+	
+	setInterval(contTime,300);
+	contTime();
+</script>
+</html>

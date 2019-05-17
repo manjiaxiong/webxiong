@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>070-数组的去重.html</title>
+</head>
+<body>
+	
+</body>
+<script>//先遍历数组
+		//再对比
+		//最后添加元素
+	var arr=[1,2,3,2,1,1,3,33,442,11,24,42,11];
+	console.log("::::1",arr);
+	var result=[];
+	console.log(result.length);
+	for(var i=0;i<arr.length;i++){
+		// var isTure=false;
+		console.log(isTure);
+		for(var j=0;j<result.length;j++){
+			var isTure=false;
+			if(arr[i]==result[j]){
+				isTure=true;
+				break;
+			}			
+		}
+		if(!isTure){
+				result.push(arr[i]);
+			}
+	}
+	console.log("::::2",result);
+	console.log("::::3",arr);
+</script>
+</html>

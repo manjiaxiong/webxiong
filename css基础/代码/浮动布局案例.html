@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动布局案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			}
+			.content{
+				width: 800px;
+				height: 600px;
+				border: 1px solid #000;
+				margin: 50px auto;
+			}
+			.clearfix:after{
+				clear: both;
+				visibility: hidden;
+				height: 0px;
+				display: block;
+				content: "";
+			}
+			.clearfix{
+				*zoom: 1;
+			}
+			header{
+				/*height: 100px;*/
+				/*background-color: red;*/
+			}
+			header .logo{
+				width: 100px;
+				height: 100px;
+				background-color: green;
+				float: left;
+			}
+			/*header .user{
+				float: right;
+			}*/
+			header  .son1{
+				width: 200px;
+				height: 50px;
+				background-color: gray;
+				float: right;
+			}
+			header  .son2{
+				width: 550px;
+				height: 50px;
+				background-color: purple;
+				float: right;
+			}
+			section {
+				/*height: 450px;*/
+				/*background-color: gray;	*/
+				margin-top: 10px;
+			}
+			section .left{
+				height: 450px;
+				width: 650px;
+				/*background-color: yellow;*/
+				float: left;
+			}
+			section .right{
+				height: 450px;
+				width: 140px;
+				background-color: skyblue;
+				float: right;
+			}
+			section .left .top{
+				height: 400px;
+				/*background-color: blue;*/
+			}
+			section .left .top .son1{
+				width: 470px;
+				height: 100%;
+				/*background-color: yellow;*/
+				float: left;
+			}
+			section .box1{
+				width: 100%;
+				height: 220px;
+				background-color: yellow;
+			}
+			section .box2{
+				width: 100%;
+				height: 170px;
+				background-color: yellow;
+				margin-top: 10px;
+			}
+			section .left .top .son2{
+				width: 170px;
+				height: 100%;
+				background-color: pink;
+				float: right;
+			}
+			section .left .bottom{
+				height: 40px;
+				background-color: red;
+				margin-top: 10px;
+			}
+
+			footer{
+				height: 30px;
+				background-color: blue;
+				margin-top: 10px;
+			}
+	</style>
+</head>
+<body>
+	<div class="content">
+		<header class="clearfix">
+			<h1 class="logo"><h1 ></h1>
+			<div class="son1"></div>
+			<div class="son2"></div>
+		</header>
+		<section class="clearfix">
+			<div class="left">
+				<div class="top">
+					<div class="son1">
+						<div class="box1"></div>
+						<div class="box2"></div>
+					</div>
+					<div class="son2"></div>
+				</div>
+				<div class="bottom"></div>
+			</div>
+			<div class="right"></div>
+		</section>
+		<footer></footer>
+	</div>
+</body>
+</html>

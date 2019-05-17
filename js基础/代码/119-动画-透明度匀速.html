@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>119-动画-透明度匀速.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 50px;
+			background-color: red;
+			opacity: 0.2;
+			/*transition: all 1s;*/
+		}
+		#line{
+			width: 1px;
+			height: 400px;
+			background-color: black;
+			position: absolute; 
+			left: 400px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">运动</button>
+	<div id="box"></div>
+	<div id="line"></div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	var oBtn=document.getElementById('btn');
+	var timer=null;
+	var iSpeed=0
+
+	oBtn.onclick=function(){
+		clearInterval(timer);	
+		timer= setInterval(function(){
+			var curry=parseFloat(getComputedStyle(oBox,false)['opacity'])*100;
+			if(oBox.style.opacity<1){
+				iSpeed=10;
+			}else{
+				iSpeed=-10;
+			}		
+			if(Math.abs(curry-100) < Math.abs(iSpeed)){
+				clearInterval(timer);
+				oBox.style.opacity=1;
+			}else{
+				oBox.style.opacity=(curry+iSpeed)/100;
+			}	
+		},50);
+		
+	}
+</script>
+</html>

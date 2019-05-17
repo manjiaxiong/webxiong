@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			width: 300px;
+			/*margin: 0  auto;*/
+			list-style: none;
+			border: 1px solid black
+		}
+		li{
+			width: 200px;
+			height: 200px;
+			border: 1px solid black;
+			background-image: url(3.jpg);
+			background-repeat: no-repeat;
+			/*margin:10px;*/
+		}
+		li:nth-of-type(2){
+		background-size: 200px 200px;
+		}
+		li:nth-of-type(3){
+			background-size: 200px auto;
+		}
+		li:nth-of-type(4){
+			background-size:  auto 200px;
+		}
+		li:nth-of-type(5){
+			background-size:cover;
+		}
+		li:nth-of-type(6){
+			background-size:contain;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+</html>

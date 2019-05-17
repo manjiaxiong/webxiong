@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>079-属性操作-属性的获取.html</title>
+</head>
+<body>
+	<input type="text" id="txt" value="123">
+	<button id="btn">属性变化</button>
+	<textarea id="con"></textarea>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oCon=document.getElementById('con');
+	oBtn.onclick=function(){
+		// var oVal=oTxt.value;
+		var oVal=oTxt.getAttribute("value");
+		console.log(oVal);
+	}
+</script>
+</html>

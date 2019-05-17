@@ -1,0 +1,252 @@
+/* 顶部区域开始 */
+.top{
+	background-color: #242527;
+	text-align: center;
+}
+.top .top-logo{
+	float: left;
+	width: 18px;
+	height: 18px;
+	margin-left: 20px;
+	margin-top: 12px;
+	margin-bottom: 15px;
+}
+.top .top-user{
+	float: right;
+	margin-right: 26px;
+	margin-top: 15px;
+	color: #a5a5a6;
+	cursor: pointer;
+}
+.top .top-cart{
+	float: right;
+	margin-right: 26px;
+	margin-top: 12px;
+	color: #a5a5a6;
+	cursor: pointer;
+}
+.top .nav{
+	margin-left: 500px;
+}
+.top .nav li{
+	float: left;
+	margin-left: 40px;
+	margin-top: 17px;
+	margin-bottom: 17px;
+}
+.top .nav li a{
+	font-size: 12px;
+	color: #bfc0c1;
+}
+.top .nav li a:hover{
+	color: #e5e5d9;
+}
+/* 顶部区域结束 */
+/* 头部搜索区域开始 */
+.header{
+
+}
+.header .header-nav{
+	margin: 30px 0px;
+}
+.header .header-nav li{
+float: left;
+margin-right: 32px;
+}
+.header .header-nav li a{
+	font-size: 14px;
+	color: #4f4f4f;
+}
+.header .header-nav li a:hover{
+	color: #5079d9;
+}
+.header .header-nav li:first-child a{
+	font-weight: bolder;
+}
+.header .header-search{
+	float: right;
+	position: relative;
+	width: 330px;
+	height: 34px;
+	border-radius: 17px;
+	border: 1px solid #ebebeb;
+	
+}
+.header .header-search i{
+	width: 18px;
+	height: 18px;
+	color: #a6a6a6;
+	position: absolute;
+	top:8px;
+	left: 12px;
+}
+.header .header-search input{
+	width: 273px;
+	height: 34px;
+	outline: none;
+	margin-left: 37px;
+	border: none;
+}
+.header .hint{
+	width: 188px;
+	height: 20px;
+	background-color: #e5efff;
+	border: 1px solid #93b2f7;
+	color: #3965cc;
+	border-radius: 10px;
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	font-size: 12px;
+	text-align: center;
+}
+.header .header-search p{
+	font-size: 12px;
+	color: #ccc;
+	position: absolute;
+	left: 34px;
+	top: 10px;
+	display: none;
+}
+.header .header-search .search-input:focus ~ .hint{
+	display: none;
+}
+.header .header-search .search-input:focus ~ p{
+	display: block;
+}
+.header .header-search .search-input:focus ~ .name-list{
+	display: block;
+	border: none;
+}
+.header .header-search .name-list{
+	border: 1px solid #ebebeb;
+	border-radius: 10px;
+	height: 380px;
+	margin-top: 30px;
+	padding-top: 25px;
+	box-sizing: border-box;
+	display: none;
+	background-color: white;
+	padding-left: 20px;
+}
+.header .header-search .name-list a{
+	font-size: 14px;
+	color: #4f4f4f;
+}
+.header .header-search .name-list li{
+	height: 33px;
+	line-height: 33px;
+
+}
+.header .header-search .name-list a:hover{
+	color: #5079d9;
+	font-weight: bolder;
+}
+/* 头部搜索区域结束 */
+/* 中间内容区域开始 */
+.content{
+	background-color: #ededed;
+	/*height: 200px;*/
+	padding-top: 30px;
+	/*overflow: hidden;*/
+}
+.content .big-ad{
+	width: 100%;
+	height: 495px;
+	margin-bottom: 30px;
+	/*overflow: hidden;*/
+}
+.content .big-ad img{
+	/*width: 100%;*/
+	height: 100%;
+	border-radius: 10px;
+	/*height: 495px;*/
+}
+.content .pro2s li{
+	width: 25%;
+	height: 200px;
+}
+.content .pro2s li img{
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+}
+.content .pro2s li:nth-child(2) img,
+.content .pro2s li:nth-child(3) img{
+	border-radius: 0px;
+}
+.content .pro2s{
+	margin-bottom: 30px;
+}
+.content .hot{
+	height: 490px;
+	/*background-color: red;*/
+}
+.content .hot .hd{
+	height:60px;
+	line-height: 60px;
+	/*background-color: pink;*/
+}
+.content .hot .hd p{
+	float: left;
+	font-size: 20px;
+	color: #666;
+}
+.content .hot .bd{
+	float: right;
+}
+.content .hot .hd .hd-right{
+	float: right;
+}
+.content .hot .hd-right span{
+	display: inline-block;
+	border: 1px solid #ccc;
+	margin-right: 20px;
+	width: 24px;
+	height: 24px;
+	border-radius: 12px;
+	text-align: center;
+	line-height: 24px;
+}
+.content .hot .hd i{
+	/*margin-right: 20px;*/
+}
+/* 中间内容区域结束 */
+/* 尾部结尾区域开始 */
+/* 尾部结尾区域结束 */
+/*首页通用样式开始*/
+.container{
+	width: 1220px;
+	margin: 0px auto;
+}
+.clearfix:after{
+	display: block;
+	height: 0;
+	content: "";
+	visibility: hidden;
+	clear: both;
+}
+.clearfix{
+	*zoom: 1;
+}
+a{
+	text-decoration: none;
+	color: #aaa;
+}
+li{
+	list-style: none;
+}
+.ad-list{
+	width: 100%;
+	border-radius: 10px;
+}
+.ad-list li{
+	float: left;
+	border: 1px solid #ededed;
+	box-sizing: border-box;
+	/*border-radius: 10px;*/
+}
+.hover:hover{
+box-shadow:inset 0 0 38px rgba(0,0,0,.08);
+}
+/*首页通用样式结束*/

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>080-属性操作-属性的删除.html</title>
+</head>
+<body>
+	<input type="text" id="txt" showname="3123" >
+	<button id="btn">属性变化</button>
+	<textarea id="con"></textarea>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oCon=document.getElementById('con');
+	oBtn.onclick=function(){
+		oTxt.removeAttribute("showname");
+	}
+</script>
+</html>

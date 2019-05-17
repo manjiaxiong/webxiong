@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS-2D转换-修改旋转基点.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin: 500px auto;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			transform: rotate(45deg)  scale(2,2);
+			transform-origin: 50px 0px;
+			/*transform: scale(2,2);*/
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>
