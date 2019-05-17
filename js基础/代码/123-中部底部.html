@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>123-中部底部.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+		div{
+			position: absolute;
+			right: 0px;
+			bottom: 0px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="../js/toChange.js"></script>
+<script >
+	var oBox=document.getElementById('box');
+	function toscroll(){//滚动高度
+		return  window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+	}
+	function toClient(){//初始时的Top
+			if(document.compatMode=="CSS1Compat"){
+				return document.documentElement.clientHeight;
+			}
+			else{
+				return document.body.clientHeight;
+				}
+		}
+	window.onload = window.onresize = window.onscroll=function(){
+			var iTop=(toClient() - oBox.offsetHeight)/2 + toscroll();
+			console.log(1);
+			toChange(oBox,'top',iTop);
+		}
+	// 	function tochange(obj,arry,iTage){
+	// 	clearInterval(obj.timer);		
+	// 	obj.timer= setInterval(function(){
+	// 		var curry=parseFloat(getComputedStyle(obj,false)[arry]);
+	// 		if(arry=='opacity'){//判断属性是否为透明度
+	// 			curry=curry*100;
+	// 		}	
+	// 		if(curry<iTage){//确定速度
+	// 				iSpeed=5;
+	// 			}else{
+	// 				iSpeed=-5;
+	// 			}
+	// 		//判断结束条件
+	// 			if(Math.abs(iTage-curry) < Math.abs(iSpeed)){
+				
+	// 				if(arry=='opacity'){
+	// 					obj.style[arry]=iTage/100;
+	// 				}
+	// 				else{obj.style[arry]=iTage+'px';}
+	// 					clearInterval(obj.timer);
+	// 			}else{
+	// 				if(arry=='opacity'){
+	// 						obj.style[arry]=(curry+iSpeed)/100;
+	// 				}else{
+	// 					obj.style[arry]=curry+iSpeed+"px";
+	// 				}
+	// 			}
+	// 	},50);
+	// }
+</script>
+
+</html>
