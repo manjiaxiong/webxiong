@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>130-动画-综合动画.html</title>
+	<title>132-动画-链式动画.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -21,6 +21,9 @@
 		.box:last-child{
 			opacity: 0.2;
 		}
+		.box:first-child{
+			opacity: 0.2;
+		}
 	</style>
 </head>
 <body>
@@ -31,9 +34,8 @@
 	</div>
 </body>
 <script>
-
 	//减速动画=>综合动画
-	function animation(obj,attr,iTarget,isLinear){
+	function animation(obj,attr,iTarget,isLinear,fnEnd){
 		//默认情况下做匀速动画
 		if(isLinear == undefined){
 			isLinear = true;
@@ -83,6 +85,12 @@
 			if(isStopCurrent){//终止当前动画
 				// 清除定时器
 				clearInterval(obj.timer);
+				/*
+				if(typeof fnEnd == "function"){
+					fnEnd();
+				}
+				*/
+				typeof fnEnd == "function" && fnEnd();
 			}else{//动画执行过程
 				//处理透明度和非透明度的动画执行过程
 				if(attr == "opacity"){
@@ -98,8 +106,20 @@
 	var oBox2 = document.getElementById('box2');
 	var oBox3 = document.getElementById('box3');
 	oBox1.onmouseover = function(){
-		
-		animation(oBox1,"width",400);
+		animation(oBox1,"width",400,true,function(){
+			animation(oBox1,"height",400,false,function(){
+				animation(oBox1,"opacity",100);
+			});
+		});
+		// animation(oBox1,"height",400);
+	}
+	oBox1.onmouseout = function(){
+		animation(oBox1,"opacity",20,true,function(){
+			animation(oBox1,"height",100,false,function(){
+				animation(oBox1,"width",100,true);
+			});
+		});
+		// animation(oBox1,"height",400);
 	}
 	oBox2.onmouseover = function(){
 		
