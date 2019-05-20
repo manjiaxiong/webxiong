@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>148-文字随滚动条翻页.html</title>
+	<style>
+		*{
+		margin: 0;
+		padding: 0;
+		}
+		.box{
+			width: 400px;
+			height: 400px;
+			margin: 200px auto;
+			border: 1px solid #000;
+		}
+		#father{
+			height: 400px;
+			width: 30px;
+			position: relative;
+			float: right;
+			background-color: gray;
+		}
+		#son{
+			width: 30px;
+			height: 30px;
+			background-color: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div id="father">
+			<div id="son"></div>
+		</div>
+		<div id="continer">
+			<div id="txt"></div>
+		</div>
+	</div>
+</body>
+<script>
+	var oFather=document.getElementById('father');
+	var oSon=document.getElementById('son');
+	oSon.onmousedown=function(ev){
+		var disT=ev.clientY-oSon.offsetTop;
+		var t=0;
+		document.onmousemove=function(ev){
+			t=ev.clientY-disT;
+			if(t<0){
+				t=0
+			}else if(t>oFather.offsetHeight-oSon.offsetHeight){
+				t=oFather.offsetHeight-oSon.offsetHeight;
+			}
+			oSon.style.top=t+'px';
+			var scal=t/(oFather.offsetHeight-oSon.offsetHeight);
+			
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>
