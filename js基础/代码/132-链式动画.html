@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-<<<<<<< HEAD
-	<title>130-动画匀减速的封装.html</title>
-=======
-	<title>130-动画-综合动画.html</title>
->>>>>>> 986a6661a930d676930c021f740e1b5fba2f111a
+	<title>132-动画-链式动画.html</title>
 	<style>
 		*{
 			margin: 0;
@@ -25,6 +21,9 @@
 		.box:last-child{
 			opacity: 0.2;
 		}
+		.box:first-child{
+			opacity: 0.2;
+		}
 	</style>
 </head>
 <body>
@@ -35,68 +34,8 @@
 	</div>
 </body>
 <script>
-<<<<<<< HEAD
-	//获取元素
-	var oBox1=document.getElementById('box1');
-	var oBox2=document.getElementById('box2');
-	var oBox3=document.getElementById('box3');
-	
-	function toChange(obj,arry,iTage,isLiner){
-		if(isLiner==undefined){//默认为匀速
-			isLiner=true;
-		}
-		var isStop=false;//定义是否停止的变量
-		clearInterval(obj.timer)//防止用户多点
-		var iSpeed=0;//初始速度
-		obj.timer= setInterval(function(){
-			var curry=parseFloat(getComputedStyle(obj,false)[arry]);//获取值
-			if(arry=='opacity'){
-				curry=curry*100;
-			}
-			if(isLiner==true){//如果为匀速
-				if(curry<iTage){
-					iSpeed=5;
-				}else{
-					iSpeed=-5;
-				}
-				if(Math.abs(iTage-curry) < Math.abs(iSpeed)){
-					if(arry=='opacity'){
-						obj.style[arry]=iTage/100;
-					}
-					else{obj.style[arry]=iTage+'px';
-					}
-					isStop=true;
-				}
-			}else{
-				iSpeed=(iTage-curry)/10;
-				iSpeed= iSpeed<0 ? Math.floor(iSpeed) : Math.ceil(iSpeed);
-				if(!iSpeed){
-					isStop=true;
-				}
-			}
-			if(isStop){
-				clearInterval(obj.timer)
-			}else{
-				if(arry=='opacity'){
-						obj.style[arry]=(curry+iSpeed)/100;
-				}else{
-					obj.style[arry]=curry+iSpeed+"px";
-				}
-			}
-		
-		},50);	
-	}
-	oBox1.onmouseover=function(){
-		toChange(oBox1,'height',100,true);
-		console.log(1);
-	}
-	oBox2.onmouseover=function(){
-		toChange(oBox2,'width',100,false);
-		console.log(2);
-=======
-
 	//减速动画=>综合动画
-	function animation(obj,attr,iTarget,isLinear){
+	function animation(obj,attr,iTarget,isLinear,fnEnd){
 		//默认情况下做匀速动画
 		if(isLinear == undefined){
 			isLinear = true;
@@ -146,6 +85,12 @@
 			if(isStopCurrent){//终止当前动画
 				// 清除定时器
 				clearInterval(obj.timer);
+				/*
+				if(typeof fnEnd == "function"){
+					fnEnd();
+				}
+				*/
+				typeof fnEnd == "function" && fnEnd();
 			}else{//动画执行过程
 				//处理透明度和非透明度的动画执行过程
 				if(attr == "opacity"){
@@ -161,13 +106,24 @@
 	var oBox2 = document.getElementById('box2');
 	var oBox3 = document.getElementById('box3');
 	oBox1.onmouseover = function(){
-		
-		animation(oBox1,"width",400);
+		animation(oBox1,"width",400,true,function(){
+			animation(oBox1,"height",400,false,function(){
+				animation(oBox1,"opacity",100);
+			});
+		});
+		// animation(oBox1,"height",400);
+	}
+	oBox1.onmouseout = function(){
+		animation(oBox1,"opacity",20,true,function(){
+			animation(oBox1,"height",100,false,function(){
+				animation(oBox1,"width",100,true);
+			});
+		});
+		// animation(oBox1,"height",400);
 	}
 	oBox2.onmouseover = function(){
 		
 		animation(oBox2,"height",400,false);
->>>>>>> 986a6661a930d676930c021f740e1b5fba2f111a
 	}
 	oBox3.onmouseover = function(){
 		

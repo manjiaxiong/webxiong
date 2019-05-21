@@ -1,8 +1,4 @@
-// var oBox1=document.getElementById('box1');
-// 	var oBox2=document.getElementById('box2');
-// 	var oBox3=document.getElementById('box3');
-// 	var oBox4=document.getElementById('box4');
-	var iSpeed=0;
+
 	function toChange(obj,arry,iTage){
 		clearInterval(obj.timer);//开始前清除之前的定时器
 			obj.timer=setInterval(function(){
