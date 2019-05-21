@@ -34,6 +34,13 @@
 			width: 370px;
 			border: 1px solid #000;
 			box-sizing: border-box;
+			overflow: hidden;
+			height: 400px;
+		}
+		#txt{
+			position: absolute;
+			top: 0px;
+			left: 0px;
 		}
 	</style>
 </head>
@@ -66,6 +73,7 @@
 <script>
 	var oFather=document.getElementById('father');
 	var oSon=document.getElementById('son');
+	var oTxt=document.getElementById('txt');
 	oSon.onmousedown=function(ev){
 		var disT=ev.clientY-oSon.offsetTop;
 		var t=0;
@@ -78,7 +86,7 @@
 			}
 			oSon.style.top=t+'px';
 			var scal=t/(oFather.offsetHeight-oSon.offsetHeight);
-			
+			oTxt.style.top=-(oTxt.offsetHeight-400)*scal+'px';
 		}
 		document.onmouseup=function(){
 			document.onmousemove=null;
