@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+<<<<<<< HEAD
+	<title>130-动画匀减速的封装.html</title>
+=======
 	<title>130-动画-综合动画.html</title>
+>>>>>>> 986a6661a930d676930c021f740e1b5fba2f111a
 	<style>
 		*{
 			margin: 0;
@@ -31,6 +35,65 @@
 	</div>
 </body>
 <script>
+<<<<<<< HEAD
+	//获取元素
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+	
+	function toChange(obj,arry,iTage,isLiner){
+		if(isLiner==undefined){//默认为匀速
+			isLiner=true;
+		}
+		var isStop=false;//定义是否停止的变量
+		clearInterval(obj.timer)//防止用户多点
+		var iSpeed=0;//初始速度
+		obj.timer= setInterval(function(){
+			var curry=parseFloat(getComputedStyle(obj,false)[arry]);//获取值
+			if(arry=='opacity'){
+				curry=curry*100;
+			}
+			if(isLiner==true){//如果为匀速
+				if(curry<iTage){
+					iSpeed=5;
+				}else{
+					iSpeed=-5;
+				}
+				if(Math.abs(iTage-curry) < Math.abs(iSpeed)){
+					if(arry=='opacity'){
+						obj.style[arry]=iTage/100;
+					}
+					else{obj.style[arry]=iTage+'px';
+					}
+					isStop=true;
+				}
+			}else{
+				iSpeed=(iTage-curry)/10;
+				iSpeed= iSpeed<0 ? Math.floor(iSpeed) : Math.ceil(iSpeed);
+				if(!iSpeed){
+					isStop=true;
+				}
+			}
+			if(isStop){
+				clearInterval(obj.timer)
+			}else{
+				if(arry=='opacity'){
+						obj.style[arry]=(curry+iSpeed)/100;
+				}else{
+					obj.style[arry]=curry+iSpeed+"px";
+				}
+			}
+		
+		},50);	
+	}
+	oBox1.onmouseover=function(){
+		toChange(oBox1,'height',100,true);
+		console.log(1);
+	}
+	oBox2.onmouseover=function(){
+		toChange(oBox2,'width',100,false);
+		console.log(2);
+=======
 
 	//减速动画=>综合动画
 	function animation(obj,attr,iTarget,isLinear){
@@ -104,6 +167,7 @@
 	oBox2.onmouseover = function(){
 		
 		animation(oBox2,"height",400,false);
+>>>>>>> 986a6661a930d676930c021f740e1b5fba2f111a
 	}
 	oBox3.onmouseover = function(){
 		
