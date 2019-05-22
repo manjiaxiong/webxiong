@@ -42,6 +42,7 @@
 		obj.timer = setInterval(function(){
 			//是否终止所有动画
 			var isStopAll = true;
+			//循环所有的属性（这几个属性是同时的）
 			for(attr in options){
 				// 判断是否终止当前动画
 				var isStopCurrent = false;

@@ -45,8 +45,9 @@
 	}
 	oTxt.onkeydown=function(ev){
 		// console.log(ev.keyCode);
-		// console.log(ev.ctrlkey);
-		if(ev.keyCode==13&&!ev.ctrlkey){
+		console.log(ev.ctrlKey);
+		console.log(ev.shiftKey);
+		if(ev.keyCode==13&&ev.ctrlkey){
 			oBtn.onclick();
 		}
 	}
