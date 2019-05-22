@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>148-物体碰撞检测.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box1{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: red;
+		}
+		#box2{
+			width: 300px;
+			height: 300px;
+			position: absolute;
+			top: 200px;
+			left: 400px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+<script src="../js/animation.js"></script>
+<script>
+	function checkBump(obj1,obj2){
+		if(obj1.offsetLeft+obj1.offsetWidth>=obj2.offsetLeft&&obj1.offsetTop+obj1.offsetHeight>=obj2.offsetTop&&obj2.offsetLeft+obj2.offsetWidth>=obj1.offsetLeft&&obj2.offsetTop+obj2.offsetHeight>=obj1.offsetTop){
+			obj2.style.backgroundColor='green';
+		}else{
+			obj2.style.backgroundColor='blue';
+		}
+		
+	}
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	oBox1.onmousedown=function(ev){
+		var disT=ev.clientY-oBox1.offsetTop;
+		var disL=ev.clientX-oBox1.offsetLeft;
+		console.log(disL);
+		console.log(disT);
+		document.onmousemove=function(ev){
+		// 	if(oBox1.offsetLeft+oBox1.offsetWidth>=oBox2.offsetLeft&&oBox1.offsetTop+oBox1.offsetHeight>=oBox2.offsetTop&&oBox2.offsetLeft+oBox2.offsetWidth>=oBox1.offsetLeft&&oBox2.offsetTop+oBox2.offsetHeight>=oBox1.offsetTop){
+		// 		oBox2.style.backgroundColor='green';
+		// 	}else{
+		// 		oBox2.style.backgroundColor='blue';
+		// 	}
+			oBox1.style.top=-disT+ev.clientY+'px';
+			oBox1.style.left=-disL+ev.clientX+'px';
+			checkBump(oBox1,oBox2);
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>
