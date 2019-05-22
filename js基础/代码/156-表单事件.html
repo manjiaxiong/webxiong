@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>156-表单事件.html</title>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" id="from" target="_blank">
+		<input type="text" id="txt">
+		<input type="submit"  id="sub">
+		<input type="reset" id="res">
+		<p id="mes"></p>
+	</form>
+</body>
+<script>
+	var oForm=document.getElementById('from');
+	var oTxt=document.getElementById('txt');
+	var oSub=document.getElementById('sub');
+	var oRex=document.getElementById('res');
+	var oMes=document.getElementById('mes');
+	oTxt.onfocus=function(){
+		oMes.style.color='red';
+		oMes.innerHTML="请输入正确信息";
+	}
+	oTxt.onblur=function(){
+		// oMes.style.color='blue';
+		// oMes.innerHTML="输入不正确";
+	}
+	oTxt.onchange=function(){
+		oMes.style.color='purple';
+		oMes.innerHTML="输输入有变动，请正确输入";
+	}
+</script>
+</html>

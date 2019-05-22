@@ -14,7 +14,7 @@
 			background-color: red;
 			position: absolute;
 			top: 0px;
-			left: 10px;
+			left: 0px;
 		}
 	</style>
 </head>
@@ -32,10 +32,10 @@
 			oBox.style.left=oBox.offsetLeft-10+'px';
 		}
 		if(ev.keyCode==38){
-			oBox.style.top=oBox.offsetTop+10+'px';
+			oBox.style.top=oBox.offsetTop-10+'px';
 		}
 		if(ev.keyCode==40){
-			oBox.style.top=oBox.offsetTop-10+'px';
+			oBox.style.top=oBox.offsetTop+10+'px';
 		}
 	}
 </script>
