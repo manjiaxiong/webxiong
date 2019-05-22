@@ -74,12 +74,28 @@
 	var oFather=document.getElementById('father');
 	var oSon=document.getElementById('son');
 	var oTxt=document.getElementById('txt');
+	
 	oSon.onmousedown=function(ev){
 		var disT=ev.clientY-oSon.offsetTop;
 		var t=0;
 		document.onmousemove=function(ev){
 			t=ev.clientY-disT;
-			if(t<0){
+			toMove();
+		}
+		oFather.onmousewheel=function(ev){
+			if(ev.wheelDelta<0){
+				t+=10;
+			}else{
+				t-=10;
+			}
+			toMove();
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		function toMove(){
+		if(t<0){
 				t=0
 			}else if(t>oFather.offsetHeight-oSon.offsetHeight){
 				t=oFather.offsetHeight-oSon.offsetHeight;
@@ -87,11 +103,7 @@
 			oSon.style.top=t+'px';
 			var scal=t/(oFather.offsetHeight-oSon.offsetHeight);
 			oTxt.style.top=-(oTxt.offsetHeight-400)*scal+'px';
-		}
-		document.onmouseup=function(){
-			document.onmousemove=null;
-			document.onmouseup=null;
-		}
+	}
 	}
 </script>
 </html>
