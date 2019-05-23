@@ -13,7 +13,7 @@
 			width: 600px;
 			height: 600px;
 			margin-top: 100px;
-			margin-left: 100px;
+			margin-left: 400px;
 			border: 1px solid #000;
 		}
 		#bird{
@@ -54,6 +54,15 @@
 	var addLinetime=null;
 	var moveLinetime=null;
 	var space=300;
+	//柱子碰撞
+	function checkBump(obj1,obj2){
+		if(obj1.offsetLeft+obj1.offsetWidth>=obj2.offsetLeft&&obj1.offsetTop+obj1.offsetHeight>=obj2.offsetTop&&obj2.offsetLeft+obj2.offsetWidth>=obj1.offsetLeft&&obj2.offsetTop+obj2.offsetHeight>=obj1.offsetTop){
+			return true
+		}else{
+			return false
+		}
+		
+	}
 	//随机整数
 	function getRandom(min,max) {
 		return Math.round(min+(max-min)*Math.random())
@@ -89,29 +98,37 @@
 		bottomLine.style.height=600-h-space+'px';
 		oWrap.appendChild(topLine);
 		oWrap.appendChild(bottomLine);
-		console.log(topLine)
 	},600)
 	//柱子向左移动
 	clearInterval(moveLinetime);
-	moveLinetime= clearInterval(function(){
+	moveLinetime= setInterval(function(){
 		var atopLine=document.querySelectorAll('.topline');
-		// var atopLine=document.querySelectorAll('.topline');
+		var abottomLine=document.querySelectorAll('.bottomline');
 		for(var i=0;i<atopLine.length;i++){
-			topLine[i].style.left=topLine[i].leftDate-1+'%';
-			leftDate=leftDate-1;
+			//碰撞柱子小鸟死亡
+			if(checkBump(oBird,atopLine[i])||checkBump(oBird,abottomLine[i])){
+				death();
+			}//改变柱子的位置
+			abottomLine[i].style.left=atopLine[i].style.left=atopLine[i].leftDate-1+"%";
+			abottomLine[i].leftDate=atopLine[i].leftDate=atopLine[i].leftDate-1;
+			if(atopLine[i].leftDate<-10){//移出柱子
+				oWrap.removeChild(atopLine[i]);
+				oWrap.removeChild(abottomLine[i]);
+			}
 		}
+		
 	},50)
 	//小鸟死亡
 	function death(){
 		clearInterval(timeBird);
 		clearInterval(addLinetime)
+		clearInterval(moveLinetime)
 	}
 	//空格控制速度
 	document.onkeydown=function(ev){
 		if(isDeath){
 			return false;
 		}
-		console.log(1);
 		if(ev.keyCode==32){
 			iSpeed-=10;
 		}

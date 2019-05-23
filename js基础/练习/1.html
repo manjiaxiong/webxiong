@@ -3,32 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		div{
-			width: 100px;
-			height: 100px;
-			background-color: red;
-			margin-bottom: 20px;
-		}
-
-	</style>
 </head>
 <body>
-	<div id="box"></div>
-	<div id="box1"></div>
+	
 </body>
 <script>
-	var oBox=document.getElementById('box');
-	var oBox1=document.getElementById('box1');
-	oBox.onmousedown=function(){
-		console.log(1);
-	}
-	oBox1.onmousedown=function(){
-		oBox.onmousedown=null;
-	}
+	document.onkeydown=function(ev){
+		console.log(ev.keyCode)
+;	}
 </script>
 </html>
