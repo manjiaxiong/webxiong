@@ -23,12 +23,40 @@
 		oMes.innerHTML="请输入正确信息";
 	}
 	oTxt.onblur=function(){
-		// oMes.style.color='blue';
-		// oMes.innerHTML="输入不正确";
+		var sva=oTxt.value.length;
+		if(sva<4||sva>6){
+			oMes.innerHTML="输入位数不正确";
+		}else{
+			oMes.style.color='black';
+		oMes.innerHTML="输入位数正确";
+		}
 	}
 	oTxt.onchange=function(){
-		oMes.style.color='purple';
-		oMes.innerHTML="输输入有变动，请正确输入";
+		// oMes.innerHTML="输输入有变动，请正确输入";//不能打印 因为onblur会覆盖他
+		console.log("输输入有变动，请正确输入");
 	}
+	oTxt.oninput=function(){
+		var sva=oTxt.value.length;
+		if(sva<4||sva>6){
+			oMes.style.color='purple';
+			oMes.innerHTML="输入位数不正确";
+		}else{
+			oMes.style.color='black';
+		oMes.innerHTML="输入位数正确";
+		}
+	}
+	oForm.onsubmit=function(){
+		console.log(123);
+	}
+	oForm.onreset=function(){
+		console.log(234);
+	}
+	oSub.onclick=function(){
+		console.log(345);
+	}
+	oRex.onclick=function(){//执行顺序在onsubmit之前
+		console.log(456);
+	}
+	
 </script>
 </html>

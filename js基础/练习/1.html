@@ -3,13 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			opacity: 0;
+			transition: all 2s;
+		}
+		div:hover{
+			opacity: 1
+		}
+	</style>
 </head>
 <body>
-	
+	<div></div>
 </body>
-<script>
-	document.onkeydown=function(ev){
-		console.log(ev.keyCode)
-;	}
-</script>
 </html>

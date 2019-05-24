@@ -36,23 +36,22 @@
 <script>
 	var oLeft=document.getElementById('left-box');
 	var oRight=document.getElementById('right-box');
-	var timer=0;
+	var timer=null;
 	oRight.onmouseover=oLeft.onmouseover=function(){
-		clearTimeout(timer)
-		oRight.style.display='block';
-		setTimeout(function(){
-			oRight.style.opacity=1;
-		},10)
 
+		clearTimeout(timer);
+
+		oRight.style.display='block';
+		oRight.style.opacity=1;
+		console.log(1);
 	}
 	oRight.onmouseout=oLeft.onmouseout=function(){
+		// console.log(1)
 		timer=setTimeout(function(){
-			oRight.style.display='none';
-			// oRight.style.opacity=0;
-		},400)
-		setTimeout(function(){
 			oRight.style.opacity=0;
-		},10)
+			oRight.style.display='none';
+		},3000)
+
 	}
 	// oRight.onmouseover=function(){
 	// 	clearTimeout(timer)

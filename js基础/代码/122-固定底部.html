@@ -44,33 +44,33 @@
 			tochange(oBox,'top',iTop);
 		}
 		function tochange(obj,arry,iTage){
-		clearInterval(obj.timer);		
-		obj.timer= setInterval(function(){
-			var curry=parseFloat(getComputedStyle(obj,false)[arry]);
-			if(arry=='opacity'){//判断属性是否为透明度
-				curry=curry*100;
-			}	
-			if(curry<iTage){//确定速度
-					iSpeed=5;
-				}else{
-					iSpeed=-5;
-				}
-			//判断结束条件
-				if(Math.abs(iTage-curry) < Math.abs(iSpeed)){
-				
-					if(arry=='opacity'){
-						obj.style[arry]=iTage/100;
-					}
-					else{obj.style[arry]=iTage+'px';}
-						clearInterval(obj.timer);
-				}else{
-					if(arry=='opacity'){
-							obj.style[arry]=(curry+iSpeed)/100;
+			clearInterval(obj.timer);		
+			obj.timer= setInterval(function(){
+				var curry=parseFloat(getComputedStyle(obj,false)[arry]);
+				if(arry=='opacity'){//判断属性是否为透明度
+					curry=curry*100;
+				}	
+				if(curry<iTage){//确定速度
+						iSpeed=5;
 					}else{
-						obj.style[arry]=curry+iSpeed+"px";
+						iSpeed=-5;
 					}
-				}
-		},50);
+				//判断结束条件
+					if(Math.abs(iTage-curry) < Math.abs(iSpeed)){
+					
+						if(arry=='opacity'){
+							obj.style[arry]=iTage/100;
+						}
+						else{obj.style[arry]=iTage+'px';}
+							clearInterval(obj.timer);
+					}else{
+						if(arry=='opacity'){
+								obj.style[arry]=(curry+iSpeed)/100;
+						}else{
+							obj.style[arry]=curry+iSpeed+"px";
+						}
+					}
+			},50);
 	}
 </script>
 </html>
