@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>167-自定义事件.html</title>
+</head>
+<body>
+	<button id="btn">点击</button>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	// oBtn.onclick=function(){
+	// 	console.log("oBtn.onclick");
+	// }
+	// oBtn.addEventListener('click',function(){
+	// 	console.log("oBtn.addEventListener");
+	// },false);
+	//生成一个事件
+	var ev=new Event('text');
+	//绑定自定义事件
+	oBtn.addEventListener('text',function(){
+		console.log("自定义事件");
+	})
+	//触发事件
+	// oBtn.dispatchEvent(ev);
+	oBtn.onclick=function(){
+		oBtn.dispatchEvent(ev);
+	}
+</script>
+</html>
