@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5-24作业.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 500px;
+			margin: 100px auto;
+		}
+		.del{
+			float: right;
+			color: red;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<textarea  id="txt" cols="30" rows="10"></textarea>
+		<button id="btn">发布</button>
+		<ul id="list"></ul>
+	</div>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	var oList=document.getElementById('list');
+	oBtn.onclick=function(){
+		var sVal=oTxt.value;
+		var newLi = document.createElement('li');
+		newLi.innerHTML=sVal;
+		var newA = document.createElement('a');
+		newA.innerHTML="删除";
+		newA.className="del";
+		oList.insertBefore(newLi,oList.firstChild);
+		newLi.appendChild(newA);
+		oTxt.value='';
+	}
+	oList.onclick=function(ev){
+		var iTarget=ev.target;
+		if(iTarget.className=="del"){
+			oList.removeChild(iTarget.parentNode);
+		}
+	}
+</script>
+</html>
