@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>171-对象基本操作.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var obj={
+		name:"tom",
+		age:18,
+		friend:["leo","keiwen"],
+		sayName:function(){
+			console.log("i am"+this.name)
+		}
+	}
+	obj.sex="male";//增
+	delete obj.friend;//删
+	obj.age=20;//改
+	console.log(obj.name);//查
+	console.log(obj);
+
+</script>
+</html>

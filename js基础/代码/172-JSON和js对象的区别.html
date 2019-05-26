@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>172-JSON和js对象的区别.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var json1='{"name":"tom","age":18,"friend":["leo","keiwen"]}';//json里不能有函数
+	console.log("json1",json1);
+	var obj={name:"tom",age:18,friend:["leo","keiwen"],function(){
+
+	}};
+	console.log("obj",obj);
+	var toObj=JSON.parse(json1);
+	console.log("toObj",toObj);
+	var toJson=JSON.stringify(obj);//转化成json时自动把函数去掉
+	console.log("toJson",toJson);
+
+</script>
+</html>
