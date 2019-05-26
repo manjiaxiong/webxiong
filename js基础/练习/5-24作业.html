@@ -17,6 +17,10 @@
 			color: red;
 			cursor: pointer;
 		}
+		li{
+			opacity: 0;
+			height: 0;
+		}
 	</style>
 </head>
 <body>
@@ -25,7 +29,9 @@
 		<button id="btn">发布</button>
 		<ul id="list"></ul>
 	</div>
+
 </body>
+<script src="../js/animation.js"></script>
 <script>
 	var oTxt=document.getElementById('txt');
 	var oBtn=document.getElementById('btn');
@@ -40,6 +46,7 @@
 		oList.insertBefore(newLi,oList.firstChild);
 		newLi.appendChild(newA);
 		oTxt.value='';
+		animation(newLi,{height:40,opacity:100},true);
 	}
 	oList.onclick=function(ev){
 		var iTarget=ev.target;
