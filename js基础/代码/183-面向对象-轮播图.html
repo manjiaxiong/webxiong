@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>183-面向对象-轮播图.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+</body>
+<script>
+	function Curosul(opstions){
+		//1.罗列属性
+		this.width=opstions.width;
+		this.height=opstions.height;
+		this.aimg=opstions.img;
+		this.box  = document.getElementById(opstions.id);
+		console.log(this.box);
+		//2.初始化页面
+		this.bigBox();
+	}//初始化页面
+	Curosul.prototype.bigBox=function(){
+		this.box.style.width=this.width+"px";
+		this.box.style.height=this.height+"px";
+		this.box.style.position="relative";
+
+	}
+	new Curosul({
+		id:"box",
+		width:1000,
+		height:400,
+		img:["../../小米网站/images/b1.jpg","../../小米网站/images/b2.jpg","../../小米网站/images/b3.jpg"]
+	})
+</script>
+</html>
