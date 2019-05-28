@@ -76,7 +76,7 @@
 			oLi.style.top=0;
 			oLi.style.left=0;
 			if(i==0){
-				oLi.style.zIndex=99;
+				oLi.style.zIndex=99;//默认显示第一张
 			}
 			this.oUl.appendChild(oLi);
 			var oimg=document.createElement('img');
@@ -85,7 +85,7 @@
 			oimg.src=this.aimg[i];
 			oLi.appendChild(oimg);
 		}
-		//3.生成左右按键
+		//3.生成左右按键并设置属性
 		this.oRight=document.createElement("span");
 		this.oLeft=document.createElement("span");
 		this.oRight.className="span";
@@ -112,7 +112,7 @@
 			oLi.style.marginRight=15+"px";
 			oLi.style.background="rgba(0,0,0,0.2)";
 			if(i==0){
-					oLi.style.background="rgba(255,0,0,0.7)";
+					oLi.style.background="rgba(255,0,0,0.7)";//默认第一个原点的属性
 			}
 			oLi.style.borderRadius="50%";
 			this.oUlBto.appendChild(oLi);
@@ -123,7 +123,7 @@
 		var _this=this;
 		//1.左键点击事件
 		this.oLeft.onclick=function(){
-			_this.now++;
+			_this.now++;//每点击一次now+1
 			if(_this.now>_this.aimg.length-1){
 				_this.now=0;
 			}
@@ -149,7 +149,7 @@
 				_this.tab();
 			}
 		}
-	}
+	}//抽提的点击函数
 	Curosul.prototype.tab=function(){
 			for(var i=0;i<this.aimg.length;i++){
 				this.oUl.children[i].style.zIndex=0;
@@ -157,9 +157,9 @@
 			}
 			this.oUl.children[this.now].style.zIndex=99;
 			this.oUlBto.children[this.now].style.background="rgba(255,0,0,0.7)";
-	}
+	}//自动播放
 	Curosul.prototype.aotoplay=function(){
-		var _this=this;
+		var _this=this;//保存this
 		this.timer=setInterval(_this.oLeft.onclick,2000);
 		this.box.onmouseover=function(){
 			clearInterval(_this.timer);
