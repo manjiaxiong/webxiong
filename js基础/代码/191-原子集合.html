@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>191-原子集合.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str="as dfgh 345 6 	7zxcv3456fg_##$$%#";
+	// var reg1=/[0-9]/g;
+	// var reg1=/\d/g;
+	var reg1=/\D/g;
+	console.log(str.replace(reg1,"*"));
+	// var reg2=/[^\r\n]/g;
+	var reg2=/./g;
+	console.log(str.replace(reg2,"*"));
+	var reg3=/[0-9a-z_]/g;
+	var reg3=/\w/g;
+	var reg3=/\W/g;
+	console.log(str.replace(reg3,"*"));
+	var reg4=/[\t\n\f\r]/g;
+	// var reg4=/\s/g;
+	// var reg4=/\S/g;
+	console.log(str.replace(reg4,"*"));
+</script>
+</html>

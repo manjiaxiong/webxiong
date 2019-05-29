@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>190-正则-取反.html</title>
+</head>
+<body>
+	<textarea  id="txt1" cols="30" rows="10"></textarea>
+	<button id="btn">过滤</button>
+	<textarea  id="txt2" cols="30" rows="10"></textarea>
+	<p></p>
+</body>
+<script>
+	var str="abc123asd";
+	var reg=/[^0-9]/g;
+	console.log(str.replace(reg,"*"));
+	var oTxt1=document.getElementById('txt1');
+	var oTxt2=document.getElementById('txt2');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		var reg1=/<[^<>]+>/g;
+		oTxt2.value=oTxt1.value.replace(reg1,"*");
+	}
+</script>
+</html>
