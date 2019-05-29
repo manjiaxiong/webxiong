@@ -8,7 +8,7 @@
 	<textarea  id="txt1" cols="30" rows="10"></textarea>
 	<button id="btn">过滤</button>
 	<textarea  id="txt2" cols="30" rows="10"></textarea>
-	<p></p>
+	<p>142434</p>
 </body>
 <script>
 	var str="abc123asd";
@@ -17,7 +17,9 @@
 	var oTxt1=document.getElementById('txt1');
 	var oTxt2=document.getElementById('txt2');
 	var oBtn=document.getElementById('btn');
+	console.log("<[^<>]+qewqr>");
 	oBtn.onclick=function(){
+		console.log(oTxt1.value);
 		var reg1=/<[^<>]+>/g;
 		oTxt2.value=oTxt1.value.replace(reg1,"*");
 	}
