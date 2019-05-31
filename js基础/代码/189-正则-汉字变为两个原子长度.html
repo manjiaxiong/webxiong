@@ -12,7 +12,10 @@
 	var reg=/[\u4e00-\u9fa5]/g;
 	console.log(str.replace(reg,"*"));//未进行函数操作时一个汉字只是一个原子
 	console.log(getLen(str));
-	function getLen(str){//把汉字替换成两个*;
+	// function getLen(str){//把汉字替换成两个*;
+	// 	return str.replace(/[\u4e00-\u9fa5]/g,"**").length;
+	// }
+	function getLen(str){
 		return str.replace(/[\u4e00-\u9fa5]/g,"**").length;
 	}
 </script>
