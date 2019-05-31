@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>208-字符串处理方法2.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str="   GGG22   34fss  ";
+	console.log(str.replace(/\d/g,function(match,index,origin){
+		console.log(match,index,origin);
+		return "$";
+	}))
+	console.log(str.charAt(2));
+	console.log(str.charCodeAt(2));
+	console.log(str.indexOf("d"));
+	console.log(str.lastIndexOf("d"));
+	console.log(encodeURIComponent("http://www.kuazhu.com"));
+	console.log(decodeURIComponent("http://www.kuazhu.com"));
+	console.log(str.concat("1234567"));
+	console.log(str.slice(1,4));//包含起始下标不包含结束下标；
+	console.log(str.substr(1,5));
+	console.log(str.substr(-4,5));
+	console.log(str.substring(0,5));//不可以为负数
+	console.log(str.toLowerCase());
+	console.log(str.toUpperCase());
+	console.log(str.trim())
+</script>
+</html>
