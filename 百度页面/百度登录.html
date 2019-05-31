@@ -225,6 +225,7 @@
             background-image: url(images/l.png);
             background-repeat: no-repeat;
         }
+
     </style>
 </head>
 <body>
@@ -255,6 +256,7 @@
                             <li class="pwd-checklist-item">支持数字,大小写字母和标点符号</li>
                             <li class="pwd-checklist-item ">不允许有空格</li>
                         </ul>
+                     
                         <span class="pwd-checklist-arrow"></span>
                     </div>
                 </div>
@@ -279,4 +281,106 @@
         <div class="left-box"></div>
     </div>
 </body>
+<script>
+    //共用函数
+    function getLen(str){
+        return str.replace(/[\u4e00-\u9fa5]/g,"aa").length;
+    }
+    function setErr(oMsg,aMsg,oInpute){
+            oMsg.innerHTML=aMsg;
+            oMsg.className="err";
+            oInpute.className="input-err";
+    }
+    function setOk(oMsg,oInpute){
+            oMsg.innerHTML="";
+            oMsg.className="ok";
+            oInpute.className="";
+            // console.log(111);
+    }
+    //1.获取元素
+    var oForm=document.forms[0];
+    var aMsg=document.querySelectorAll('.msg');
+    var oUserName=oForm.username;
+    var aCancel=document.querySelectorAll('.cancel');
+    console.log(aCancel);
+    //2.初始化页面
+    oUserName.focus();
+    aMsg[0].innerHTML="设置后不可更改<br>中英文均可，最长14个英文或汉字";
+    aMsg[0].className="tiptext";
+    //3.聚焦
+    oUserName.onfocus=function(){
+        aMsg[0].innerHTML="设置后不可更改<br>中英文均可，最长14个英文或汉字";
+        aMsg[0].className="tiptext";
+
+    }
+    //4输入
+     // oUserName.oninput=function(){
+     //    var len=oUserName.value.length;
+     //    if(len>0){
+     //        aCancel[0].style.display="block"
+     //    }
+     // }
+     //利用事件委托处理显示隐藏按钮
+     oForm.oninput=function(ev){
+            var oInput=ev.target;
+            var oCancel=oInput.nextElementSibling;
+            var len=oUserName.value.length;
+        if(len>0){
+            oCancel.style.display="block"
+        }else{
+            oCancel.style.display="none"
+        }
+     }
+     
+     //5取消
+     aCancel[0].onclick=function(){
+        oUserName.value="";
+        oUserName.focus();
+     }
+     //利用委托事件点击取消恢复默认状态
+     oForm.onclick=function(ev){
+        var oCancel=ev.target;
+        var oInput=oCancel.previousElementSibling;
+        if(oInput.name="username"||oInput.name="phone"||oInput.name="password"||oInput.name="verify")
+     }
+     //6用户名判断
+     checkUsername();
+     function checkUsername(){
+        oUserName.onblur=function(){
+            var sVal=oUserName.value;
+            var reg1=/^\d+$/;
+            var reg2=/[^a-z\u4e00-\u9fa5_0-9]/i;
+            var reg3=/^\s+$/g;
+            //1什么也没输入
+            if(sVal==""){
+                aMsg.className="msg";
+                oUserName.className=""
+            }//2输入为空格
+            else if(reg3.test(sVal)){
+                     // aMsg[0].innerHTML="用户名不能为空格";
+                     // aMsg[0].className="err";
+                     // oUserName.className="input-err"
+                     setErr(aMsg[0],"用户名不能为空格",oUserName);
+            }
+            else if(getLen(sVal)>14){
+                 // aMsg[0].innerHTML="长度不能超过14个字符";
+                 // aMsg[0].className="err";
+                 // oUserName.className="input-err"
+                   setErr(aMsg[0],"长度不能超过14个字符",oUserName);
+            }
+            else if(reg1.test(sVal)||reg2.test(sVal)){
+                 //  aMsg[0].innerHTML="用户名仅支持中英文、数字和下划线,且不能为纯数字";
+                 // aMsg[0].className="err";
+                 // oUserName.className="input-err"
+                 setErr(aMsg[0],"用户名仅支持中英文、数字和下划线,且不能为纯数字",oUserName);
+             }else{
+                 // aMsg[0].innerHTML="";
+                 // aMsg[0].className="ok";
+                 // oUserName.className=""
+                 setOk(aMsg[0],oUserName);
+             }
+         }
+     }
+     
+</script>
 </html>

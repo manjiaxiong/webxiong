@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>百度登录1.html</title>
+	<title>Document</title>
 	<style>
 		*{
 			margin: 0;
@@ -12,36 +12,176 @@
 		.top{
 			margin-bottom: 50px;
 		}
-		.mian{
-			color: #66667d;
-			font-weight: bolder;
-		}
-		.mian-right{
-			float: right;
-			margin-right: 180px;
-		}
-		.mian-left{
-			width: 430px;
-			height: 360px;
+		.mian .left{
+			/*width: 300px;*/
+			/*height: 300px;*/
 			/*background-color: red;*/
 			float: left;
-			margin-left: 200px;
+			width: 720px;
+			margin-left: 400px;
 		}
+		.mian .right{
+			float: right;
+			margin-right: 400px;
+		}
+		label{
+			font-size: 16px;
+			font-size: 16px;
+			font-weight: bolder;
+			color: #66667d;
+			float: left;
+			line-height: 42px;
+			margin-right: 10px;
+		}
+		.p{
+			position: relative;
+			margin-bottom: 20px;
+			/*overflow: hidden;*/
+		}
+		input{
+			display: block;
+			width: 360px;
+			height: 40px;
+			border: 1px solid #ddd;
+			padding-left: 10px
+		}
+		.cancel{
+			position: absolute;
+			width: 14px;
+			height: 14px;
+			left: 395px;
+			top: 15px;
+			background: url(images/reg_icons.png) no-repeat -32px -24px ;
+		}
+		.msg{
+				position: absolute;
+				top: 10px;
+				left: 440px;
+				font-size: 12px;
+				color: #aaa;
+		}
+		ul{
+			position: absolute;
+			top: 263px;
+			left: 844px;
+			border: 1px solid #f7f7f7;
+			font-size: 12px;
+			color: #aaa;
+			background: #f7f7f7;
+			padding-left: 20px;
+			padding-right: 30px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		.password label{
+			margin-right:26px 
+		}
+		.code input{
+			width: 180px;
+		}
+		.code .cancel{
+			left: 215px
+		}
+		.need{
+			position: absolute;
+			top: 0px;
+			left: 270px;
+			width: 160px;
+			height: 40px;
+			color: black;
+			display: block;
+			background-color: #f7f7f7;
+			text-align: center;
+			line-height: 42px;
+			border: 1px solid #ddd;
+		}
+		input:focus{
+			 border-color: #488ee7;
+             outline: 0;
+		}
+		.agree .checkbox{
+			width: 16px;
+			height: 16px;
+			float: none;
+			position: absolute;
+			left: 50px;
+		}
+		.agree .deal{
+			position: absolute;
+			left: 80px;
+			/*top: -4px;*/
+			font-size: 12px;
+			color: #aaa;
+		}
+		a{
+			color: blue;
+		}
+		.login{
+			width: 350px;
+			height: 50px;
+			background-color: #3f89ec;
+			position: absolute;
+			left: 58px;
+			top: 30px;
+			color: white;
+			text-align: center;
+			line-height: 52px;
+			border-radius: 5px;
+		}
+		 .rt{
+            position: absolute;
+            border-top: 14px solid #000;
+            border-top: 14px solid transparent;
+            border-top: 14px solid transparent;
+            border-top: 14px solid transparent;
+            background-color: red;
+        }
 	</style>
 </head>
 <body>
 	<div class="top">
-		<img src="images//t.png" alt="">
+		<img src="images/t.png" alt="">
 	</div>
 	<div class="mian">
-		<div class="mian-left">
-		用户名：<input type="text" name="username">
-		手机号：<input type="text" name="phone">
-		密码：<input type="password" name="password">
-		验证码：<input type="text" ><span class="msg"></span>
-
+		<div class="left">
+			<div class="uesrname  p">
+				<label for="username">用户名</label>
+				<input type="text" name="username" autocomplete="off" placeholder="请设置用户名">
+				<span class="cancel"></span>
+				<span class="msg">设置后不可更改<br>中英文均可，最长14个英文或汉字</span>
+			</div>
+			<div class="phone p">
+				<label for="phone">手机号</label>
+				<input type="text" name="username" autocomplete="off" placeholder="可用于登陆和找回密码">
+				<span class="cancel"></span>
+				<span class="msg">请输入中国大陆手机号，其他用户不可见</span>
+			</div>
+			<div class="password p">
+				<label for="password">密码</label>
+				<input type="text" name="username" autocomplete="off" placeholder="请设置密码">
+				<span class="cancel"></span>
+				<ul>
+					<li>长度为8-14个字符</li>
+					<li>支持数字，字母和标点符号</li>
+					<li>不能有空格</li>
+				</ul>
+				   <div class="rt"></div>
+			</div>
+			<div class="code p">
+				<label for="code">验证码</label>
+				<input type="text" name="username" autocomplete="off" placeholder="请输入验证码">
+				<span class="cancel"></span>
+				<span class="need">获取验证码</span>
+			</div>
+			<div class="agree p">
+				<input type="checkbox" name='isAgree' class="checkbox" > 
+                <span class="deal">阅读并接受《<a href="">百度用户协议</a>》及《<a href="">百度隐私权保护声明</a>》</span>    
+			</div>
+			<div class="p">
+				<div class="login">注册</div>
+			</div>
 		</div>
-		<div class="mian-right">
+		<div class="right">
 			<img src="images/l.png" alt="">
 		</div>
 	</div>
