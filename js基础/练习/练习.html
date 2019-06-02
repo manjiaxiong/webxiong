@@ -2,12 +2,31 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>练习.html</title>
+	<title>025-动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*动画  动画名字*/
+			animation: sport 2s;
+		}
+		/*定义动画*/
+		@keyframes sport{
+			from{
+				width: 100px;	
+				}
+			to{
+				width: 300px;
+			}
+		}
+	</style>
 </head>
 <body>
-	
+	<div class="box"></div>
 </body>
-<script>
-	
-</script>
-</html>
+<html>
