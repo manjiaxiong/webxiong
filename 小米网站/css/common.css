@@ -53,3 +53,45 @@ li{
     transform: translateY(-5px);
     box-shadow: 5px 5px 30px;
 }
+/*加载*/
+.loading{
+            width: 3px;
+            height: 20px;
+            background-color: #ff6700;
+            margin: 0px auto;
+            position: relative;
+            line-height: 20px;
+            animation: sport 1s linear 0s alternate infinite;
+        }
+        .loading:after,.loading:before{
+            width: 3px;
+            height: 20px;
+            background-color: #ff6700;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            content: "";
+            
+        }
+        .loading:before{
+            margin-left: -15px;
+            /*height: 15px;*/
+            transform: scale(1,0.4);
+            animation: sport 1s linear 0.2s alternate infinite;
+        }
+        .loading:after{
+            margin-left: 15px;
+            /*height: 15px;*/
+            transform: scale(1,0.4);
+            animation: sport 1s linear 1s alternate infinite;
+        }
+        @keyframes sport{
+            from{
+                transform: scale(1,0.4);
+                opacity: 0.3;
+            }
+            to{
+                transform: scale(1,1);
+                opacity: 1;
+            }
+        }

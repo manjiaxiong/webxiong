@@ -19,7 +19,7 @@
 		form{
 			float: left;
 			margin-left: 280px;
-			/*width: 500px;*/
+			width: 720px;
 			height: 600px;
 			/*border: 1px solid #000;*/
 		}
@@ -70,18 +70,20 @@
 			height: 14px;
 			position: absolute;
 			background: url(images/reg_icons.png)  no-repeat -33px -26px;
-			top: 5px;
+			top: 15px;
 			left: 420px;
 			cursor: pointer;
 		}
 		.cancel:hover{
 			background: url(images/reg_icons.png)  no-repeat -49px -26px;
 		}
-		.p span{
+		.p span:nth-of-type(2){
 			font-size: 12px;
 			color: #aaa;
 			display: block;
-			float: right;
+			position: absolute;
+			top: -3px;
+			left: 454px;
 			margin-top: 10px;
 		}
 		.fade{
@@ -188,18 +190,19 @@
 					<label for="username">用户名</label>
 					<input type="text" name="username" placeholder="请设置用户名" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
-					<span class="msg" ></span>
+					<span class="msg l" ></span>
 				</div>
 				<div class="phone p">
 					<label for="phone">手机号</label>
 					<input type="text" name="phone" placeholder="可用于登陆和找回密码" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
-					<span class="msg" ></span>
+					<span class="msg l" ></span>
 				</div>
 				<div class="password p">
 					<label for="password">密码</label>
 					<input type="text" name="password" placeholder="请设置登陆密码" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
+					<span class="msg l" ></span>
 					<div class="list" 	style="display: none;">
 						<ul>
 							<li >不允许有空格</li>
@@ -208,7 +211,7 @@
 						</ul>
 						<span class="row"></span>
 					</div>
-					<span class="msg" ></span>
+					<span class="msg l" ></span>
 				</div>
 				<div class="verify p">
 					<label for="verify">验证码</label>
@@ -251,6 +254,11 @@
 	var oUsername=oForm.username;
 	var oPhone=oForm.phone;
 	var oPassword=oForm.password;
+	var oList=document.getElementsByClassName('list');
+	var oListLi=oList[0].querySelectorAll("li");
+	var pk1=true;
+	var  pk2=true;
+	var  pk3=true;
 	//2初始化页面
 	oUsername.focus();
 	aMsg[0].innerHTML="设置后不可更改<br>中英文均可，最长14个字符";
@@ -271,7 +279,6 @@
 		var oCancel=ev.target;
 		var oInput=oCancel.previousElementSibling;
 		if(oInput){
-
 			if(oInput.name=="username"||oInput.name=="phone"||oInput.name=="password"||oInput.name=="verify"){
 				oInput.value="";
 				oInput.focus();
@@ -345,11 +352,77 @@
 				setOk(aMsg[1],oPhone);
 			}
 		}
-	}
-	oPhone.onkeydown = function(ev){
+		oPhone.onkeydown = function(ev){
 	      if((ev.keyCode <96 || ev.keyCode >105|| oPhone.value.length > 10)&&(ev.keyCode<47||ev.keyCode>58) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
 	             return false;
 	           }
          	}	
+	}
+	//7事实验证密码
+	checkPwd();
+	function checkPwd(){
+		var isTrue=true;
+		oPassword.onfocus=function(){
+			oList[0].style.display="block"
+			aMsg[2].className="msg";
+		}
+		oPassword.oninput=function(){
+			var sVal=oPassword.value;
+			var reg1=/\s/g;
+			var reg2=/^.{8,14}$/;
+			var reg3=/[^0-9a-z\.\?\,]/i;
+			//空格
+			if(reg1.test(sVal)){
+				oListLi[0].className="row-err";
+				pk1=false;
+			}else{
+				oListLi[0].className="row-ok";	
+				
+			}
+			//长度为8~14个字符
+			if(!reg2.test(sVal)){
+				oListLi[1].className="row-err";
+				pk2=false;
+			}else{
+				oListLi[1].className="row-ok";
+
+			}
+			//支持数字,大小写字母和标点符号
+			if(reg3.test(sVal)){
+				oListLi[2].className="row-err";
+				pk3=false;
+			}else{
+				oListLi[2].className="row-ok";
+			}
+		}
+			//取消按钮
+			aCancel[2].onclick=function(){
+				aMsg[2].className="";
+				oPassword.value="";
+				oListLi[0].className="";
+				oListLi[1].className="";
+				oListLi[2].className="";
+			}
+			//失去焦点验证
+			oPassword.onblur=function(){
+				var sVal=oPassword.value;
+				oList[0].style.display="none"
+				if(sVal==""){
+					oList[0].style.display="none"
+				}
+				console.log(pk1);
+				console.log(pk2);
+				console.log(pk3);
+				if(pk1&&pk2&&pk3){
+					oList[0].style.display="none";
+					setOk(aMsg[2],oPassword);
+					console.log(111);
+				}else{
+					oList[0].style.display="none";
+					setErr(aMsg[2],oPassword,"密码格式不正确")
+				}
+			}
+	}
+	
 </script>
 </html>
