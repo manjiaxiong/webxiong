@@ -227,11 +227,15 @@
 	oForm.onclick=function(ev){
 		var oCancel=ev.target;
 		var oInput=oCancel.previousElementSibling;
-		if(oInput.name=="username"||oInput.name=="phone"||oInput.name=="password"||oInput.name=="verify"){
-			oInput.value="";
-			oInput.focus();
-			oCancel.style.display="none";
+		if(oInput){
+
+			if(oInput.name=="username"||oInput.name=="phone"||oInput.name=="password"||oInput.name=="verify"){
+				oInput.value="";
+				oInput.focus();
+				oCancel.style.display="none";
+			}
 		}
+			
 	}
 	//5绑定用户名事件
 	checkUsername();
@@ -273,6 +277,7 @@
 			}
 		}
 	}
+	//6绑定手机号事件
 	checkPhone();
 	function checkPhone(){
 		oPhone.onfocus=function(){
