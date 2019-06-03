@@ -28,6 +28,25 @@
 	a:hover{
 		color: #ccc;
 	}
+	.top .cart-box{
+		position: relative;
+		float: right;
+	}
+	.top .cart-box .cart-content{
+		width: 300px;
+		/*height: 100px;*/
+		height: 0px;
+		position: absolute;
+		top: 40px;
+		right: 0px;
+		z-index: 999;
+		background-color: #fff;
+		box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+		line-height: 100px;
+		text-align: center;
+		font-size: 12px;
+		overflow: hidden;
+	}
 	.top .cart{
 		height: 40px;
 		float: right;
@@ -37,12 +56,13 @@
 		text-align: center;
 		/*background-color: pink;*/
 	}
-	.top .cart:hover{
+	.top  .cart-box:hover .cart a{
+		color: #ff6700;
+		/*background-color: white;*/
+	}
+	.top .cart-box:hover .cart {
 		color: #ff6700;
 		background-color: white;
-	}
-	.top .cart:hover a{
-		color: #ff6700;
 	}
 	.top .user-info{
 		height: 40px;
@@ -63,6 +83,8 @@
 	/*顶部导航区域结束*/ 
 	/*logo信息区域开始 */
 	.header{
+		position: relative;
+		/*z-index: 1002*/
 	}
 	.header .logo{
 		float: left;
@@ -74,6 +96,9 @@
 	}
 	.header .nav{
 		margin-left: 190px;
+		float: left;
+		position: relative;
+		z-index: 999;
 	}
 	.header .nav li{
 		float: left;
@@ -82,6 +107,8 @@
 		text-align: center;
 		margin-right: 20px;
 		cursor: pointer;
+		position: relative;
+		z-index: 1002;
 	}
 	.header .nav li:hover{
 		color: #ff6700;
@@ -169,6 +196,55 @@
 	}
 		.header .search .ao:focus ~ .bo{
 		border-color: #ff6700;
+	}
+	.header-nav-content{
+		position: absolute;
+		top: 100px;
+		z-index: 1000;
+		/*height: 200px;*/
+		height: 0px;
+		background-color: #fff;
+		box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+		width: 100%;
+		/*border-top: 1px solid #ccc;*/
+		overflow: hidden;
+	}
+	.header-nav-content li{
+		width: 200px;
+		height: 100%;
+		float: left;
+		text-align: center;
+		position: relative;
+	}
+	.header-nav-content .tag{
+		position: absolute;
+		top: -1px;
+		left: 50%;
+		margin-left: -40px;
+		width: 80px;
+		height: 24px;
+		line-height: 22px;
+		text-align: center;
+		border: 1px solid #ff6700;
+		color: #000;
+	}
+	.header-nav-content li .img-box{
+		margin-top: 40px;
+		width: 200px;
+		height: 100px;
+		border-right: 1px solid #ccc;
+	}
+	.header-nav-content li .img-box img{
+		width: 80px;
+		height: 80px;
+	}
+	.header-nav-content li .header-nav-content-name{
+		font-size: 12px;
+	}
+	.header-nav-content li .header-nav-content-price{
+		font-size: 12px;
+		color: #ff6700;
+		margin-top: 6px;
 	}
 	/*logo信息区域结束 */
 	/*焦点区域开始 */
