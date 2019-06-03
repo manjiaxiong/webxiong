@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 //1处理购物车
+=======
+//1处购物车
+>>>>>>> de380339caafa4f0be9135d75b66dbaf88985409
 handelCart();
 function handelCart(){
 	var oCartBox=document.querySelector(".cart-box");
 	var oCart=document.querySelector(".cart");
 	var oCartContent=document.querySelector(".cart-content");
+<<<<<<< HEAD
 	var oLoader=document.querySelector('.cart-content .loading');
 	var oEmptyCsrt=document.querySelector('.cart-content empty-cart')
 	oCart.onmouseenter=function(){
@@ -82,3 +87,13 @@ function handelNav(){
 
 
 
+=======
+	oCart.onmouseenter=function(){
+		// oCartContent.style.height=100+"px"
+		animation(oCartContent,{height:100},true)
+	}
+	oCartBox.onmouseleave=function(){
+		animation(oCartContent,{height:0},true)
+	}
+}
+>>>>>>> de380339caafa4f0be9135d75b66dbaf88985409

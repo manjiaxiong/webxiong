@@ -54,9 +54,11 @@
 		background-color: #424242;
 		width: 120px;
 		text-align: center;
+		position: relative;
+		z-index: 1000;
 		/*background-color: pink;*/
 	}
-	.top  .cart-box:hover .cart a{
+	.top .cart-box:hover .cart a{
 		color: #ff6700;
 		/*background-color: white;*/
 	}
@@ -64,13 +66,41 @@
 		color: #ff6700;
 		background-color: white;
 	}
+	/*.top .cart:hover a{
+		color: #ff6700;
+	}*/
 	.top .user-info{
 		height: 40px;
 		float: right;
 	
 		line-height: 40px;
 		margin-right: 24px;
+	}
 		
+	.user-inf{
+		float: right;
+
+	}
+	.cart-box{
+		/*overflow: hidden;*/
+		position: relative;
+		float: right;
+	}
+	.cart-content{
+		width: 300px;
+		height: 100px;
+		position: absolute;
+		top: 40px;
+		right: 0;
+		z-index: 999;
+		background-color: #fff;
+		color: rgba();
+		box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+		text-align: center;
+		line-height: 100px;
+		font-size: 12px;
+		height: 0px;
+		overflow: hidden;
 	}
 	.top .user-info li{
 		float: left;
