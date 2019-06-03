@@ -59,10 +59,7 @@ li{
             height: 20px;
             background-color: #ff6700;
             margin: 0px auto;
-<<<<<<< HEAD
             margin-top: 30px;
-=======
->>>>>>> de380339caafa4f0be9135d75b66dbaf88985409
             position: relative;
             line-height: 20px;
             animation: sport 1s linear 0s alternate infinite;
@@ -98,8 +95,5 @@ li{
                 transform: scale(1,1);
                 opacity: 1;
             }
-<<<<<<< HEAD
+
         }
-=======
-        }
->>>>>>> de380339caafa4f0be9135d75b66dbaf88985409
