@@ -58,14 +58,13 @@ li{
             width: 3px;
             height: 20px;
             background-color: #ff6700;
-            margin: 0px auto;
 
-            margin-top: 30px;
+            margin: 0px auto;
             position: relative;
             line-height: 20px;
             animation: sport 1s linear 0s alternate infinite;
         }
-        .loading:after,.loading:before{
+    .loading:after,.loading:before{
             width: 3px;
             height: 20px;
             background-color: #ff6700;
@@ -75,19 +74,19 @@ li{
             content: "";
             
         }
-        .loading:before{
+    .loading:before{
             margin-left: -15px;
             /*height: 15px;*/
             transform: scale(1,0.4);
             animation: sport 1s linear 0.2s alternate infinite;
         }
-        .loading:after{
+    .loading:after{
             margin-left: 15px;
             /*height: 15px;*/
             transform: scale(1,0.4);
             animation: sport 1s linear 1s alternate infinite;
         }
-        @keyframes sport{
+    @keyframes sport{
             from{
                 transform: scale(1,0.4);
                 opacity: 0.3;
@@ -96,3 +95,21 @@ li{
                 transform: scale(1,1);
                 opacity: 1;
             }
+        }
+/*轮播图*/
+.img .span{
+            width: 50px;
+            height: 70px;
+            background-color: rgba(0,0,0,0.3);
+            position: absolute;
+            color: white;
+            font-size: 40px;
+            line-height: 70px;
+            top: 50%;
+            margin-top: -35px;
+            z-index: 100;
+            cursor: pointer;
+        }
+  .img   .active{
+            background-color: rgba(255,0,0,0.7);
+        }
