@@ -190,19 +190,19 @@
 					<label for="username">用户名</label>
 					<input type="text" name="username" placeholder="请设置用户名" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
-					<span class="msg l" ></span>
+					<span class="msg" ></span>
 				</div>
 				<div class="phone p">
 					<label for="phone">手机号</label>
 					<input type="text" name="phone" placeholder="可用于登陆和找回密码" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
-					<span class="msg l" ></span>
+					<span class="msg" ></span>
 				</div>
 				<div class="password p">
 					<label for="password">密码</label>
-					<input type="text" name="password" placeholder="请设置登陆密码" autocomplete="off">
+					<input type="password" name="password" placeholder="请设置登陆密码" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
-					<span class="msg l" ></span>
+					<span class="msg" ></span>
 					<div class="list" 	style="display: none;">
 						<ul>
 							<li >不允许有空格</li>
@@ -211,7 +211,7 @@
 						</ul>
 						<span class="row"></span>
 					</div>
-					<span class="msg l" ></span>
+					<span class="msg" ></span>
 				</div>
 				<div class="verify p">
 					<label for="verify">验证码</label>
@@ -256,9 +256,7 @@
 	var oPassword=oForm.password;
 	var oList=document.getElementsByClassName('list');
 	var oListLi=oList[0].querySelectorAll("li");
-	var pk1=true;
-	var  pk2=true;
-	var  pk3=true;
+	
 	//2初始化页面
 	oUsername.focus();
 	aMsg[0].innerHTML="设置后不可更改<br>中英文均可，最长14个字符";
@@ -361,10 +359,12 @@
 	//7事实验证密码
 	checkPwd();
 	function checkPwd(){
-		var isTrue=true;
+		var  pk1=true;
+		var  pk2=true;
+		var  pk3=true;
 		oPassword.onfocus=function(){
 			oList[0].style.display="block"
-			aMsg[2].className="msg";
+			aMsg[2].style.display="msg";
 		}
 		oPassword.oninput=function(){
 			var sVal=oPassword.value;
@@ -376,8 +376,7 @@
 				oListLi[0].className="row-err";
 				pk1=false;
 			}else{
-				oListLi[0].className="row-ok";	
-				
+				oListLi[0].className="row-ok";					
 			}
 			//长度为8~14个字符
 			if(!reg2.test(sVal)){
@@ -385,7 +384,6 @@
 				pk2=false;
 			}else{
 				oListLi[1].className="row-ok";
-
 			}
 			//支持数字,大小写字母和标点符号
 			if(reg3.test(sVal)){
@@ -397,8 +395,8 @@
 		}
 			//取消按钮
 			aCancel[2].onclick=function(){
-				aMsg[2].className="";
-				oPassword.value="";
+				// aMsg[2].className="";
+				// oPassword.value="";
 				oListLi[0].className="";
 				oListLi[1].className="";
 				oListLi[2].className="";
@@ -406,9 +404,12 @@
 			//失去焦点验证
 			oPassword.onblur=function(){
 				var sVal=oPassword.value;
-				oList[0].style.display="none"
+				oList[0].style.display="none";
+				aMsg[2].style.display="block";
 				if(sVal==""){
-					oList[0].style.display="none"
+					oList[0].style.display="none";
+					oPassword.className=" ";
+					aMsg[2].display='none';
 				}
 				console.log(pk1);
 				console.log(pk2);
@@ -416,7 +417,6 @@
 				if(pk1&&pk2&&pk3){
 					oList[0].style.display="none";
 					setOk(aMsg[2],oPassword);
-					console.log(111);
 				}else{
 					oList[0].style.display="none";
 					setErr(aMsg[2],oPassword,"密码格式不正确")
