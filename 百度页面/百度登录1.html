@@ -202,7 +202,7 @@
 					<label for="password">密码</label>
 					<input type="text" name="password" placeholder="请设置登陆密码" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
-					<span class="msg l" ></span>
+					<span class="msg" ></span>
 					<div class="list" 	style="display: none;">
 						<ul>
 							<li >不允许有空格</li>
@@ -268,6 +268,7 @@
 		var oInput=ev.target;
 		var len=oInput.value.length;
 		var oCancel=oInput.nextElementSibling;
+		console.log(len)
 		if(len>0){
 			oCancel.style.display="block"
 		}else{
@@ -376,7 +377,8 @@
 				oListLi[0].className="row-err";
 				pk1=false;
 			}else{
-				oListLi[0].className="row-ok";	
+				oListLi[0].className="row-ok";
+				pk1=true;	
 				
 			}
 			//长度为8~14个字符
@@ -385,6 +387,7 @@
 				pk2=false;
 			}else{
 				oListLi[1].className="row-ok";
+				pk2=true;
 
 			}
 			//支持数字,大小写字母和标点符号
@@ -393,12 +396,13 @@
 				pk3=false;
 			}else{
 				oListLi[2].className="row-ok";
+				pk3=true;
 			}
 		}
 			//取消按钮
 			aCancel[2].onclick=function(){
-				aMsg[2].className="";
-				oPassword.value="";
+				aMsg[2].className="msg";
+				// oPassword.value="";
 				oListLi[0].className="";
 				oListLi[1].className="";
 				oListLi[2].className="";
@@ -406,17 +410,14 @@
 			//失去焦点验证
 			oPassword.onblur=function(){
 				var sVal=oPassword.value;
-				oList[0].style.display="none"
+				// oList[0].style.display="none"
 				if(sVal==""){
-					oList[0].style.display="none"
-				}
-				console.log(pk1);
-				console.log(pk2);
-				console.log(pk3);
-				if(pk1&&pk2&&pk3){
+					oList[0].style.display="none";
+					aMsg[2].className = 'msg';
+					console.log(11);
+				}else if(pk1&&pk2&&pk3){
 					oList[0].style.display="none";
 					setOk(aMsg[2],oPassword);
-					console.log(111);
 				}else{
 					oList[0].style.display="none";
 					setErr(aMsg[2],oPassword,"密码格式不正确")
