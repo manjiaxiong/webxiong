@@ -185,7 +185,7 @@
 	</div>
 	<div class="mian">
 		<div class="left">
-			<form action="">
+			<form action="https://www.kuazhu.com" target="_blank">
 				<div class="username p">
 					<label for="username">用户名</label>
 					<input type="text" name="username" placeholder="请设置用户名" autocomplete="off">
@@ -218,10 +218,12 @@
 					<input type="text" name="verify" placeholder="请输入验证码" autocomplete="off">
 					<span class="cancel" style="display: none;"></span>
 					<div class="need">获取验证码</div>
+					<span class="msg"></span>
 				</div>
 				<div class="agree p">
-					<input type="checkbox">
+					<input type="checkbox" id="agree">
 					<span>阅读并接受《<a href="">百度用户协议</a>》及《<a href="">百度隐私权保护声明</a>》</span>
+					<span class="msg">请勾选协议</span>
 				</div>
 				<div class="login">注册</div>
 			</form>
@@ -256,7 +258,16 @@
 	var oPassword=oForm.password;
 	var oList=document.getElementsByClassName('list');
 	var oListLi=oList[0].querySelectorAll("li");
-	
+	var oBtn=document.querySelector('.need');
+	var oLogin=document.querySelector('.login')
+	var  oVerify=oForm.verify;
+	var oAgree=document.querySelector('#agree')
+	var bPhone=true;
+	var oUsernameOk=false;
+	var oPhoneOk=false;
+	var oPasswordOk=false;
+	var oVerifyOk=false;
+	var oAgreeOk=false;
 	//2初始化页面
 	oUsername.focus();
 	aMsg[0].innerHTML="设置后不可更改<br>中英文均可，最长14个字符";
@@ -322,6 +333,7 @@
 				// aMsg[0].innerHTML="";
 				// oUsername.className=""
 				setOk(aMsg[0],oUsername);
+				oUsernameOk=true;
 			}
 		}
 	}
@@ -342,12 +354,16 @@
 				oPhone.className = "";
 			}else if(reg1.test(sVal)){
 				setErr(aMsg[1],oPhone,"手机号不能为空格")
+				bPhone=false;
 			}
 			else if(!reg2.test(sVal)){
 				setErr(aMsg[1],oPhone,"手机号格式不正确");
+				bPhone=false;
 			}
 			else{
 				setOk(aMsg[1],oPhone);
+				bPhone=true;
+				oPhoneOk=true;
 			}
 		}
 		oPhone.onkeydown = function(ev){
@@ -376,7 +392,8 @@
 				oListLi[0].className="row-err";
 				pk1=false;
 			}else{
-				oListLi[0].className="row-ok";					
+				oListLi[0].className="row-ok";	
+				pk1=true;				
 			}
 			//长度为8~14个字符
 			if(!reg2.test(sVal)){
@@ -384,6 +401,7 @@
 				pk2=false;
 			}else{
 				oListLi[1].className="row-ok";
+				pk2=true;	
 			}
 			//支持数字,大小写字母和标点符号
 			if(reg3.test(sVal)){
@@ -391,12 +409,17 @@
 				pk3=false;
 			}else{
 				oListLi[2].className="row-ok";
+				pk3=true;	
 			}
 		}
 			//取消按钮
 			aCancel[2].onclick=function(){
-				// aMsg[2].className="";
-				// oPassword.value="";
+				// aMsg[2].className="msg";
+				aMsg[2].style.display = 'none';
+				// oPassword.value=""; 
+				pk1 = false;
+				pk2 = false;
+				pk3=  false;
 				oListLi[0].className="";
 				oListLi[1].className="";
 				oListLi[2].className="";
@@ -404,25 +427,83 @@
 			//失去焦点验证
 			oPassword.onblur=function(){
 				var sVal=oPassword.value;
-				oList[0].style.display="none";
-				aMsg[2].style.display="block";
+				// oList[0].style.display="none";
+				// aMsg[2].style.display="block";
 				if(sVal==""){
 					oList[0].style.display="none";
 					oPassword.className=" ";
-					aMsg[2].display='none';
+					aMsg[2].style.display='none';
 				}
-				console.log(pk1);
-				console.log(pk2);
-				console.log(pk3);
-				if(pk1&&pk2&&pk3){
+				else if(pk1&&pk2&&pk3){
 					oList[0].style.display="none";
 					setOk(aMsg[2],oPassword);
+					oPasswordOk=true;
 				}else{
 					oList[0].style.display="none";
-					setErr(aMsg[2],oPassword,"密码格式不正确")
+					setErr(aMsg[2],oPassword,"密码格式不正确");
+					console.log('yes')
 				}
 			}
 	}
-	
+	//8验证码验证
+	checkVerify();
+	function checkVerify(){
+		//点击获取验证码
+		oBtn.onclick=function(){
+			if(oPhone.value==""){
+				setErr(aMsg[1],oPhone,"请输入手机号");
+				return false;
+			}//手机号验证不通过
+			if(!bPhone){
+				return false;
+			}
+			alert("验证码获取中");
+		}
+		//限制验证码长度
+		oVerify.onkeydown=function(ev){
+			if(oVerify.value.length>5&&ev.keyCode!=8&&ev.keyCode!=37&&ev.keyCode!=39){
+				return false;
+			}
+		}//失去焦点验证
+		oVerify.onblur=function(){
+			var sVal=oVerify.value;
+			var reg=/\s/g;
+			if(sVal==""){
+
+			}else if(reg.test(sVal)){
+				setErr(aMsg[4],oVerify,"验证码不能有空格")
+			}else if(sVal.length<6){
+				setErr(aMsg[4],oVerify,"验证码为六位")
+			}else{
+				setOk(aMsg[4],oVerify);
+				oVerifyOk=true;
+			}
+		}
+	}
+	//9注册
+	toLogin();
+	function toLogin(){
+		oLogin.onclick=function(){
+			if(oUsername.value==""){
+			setErr(aMsg[0],oUsername,"请创建用户名");
+			}
+			if(oPhone.value==""){
+			setErr(aMsg[1],oPhone,"请输入手机号");
+			}
+			if(oPassword.value==""){
+			setErr(aMsg[2],oPassword,"请输入密码");
+			}
+			// console.log(oAgree.checked)
+			if(oAgree.checked){
+				aMsg[5].style.display="none";
+				oAgreeOk=true;
+			}else{
+				aMsg[5].style.display="inline-block"
+			}
+			if(oUsernameOk&&oPhoneOk&&oPasswordOk&&oVerifyOk&&oAgreeOk){
+					oForm.submit();
+			}
+	}
+}
 </script>
 </html>
