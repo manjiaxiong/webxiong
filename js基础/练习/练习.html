@@ -2,31 +2,34 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>025-动画.html</title>
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		.box{
-			width: 100px;
-			height: 100px;
-			background-color: red;
-			/*动画  动画名字*/
-			animation: sport 2s;
-		}
-		/*定义动画*/
-		@keyframes sport{
-			from{
-				width: 100px;	
-				}
-			to{
-				width: 300px;
-			}
-		}
-	</style>
+	<title>Document</title>
 </head>
 <body>
-	<div class="box"></div>
+	
 </body>
-<html>
+<script>
+	function sum(n){
+		var reslute=0;
+		try{
+				for(var i=0;i<=n;i++){
+				reslute+=i;
+			}
+		}catch(e){
+			throw new Error('error msg');
+		}finally{
+			console.log(111)
+		}
+		
+		
+		return reslute;
+	}
+	function mul(n){
+		return n*10;
+	}
+	console.log("1::::");
+	console.log(sum(3));
+	console.log("2:::");
+	console.log(mul(sum(3)));
+	console.log("3:::");
+</script>
+</html>

@@ -493,12 +493,18 @@
 			if(oPassword.value==""){
 			setErr(aMsg[2],oPassword,"请输入密码");
 			}
+			if(oVerify.value==""){
+			setErr(aMsg[4],oVerify,"请输入验证码");
+			}
 			// console.log(oAgree.checked)
 			if(oAgree.checked){
 				aMsg[5].style.display="none";
 				oAgreeOk=true;
 			}else{
-				aMsg[5].style.display="inline-block"
+				aMsg[5].style.display="inline-block";
+				aMsg[5].style.color="red";
+
+
 			}
 			if(oUsernameOk&&oPhoneOk&&oPasswordOk&&oVerifyOk&&oAgreeOk){
 					oForm.submit();
