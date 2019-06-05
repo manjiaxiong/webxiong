@@ -123,7 +123,7 @@ new Curosul({
 		img:["../images/b1.jpg","../images/b2.jpg","../images/b3.jpg"]
 	})
 //4选项卡
-toSelector();
+toSelector(); 
 function toSelector(){
 	var oList=document.querySelector('.home .list');
 	var aBTnLi=oList.querySelectorAll('li');
@@ -168,6 +168,22 @@ function toSelector(){
 		oBancontent.innerHTML=html;
 	}
 }
+//5家电选项卡
+houseSelector();
+function houseSelector(){
+	var aHouseLi=document.querySelectorAll('.more li');
+	for(var i=0;i<aHouseLi.length;i++){
+		aHouseLi[i].onmouseenter=function(){
+			console.log(111)
+			for(var j=0;j<aHouseLi.length;j++){
+				aHouseLi[j].className="";
+			}
+			this.className="houseLi";
+		}
+	}
+}
+
+
 
 
 

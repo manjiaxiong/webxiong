@@ -122,7 +122,6 @@
 		}
 		.agree span{
 			float: none;
-
 		}
 		.agree a{
 			color: #1b66c7;
@@ -152,7 +151,6 @@
 			color: #bbb;
 			padding: 10px;
 			width: 200px;
-
 		}
 		.list li{
 			padding-left: 18px;
@@ -367,11 +365,13 @@
 			}
 		}
 		oPhone.onkeydown = function(ev){
-	      if((ev.keyCode <96 || ev.keyCode >105|| oPhone.value.length > 10)&&(ev.keyCode<47||ev.keyCode>58) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
-	             return false;
+	      if((ev.keyCode <96 || ev.keyCode >105 || oPhone.value.length > 10)&&(ev.keyCode<47||ev.keyCode>58|| oPhone.value.length > 10) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
+                return false;
+            }
+	          
 	           }
          	}	
-	}
+	
 	//7事实验证密码
 	checkPwd();
 	function checkPwd(){
@@ -414,12 +414,8 @@
 		}
 			//取消按钮
 			aCancel[2].onclick=function(){
-				// aMsg[2].className="msg";
+				//恢复默认状态
 				aMsg[2].style.display = 'none';
-				// oPassword.value=""; 
-				pk1 = false;
-				pk2 = false;
-				pk3=  false;
 				oListLi[0].className="";
 				oListLi[1].className="";
 				oListLi[2].className="";
@@ -427,9 +423,7 @@
 			//失去焦点验证
 			oPassword.onblur=function(){
 				var sVal=oPassword.value;
-				// oList[0].style.display="none";
-				// aMsg[2].style.display="block";
-				if(sVal==""){
+				if(sVal==""){//只能用if和if else把这些条件联系起来
 					oList[0].style.display="none";
 					oPassword.className=" ";
 					aMsg[2].style.display='none';
@@ -469,7 +463,6 @@
 			var sVal=oVerify.value;
 			var reg=/\s/g;
 			if(sVal==""){
-
 			}else if(reg.test(sVal)){
 				setErr(aMsg[4],oVerify,"验证码不能有空格")
 			}else if(sVal.length<6){
@@ -484,6 +477,7 @@
 	toLogin();
 	function toLogin(){
 		oLogin.onclick=function(){
+			//提示未输入
 			if(oUsername.value==""){
 			setErr(aMsg[0],oUsername,"请创建用户名");
 			}
@@ -492,20 +486,22 @@
 			}
 			if(oPassword.value==""){
 			setErr(aMsg[2],oPassword,"请输入密码");
+			}if(oVerify.value==""){
+				setErr(aMsg[4],oVerify,"请输入验证码");
 			}
 			if(oVerify.value==""){
 			setErr(aMsg[4],oVerify,"请输入验证码");
 			}
 			// console.log(oAgree.checked)
+			//要勾选单选框
 			if(oAgree.checked){
 				aMsg[5].style.display="none";
 				oAgreeOk=true;
 			}else{
 				aMsg[5].style.display="inline-block";
 				aMsg[5].style.color="red";
-
-
 			}
+
 			if(oUsernameOk&&oPhoneOk&&oPasswordOk&&oVerifyOk&&oAgreeOk){
 					oForm.submit();
 			}

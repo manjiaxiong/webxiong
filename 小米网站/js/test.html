@@ -2,53 +2,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>test.html</title>
-	<style>
-		.loading{
-			width: 3px;
-			height: 20px;
-			background-color: #ff6700;
-
-			margin: 0px auto;
-			position: relative;
-			line-height: 20px;
-			animation: sport 1s linear 0s alternate infinite;
-		}
-		.loading:after,.loading:before{
-			width: 3px;
-			height: 20px;
-			background-color: #ff6700;
-			position: absolute;
-			top: 0px;
-			left: 0px;
-			content: "";
-			
-		}
-		.loading:before{
-			margin-left: -15px;
-			/*height: 15px;*/
-			transform: scale(1,0.4);
-			animation: sport 1s linear 0.2s alternate infinite;
-		}
-		.loading:after{
-			margin-left: 15px;
-			/*height: 15px;*/
-			transform: scale(1,0.4);
-			animation: sport 1s linear 1s alternate infinite;
-		}
-		@keyframes sport{
-			from{
-				transform: scale(1,0.4);
-				opacity: 0.3;
-			}
-			to{
-				transform: scale(1,1);
-				opacity: 1;
-			}
-		}
-	</style>
+	<title>Document</title>
 </head>
 <body>
-	<div class="loading"></div>
+	
 </body>
+<script>
+	var str="12";
+	var reg=/^([1-9]|1[0-2])$/;
+	console.log(str.replace(reg,"PP"));
+</script>
 </html>
