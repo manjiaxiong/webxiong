@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-继承-1.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name,
+		this.age=age
+	}
+	Person.prototype.sayName=function(){
+		console.log("I am"+this.name);
+	}
+	Person.prototype.sayAge=function(){
+		console.log("I am"+this.age+"years old");
+	}
+	function Student(name,age,major){
+		Person.call(this,name,age),
+		this.major=major
+	}
+	Student.prototype=Person.prototype;
+	Student.prototype.SayMajor=function(){
+		console.log("I am"+this.major);
+	}
+	var p1=new Student("xiong",18,"食品");
+	console.log(p1.name);
+	p1.SayMajor();
+	//方法不可取因为会改变person的prototype
+</script>
+</html>
