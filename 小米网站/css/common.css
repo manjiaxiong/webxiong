@@ -113,3 +113,6 @@ li{
   .img   .active{
             background-color: rgba(255,0,0,0.7);
         }
+  .loading{
+    margin-bottom: 80px;
+  }

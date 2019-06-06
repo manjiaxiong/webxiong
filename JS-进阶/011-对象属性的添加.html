@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-对象属性的添加.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	Person.prototype.showName=function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.showAge=function(){
+		console.log("I am "+this.age+"years old");
+	}
+	Person.prototype.LEGS=2;
+	var p1=new Person("XIONG",20);
+	p1.male="sex";
+	p1.name="jia"//
+	p1.LEGS=4;
+	console.log(p1);//打印自身的
+	console.log(p1.LEGS);//打印自身的
+</script>
+</html>

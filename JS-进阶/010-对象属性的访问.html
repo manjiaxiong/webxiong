@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-对象属性的访问.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+		this.showName=function(){
+			console.log("I am "+this.name+"!!!!");
+		}
+	}
+	Person.prototype.showName=function(){
+		console.log("I am "+this.name);
+	}
+	Person.prototype.showAge=function(){
+		console.log("I am "+this.age+"years old");
+	}
+	var p1=new Person("XIONG",20);
+	p1.showName();//打印自身的 因为先找自身
+	console.log(p1.sf)//undefined因为找遍所有原型链都没有这个变量
+</script>
+</html>

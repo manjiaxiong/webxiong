@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>005-主动触发异常.html</title>
+	<title>006-事件监听断点.html</title>
 </head>
 <body>
-	
+	<input type="text" id="txt">
+	<button id="btn">测试</button>
 </body>
 <script>
 	function sum(n){
@@ -18,8 +19,6 @@
 			for(var i=0;i<=n;i++){
 				reslute+=i;
 			}
-			console.log(111);
-			
 		}catch(err){
 			console.log(err);
 		}finally{
@@ -30,11 +29,13 @@
 	function mul(sum){
 		return sum*10
 	}
-	console.log("1::::");
-	console.log(sum("a"));
-	console.log("2:::");
-	var SDE=sum("a");
-	console.log(mul(SDE));
-	console.log("3::::")
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+
+		var sVal=oTxt.value;
+		console.log(sVal)
+		console.log(mul(sum(sVal)));
+	}
 </script>
 </html>
