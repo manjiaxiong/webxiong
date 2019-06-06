@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>011-对象属性的添加.html</title>
+	<title>013-对象属性的判断.html</title>
 </head>
 <body>
 	
@@ -21,10 +21,13 @@
 	}
 	Person.prototype.LEGS=2;
 	var p1=new Person("XIONG",20);
-	p1.male="sex";
-	p1.name="jia"//
-	p1.LEGS=4;
-	console.log(p1);//打印自身的
-	console.log(p1.LEGS);//打印自身的
+	console.log("name" in p1);//整个原型链上判断
+	console.log(p1.hasOwnProperty("name"));//对象自身是否有
+	function inProperty(obj,attr){//判断只在原型上不在自身上
+		return !obj.hasOwnProperty(attr)&&(attr in obj);
+	}
+	console.log(inProperty(p1,"name"));
+	console.log(inProperty(p1,"LEGS"));
+	console.log(inProperty(p1,"age"));
 </script>
 </html>

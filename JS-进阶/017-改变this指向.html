@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-改变this指向.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*
+	function show(){
+		console.log(this)
+	}
+	//里面是空或者null this为window
+	show();//window
+	show.call();//window
+	show.apply();//window
+	show.bind()();//window
+	*/
+
+	function show(n1,n2){
+		console.log(this,n1,n2)
+	}
+	show(1,2);//window
+	//this指向第一个参数如果为null指向window
+	show.call({name:"leo"},1,2);//{name:"leo"}
+	show.apply(null,[1,2]);//window
+	show.apply({name:"sdad"},[1,2]);//{name:"sdad"}
+	show.bind({name:"xiong"})(1,2);//{name:"xiong"}
+</script>
+</html>

@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>011-对象属性的添加.html</title>
+	<title>012-对象属性的删除.html</title>
 </head>
 <body>
 	
@@ -22,9 +21,9 @@
 	Person.prototype.LEGS=2;
 	var p1=new Person("XIONG",20);
 	p1.male="sex";
-	p1.name="jia"//
-	p1.LEGS=4;
-	console.log(p1);//打印自身的
-	console.log(p1.LEGS);//打印自身的
+	console.log(p1.LEGS);
+	console.log(delete p1.UHI);//p1上面没有不删除但是也返回true
+	console.log(delete Person.prototype.LEGS);
+	console.log(p1.LEGS);//p1上面找不到 所以undefind
 </script>
 </html>
