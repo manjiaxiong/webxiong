@@ -8,10 +8,16 @@
 	
 </body>
 <script>
+	//语法错误
 	var a=1；//中文输入错误;
 	var b=;//少打
 	var b=1;;//多打
 	var class=123;//变量名不合法;
 	functionn sda();//语句不正确
+	//运行错误
+	console.log(a);//未定义
+	var wd;
+	wd();//类型私用错误
+	function fn(){fn()};fn();//Uncaught RangeError: Maximum call stack size exceeded
 </script>
 </html>
