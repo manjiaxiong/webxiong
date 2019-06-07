@@ -12,7 +12,7 @@
 }
 .top .top-nav .top-nav-item{
 	float: left;
-}
+} 
 .sep{
 	font-size: 12px;
 	color:#3a4142;
@@ -71,6 +71,7 @@
 .header{
 	/*height: 100px;*/
 	/*background: red;*/
+	position: relative;
 }
 .header .container{
 	/*width: 100%;*/
@@ -101,7 +102,7 @@
 	/*background: green;*/
 }
 .header .header-content{
-	width: 1887px;
+	width: 100%;
 	/*height: 230px;*/
 	height: 0;
 	background-color: #fff;
@@ -110,6 +111,9 @@
 	top: 100px;
 	z-index: 1001;
 	overflow: hidden;
+	text-align: center;
+	padding-left: 350px;
+	box-shadow: 2px 2px 10px rgba(0,0,0,0.1)
 }
 .header .header-content .tag{
 	width: 80px;
@@ -287,6 +291,27 @@
 	background: rgba(0,0,0,0.3);
 	box-sizing: border-box;
 	z-index: 999;
+}
+.home .banner .cate-content{
+	position: absolute;
+	top:0px;
+	left: 234px;
+	min-width: 500px;
+	height: 100%;
+	background-color: white;
+	z-index: 1000;
+}
+.home .banner .cate-content li{
+	width: 160px;
+	height: 120px;
+	float: left;
+	margin-top: 10px;
+	/*text-align: center;*/
+	/*line-height: 120px;*/
+}
+.home .banner .cate-content img{
+	width: 80px;
+	vertical-align: middle;
 }
 .home .banner .cate .cate-list-item{
 	width: 100%;

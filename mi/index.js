@@ -87,9 +87,46 @@ function handleCoursel(){
 		img:["./images/b1.jpg","./images/b2.jpg","./images/b3.jpg"]
 	})
 }
-//面板设置
+//4面板设置
 mianEvent();
 function mianEvent(){
-	var oCart=document.querySelector('.cate-box');
-	var aCartlist
+	var oCate=document.querySelector('.cate-box');
+	var aCatelist=document.querySelectorAll('.cate-list li');
+	var oCateCont=document.querySelector('.cate-content');
+	var ContHide=null;
+	for(var i=0;i<aCatelist.length;i++){
+		aCatelist[i].index=i;
+		aCatelist[i].onmouseenter=function(){//移入出现内容
+			clearTimeout(ContHide);
+			oCateCont.style.display='block';
+			//加载数据
+			loaDing1(this.index);
+		}
+	}
+	oCate.onmouseleave=function(){
+		ContHide= setTimeout(function(){
+			oCateCont.style.display='none'
+		},600)	
+	}
+	//加载数据函数
+	function loaDing1(index){
+		var html='';
+		var date=CateDate[index];
+			html+='	 <ul>'
+			for(var i=0;i<date.length;i++){
+				html+=		'		<li>'
+				html+=		'			<a href="'+date[i].url+'">'
+				html+=				'	<img src="'+date[i].src+'" alt="">'
+				html+=					'<span >'+date[i].name+'</span>'
+				html+=			'		</a>'
+				html+=			'	</li>'
+			}
+			html+=		'	</ul> '
+		oCateCont.innerHTML=html;
+	}
+}
+//5倒计时
+endTime();
+function endTime(){
+	
 }
