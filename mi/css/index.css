@@ -552,11 +552,16 @@
 .flash .bd-area{
 	height: 340px;
 	/*background: red;*/
+	width: 980px;
+	overflow: hidden;
 }
 .flash .product-item{
 	height: 340px;
 }
+.flash .product-box{
+	width: 1960px;
 
+}
 /*商品列表共通样式开始*/
 .product-item{
 	position: relative;
@@ -754,9 +759,10 @@
 	color: #ff6700;
 	border-bottom: 2px solid #ff6700;
 }
-.elec .more .tab-item:hover{
+.elec .more .item-enter{
 	color: #ff6700;
 	border-bottom: 2px solid #ff6700;
+	cursor: pointer;
 }
 
 .elec .col1{

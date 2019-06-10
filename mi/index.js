@@ -128,5 +128,97 @@ function mianEvent(){
 //5倒计时
 endTime();
 function endTime(){
-	
+	var timerList=document.querySelectorAll('.timer-num');
+	var timers=null;
+	var endingTimer=new Date('2019-6-8 12:00:00');
+	function TheTime(){
+		var allSecondes=Math.round(((endingTimer.getTime()-Date.now())/1000));
+		var Hours=parseInt(allSecondes/3600);
+		var Mintues=parseInt(allSecondes%3600/60);
+		var Secondes=parseInt(allSecondes%3600%60);
+		timerList[0].innerHTML=tostr(Hours);
+		timerList[1].innerHTML=tostr(Mintues);
+		timerList[2].innerHTML=tostr(Secondes);
+	}
+	TheTime();
+	var timers= setInterval(TheTime,500);
+	//优化时间
+	function tostr(num){
+			return	num<10? "0"+num:""+num;
+	}
 }
+//6左右加载
+FlashEvent();
+function FlashEvent(){
+	var leftBtn=document.querySelector('.flash-ctr');
+	var rightBtn=document.querySelector('.flash-ctr-right');
+	var productBox=document.querySelector('.product-list');
+	leftBtn.onclick=function(){
+		animate(productBox,{marginLeft:0},true)
+		// productBox.style.marginLeft='0px';
+	}
+	rightBtn.onclick=function(){
+		animate(productBox,{marginLeft:-960},true)
+	}
+}
+//7家电
+ElecEvent();
+function ElecEvent(){
+	var itemList=document.querySelectorAll('.more .tab-item');
+	var itemCont=document.querySelector('.col2A');
+	//默认加载第一条数据
+	loaDing(0);
+	for(var i=0;i<itemList.length;i++){
+		itemList[i].index=i;
+		// _this=this;
+		itemList[i].onmouseenter=function(){
+			for(var j=0;j<itemList.length;j++){
+				itemList[j].className='tab-item';
+			}
+			this.className='item-enter tab-item';
+			//加载数据
+			loaDing(this.index);
+			// loaDing(0);
+		}
+	}
+	function loaDing(index){
+		var html='';
+		var date=ElecDate[index];
+		html+='<ul>';
+		for(var i=0;i<date.length-1;i++){
+			html+='			<li class="product-item product-item-m">';
+			html+='					<a href="'+date[i].url+'">';
+			html+='						<img src="'+date[i].src+'" alt="">';
+			html+='						<p class="product-item-name">'+date[i].name+'</p>';
+			html+='						<p class="product-item-des">'+date[i].des+'</p>';
+			html+='						<p class="product-item-price">';
+			html+='							<strong>'+date[i].now+'</strong>';
+			html+='							<del>'+date[i].pre+'</del>';
+			html+='						</p>';
+			html+='					</a>';
+			html+=	'<span class="flag off-flag">'+date[i].flag+'</span>';
+			if(date[i].views){
+				html+='					<div class="views">';
+				html+='						<p class="commen">'+date[i].views.commen+'</p>';
+				html+='						<p class="author">'+date[i].views.author+'</p>';
+				html+='					</div>';
+			}
+			
+			html+='				</li>';
+		}
+			html+='	<li class="product-area">';
+			html+='						<div class="product-area-top product-area-item">';
+			html+='							<p class=" product-area-top-des">'+date[7].des+'</p>';
+			html+='							<strong>'+date[7].now+'</strong>';
+			html+='							<img src="'+date[7].src1+'" alt="">';
+			html+='						</div>';
+			html+='						<div class="product-area-item product-area-bottom">';
+			html+='							<p class="product-area-bottom-name">'+date[7].name+'</p>';
+			html+='							<p class="product-area-bottom-hot">'+date[7].hot+'</p>';
+			html+='							<i class="iconfont">&#xe615;</i>'
+			html+='						</div>';
+			html+='					</li>';
+		html+='</ul>';
+		itemCont.innerHTML=html;
+	}
+} 

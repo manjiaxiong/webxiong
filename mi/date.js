@@ -664,3 +664,376 @@ var CateDate=[
 				}
 				]
 			];
+var ElecDate=[
+				[
+					{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						src:"images/p1.jpg",
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						des:'小米净水器真的很棒，你可以用试试',
+						now:'1799元',
+						src1:"images/ca.png",
+						name:'浏览更多',
+						hot:'热门'
+					}
+				],[
+					{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p1.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						des:'小米净水器真的很棒，你可以用试试',
+						now:'1799元',
+						src1:"images/ca.png",
+						name:'浏览更多',
+						hot:'热门'
+					}
+				],[
+					{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						des:'小米净水器真的很棒，你可以用试试',
+						now:'1799元',
+						src1:"images/ca.png",
+						name:'浏览更多',
+						hot:'热门'
+					}
+				],[
+					{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						url:'jsvascript:',
+						src:"images/p2.jpg",
+						des:'骁龙855，索尼4800万超广角微距三摄索尼4800万超广角微距三摄',
+						now:'3699元',
+						name:'小米9 6GB +128G',
+						pre:'4699元',
+						flag:'减 800 元',
+						views:{
+							commen:'电视收到了,虽然有点晚,我感觉还不错，你觉得呢？',
+						author:'评论来自于kuazhu'
+						}	
+					},{
+						des:'小米净水器真的很棒，你可以用试试',
+						now:'1799元',
+						src1:"images/ca.png",
+						name:'浏览更多',
+						hot:'热门'
+					}
+				]
+			];
+			
