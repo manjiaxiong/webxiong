@@ -9,8 +9,17 @@
 </body>
 <script>
 	function fn1(){
-		return 1;
+		var a=1;
+		add=function(){
+			a++;
+		}
+		return function (){
+			return a
+		}
 	}
-	console.log(fn1())
+	var reslute=fn1();
+	console.log(reslute());
+	add();
+	console.log(reslute());
 </script>
 </html>

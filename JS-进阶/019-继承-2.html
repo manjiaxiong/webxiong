@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>018-继承-1.html</title>
+	<title>019-继承-2.html</title>
 </head>
 <body>
 	
@@ -23,13 +22,23 @@
 		Person.call(this,name,age),
 		this.major=major
 	}
-	Student.prototype=Person.prototype;
+	Object.defineProperty(Person.prototype,'sayAge',{
+		value:function(){
+		console.log("I am"+this.age+"years old");
+				},
+		enumerable:false
+	})
+	for(var attr in Person.prototype){
+		Student.prototype[attr]=Person.prototype[attr];
+	}
 	Student.prototype.SayMajor=function(){
 		console.log("I am"+this.major);
 	}
 	var p1=new Student("xiong",18,"食品");
-	console.log(p1.name);
+	console.log(Student.prototype);//没有sayAge
+	
 	p1.SayMajor();
-	//方法不可取因为会改变person的prototype
+	console.log(p1)
+	//缺点当enumerable为false时得不到
 </script>
 </html>
