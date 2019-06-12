@@ -3,14 +3,23 @@
 <head>
 	<meta charset="UTF-8">
 	<title>026-闭包的使用.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			height: 3000px;
+		}
+	</style>
 </head>
 <body>
 	
 </body>
 <script>
-	function fn1(){
-		return 1;
-	}
-	console.log(fn1())
+	(function(s){
+		console.log(s)
+	})(4);
+	
 </script>
 </html>
