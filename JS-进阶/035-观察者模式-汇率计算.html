@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-观察者模式-汇率计算.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Local(name){
+			this.name=name;
+			this.oInput=null
+			this.init();
+			this.foregins=[];
+		}
+		Local.prototype={
+			constructor:Local,
+			init:function(){
+			var p= document.createElement('p');
+			p.innerHTML=this.name+':';
+			this.oInput= document.createElement('input');
+			document.body.appendChild(p);
+			p.appendChild(this.oInput);
+			},
+			regist:function(forgin){
+				this.foregins.push(forgin);
+			}
+		}
+		w.Local=Local;
+	})(window);
+	(function(w){
+		function Forgin(name,local){
+			this.name=name;
+			this.span=null;
+			this.init();
+			local.regist(this)
+		}
+		Forgin.prototype={
+			constructor:Forgin,
+			init:function(){
+			var p= document.createElement('p');
+			p.innerHTML=this.name+':';
+			this.span= document.createElement('span');
+			document.body.appendChild(p);
+			p.appendChild(this.span);
+			}
+		}
+		w.Forgin=Forgin;
+	})(window);
+	var rmb=new Local('人民币RMB');
+	var usd=new Forgin('美元USD',rmb);
+	var jsp=new Forgin('日元JSP',rmb);
+	console.log(rmb);
+</script>
+</html>
