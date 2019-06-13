@@ -12,8 +12,9 @@
 		function Local(name){
 			this.name=name;
 			this.oInput=null
-			this.init();
 			this.foregins=[];
+			this.init();
+			this.bindEvent();//调用函数
 		}
 		Local.prototype={
 			constructor:Local,
@@ -26,14 +27,25 @@
 			},
 			regist:function(forgin){
 				this.foregins.push(forgin);
+			},
+			publish:function(Val){
+				for(var i=0;i<this.foregins.length;i++){
+					this.foregins[i].listeren(Val);
+				}
+			},
+			bindEvent:function(){
+				this.oInput.oninput = function(){
+					this.publish(this.oInput.value);
+				}.bind(this);
 			}
 		}
 		w.Local=Local;
 	})(window);
 	(function(w){
-		function Forgin(name,local){
+		function Forgin(name,local,rate){
 			this.name=name;
 			this.span=null;
+			this.rate=rate;
 			this.init();
 			local.regist(this)
 		}
@@ -45,13 +57,17 @@
 			this.span= document.createElement('span');
 			document.body.appendChild(p);
 			p.appendChild(this.span);
+			},
+			listeren:function(Val){
+				this.span.innerHTML=Val*this.rate;
 			}
 		}
 		w.Forgin=Forgin;
 	})(window);
 	var rmb=new Local('人民币RMB');
-	var usd=new Forgin('美元USD',rmb);
-	var jsp=new Forgin('日元JSP',rmb);
-	console.log(rmb);
+	var usd=new Forgin('美元USD',rmb,0.144);
+	var jsp=new Forgin('日元JSP',rmb,15.54);
+	// rmb.publish(3);
+	console.log(rmb.oInput);
 </script>
 </html>
