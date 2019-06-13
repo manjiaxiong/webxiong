@@ -22,7 +22,7 @@
 		var lastTime=Date.now();
 		return function(){
 			var NowTime=Date.now();
-			if(NowTime-lastTime>1000){
+			if(NowTime-lastTime>wait){
 				fn();
 				lastTime=Date.now();
 			}

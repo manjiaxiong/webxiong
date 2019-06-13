@@ -28,10 +28,10 @@
 		value:"man",//控制值
 		enumerable:true,//控制是否可以被枚举
 		writable:true,//控制是否可以改值
-		configurable:true//控制是否可以删除
+		configurable:false//控制是否可以删除
 	})
 	p1.sex="female";
-	delete p1.sex;
+	delete p1.sex;//因为configurable是false所以删除不掉
 	// console.log(p1.sex);
 	for(attr in p1){
 		console.log(attr,p1[attr]);
