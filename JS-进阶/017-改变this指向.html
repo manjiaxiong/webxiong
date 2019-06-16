@@ -23,8 +23,7 @@
 		console.log(this,n1,n2)
 		console.log(11);
 	}
-	show(1,2);//window
-	this指向第一个参数如果为null指向window
+	show(1,2);//window this指向第一个参数如果为null指向window
 	show.call({name:"leo"},1,2);//{name:"leo"}
 	show.apply(null,[1,2]);//window
 	show.apply({name:"sdad"},[1,2]);//{name:"sdad"}
