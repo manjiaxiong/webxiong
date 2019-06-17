@@ -13,7 +13,11 @@
 		//1客户端创建一个ajax对象（创造电话）;
 		var oAjax = new XMLHttpRequest();
 		//2用ajax对象向服务端建立联系(拨号)
-		oAjax.open('GET','http://127.0.0.1:3000/042-data.json',true);
+		// oAjax.open('POST','http://127.0.0.1:3000',true);
+		oAjax.open('GET','http://127.0.0.1:3000/042-date2.json',true);
+		// oAjax.open('GET','http://127.0.0.1:3000/?name=xiongjiman,age=18',true);
+
+		oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 		//3用ajax发送请求到服务端（发送）
 		oAjax.send();
 		//4用ajax接收服务端返回的数据（接受数据）；
@@ -24,7 +28,13 @@
 				if(oAjax.status == 200){//数据完全返回并且正确
 					// console.log(oAjax.responseText);
 					var strToObj  =  JSON.parse(oAjax.responseText);
-					console.log(strToObj.name);
+					var oUl=document.createElement('ul');
+					for(var i=0;i<strToObj.length;i++){
+							var oLi=document.createElement('li');
+							oLi.innerHTML="姓名："+strToObj[i].name+"年龄："+strToObj[i].age;
+							oUl.appendChild(oLi);
+					}
+					document.body.appendChild(oUl)
 				}
 			}
 		} 

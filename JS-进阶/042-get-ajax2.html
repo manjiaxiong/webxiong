@@ -14,6 +14,7 @@
 		var oAjax =new XMLHttpRequest();
 		//2拨号（取得联系）；
 		oAjax.open('GET','http://127.0.0.1:3000/042-date2.json',true);
+		oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 		//3发送请求到服务端（）
 		oAjax.send();
 		//4接收服务端发来的数据
