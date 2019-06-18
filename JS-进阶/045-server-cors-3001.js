@@ -8,13 +8,14 @@ var server = http.createServer(function(req,res){
 	//允许访问源
 	res.setHeader("Access-Control-Allow-Origin",'http://127.0.0.1:3000');
 	//允许访问字符段 
-	res.setHeader("Access-Control-Expose-Headers",'Date,Connection');
-	//自定义字符段
+	res.setHeader("Access-Control-Expose-Headers",'Connection');
+	//设置自定义字符段
 	res.setHeader("Content-Type",'application/x-www-form-urlencoded');
+	res.setHeader("kuazhu-com","kuazhu-content");
 	if(req.url == "/favicon.ico"){
 		res.end("favicon.ico");
 	}
-
+ 
 	if(req.method == "POST"){
 		var body = "";
 		req.on("data",function(chunk){
