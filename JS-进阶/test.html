@@ -5,6 +5,22 @@
 	<title>Document</title>
 </head>
 <body>
-	<p>练习</p>
+	
 </body>
+<script>
+    var fun1 = function(){
+        this.name = 'peter';
+        return {
+            name: 'jack'
+        };
+    }
+    var p1 = new fun1();
+    console.log(p1.name)
+    var fun2 = function(){
+        this.name = 'peter';
+        return 'jack';
+    }
+    var p2 = new fun2();
+    console.log(p2.name)
+</script>
 </html>
