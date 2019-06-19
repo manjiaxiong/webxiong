@@ -24,7 +24,7 @@
 			if(oAjax.readyState == 4){//数据完全返回
 				// console.log(oAjax.status);
 				if(oAjax.status == 200){//数据完全返回并且正确
-					// console.log(oAjax.responseText);
+					console.log(oAjax.responseText);
 					var strToObj  =  JSON.parse(oAjax.responseText);
 					console.log(strToObj);
 				}

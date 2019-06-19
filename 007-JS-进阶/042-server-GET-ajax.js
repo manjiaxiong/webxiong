@@ -5,13 +5,13 @@ var port=3000;
 var server=http.createServer(function(req,res){
  	console.log(req.url);
  	var filePath='./'+req.url;
- 	fs.readFile(filePath,function(err,date){
+ 	fs.readFile(filePath,function(err,data){
  		if(err){
  			res.statusCode=404;
  			res.end('not found');
  		}else{
  			res.statusCode=200;
- 			res.end(date);
+ 			res.end(data);
  		}
  	})
  })
