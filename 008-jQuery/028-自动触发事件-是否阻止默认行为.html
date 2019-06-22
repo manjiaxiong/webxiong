@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-自动触发事件-是否阻止默认行为.html</title>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<form action="http://www.kuazhu.com" >
+		<input type="text">
+		<input type="submit">
+	</form>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('input').eq(1).on('click',function(){
+				alert('sub click');
+			});
+		$('input').eq(1).trigger('click');//只自动触发
+		$('input').eq(1).triggerHandler('click');//阻止默认行为
+			});
+</script>
+</html>

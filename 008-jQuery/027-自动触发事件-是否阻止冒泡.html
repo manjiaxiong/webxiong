@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>027-自动触发事件-是否阻止冒泡.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.gf{
+			width: 300px;
+			height: 300px;
+			margin:50px auto;
+			background-color: red;
+			overflow: hidden;
+		}
+		.f{
+			width: 200px;
+			height: 200px;
+			margin: 50px;
+			background-color: green;
+			overflow: hidden;
+		}
+		.s{
+			width: 100px;
+			height: 100px;
+			margin: 50px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="gf">
+		<div class="f">
+			<div class="s"></div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('.gf').on('click',function(ev){
+			alert('groundfather click');
+		});
+		$('.f').on('click',function(ev){
+			alert('father click');
+
+		});
+		$('.s').on('click',function(ev){
+			alert('son click');
+		});
+		// $('.s').trigger('click');
+		$('.s').triggerHandler('click');//阻止冒泡
+			});
+</script>
+</html>

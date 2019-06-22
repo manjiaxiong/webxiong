@@ -20,6 +20,7 @@
 	var i=0;
 	function throttle(fn,wait){
 		var lastTime=Date.now();
+		console.log(lastTime)
 		return function(){
 			var NowTime=Date.now();
 			if(NowTime-lastTime>wait){
@@ -28,12 +29,12 @@
 			}
 		}
 	}
-
 	// var result = throttle(function(){
 	// 	console.log(i++);
 	// },1000);
 	window.onscroll=throttle(function(){//不管滚动条滚不滚动throttle都执行一次，执行一次后只要滚动就执行 return的函数因为 throttle返回的是一个函数
 		console.log(i++);
 	},1000);
+
 </script>
 </html>

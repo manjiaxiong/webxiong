@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>013-过滤方法.html</title>
+</head>
+<body>
+	<div class="box1">1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div').eq(2));//是jQuery对象
+		console.log($('.box1').siblings())
+			});
+</script>
+</html>

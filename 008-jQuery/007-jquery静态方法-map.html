@@ -23,7 +23,7 @@
 	// console.log(res);
 	var res= $.map(likeArr,function(value,index){
 		console.log(value,index);
-		return value;
+		return value;//非数字做数学运算为NaN
 	});//返回结果是一个真的数组
 	console.log(res);
 	likeArr.map(function(value,index){
