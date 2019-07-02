@@ -21,8 +21,8 @@
 		console.log($('input').eq(0).attr("name","test1111111"));
 		console.log($('input').eq(1).prop("name","test2222222"));
 		//删除(所有元素)
-		console.log($('input').removeAttr("value"));//删除掉属性
-		// console.log($('input').removeProp("value"));//只删除值
+		// console.log($('input').removeAttr("value"));//删除掉属性
+		console.log($('input').removeProp("value"));//只删除值 input框内是undefinded 但是行内样式不变
 			});
 </script>
 </html>

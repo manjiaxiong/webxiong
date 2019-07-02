@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单例练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		var king=null;
+		function King(name){
+			if(!king){
+				this.name=name;
+				this.id=Math.random();
+				king=this;
+			}
+			return king;
+			}
+		King.prototype={
+			constructor:King,
+			work:function(){
+				console.log(this.id+'上朝');
+			}
+		}
+		w.King=King;
+	})(window)
+	for(var i=0;i<4;i++){
+		new King('康熙').work();
+	}
+</script>
+</html>

@@ -2,7 +2,7 @@ var http = require('http');
 
 var fs = require('fs');
 var url = require('url');
-
+ 
 var server = http.createServer(function(req,res){
 	console.log(req.method);
 	//允许访问源

@@ -15,14 +15,18 @@
 <script>
 	$(function(){
 		//什么也不传是0
-	console.log($('div').index());
-	console.log($('div').index(document.querySelector('.div2')));
-	$('div').each(function(index,element){
-		console.log(index,element);
-	});
-	// $('.div1').data('kuazhu','text');
-	console.log($('.div1').data('kuazhu'));
-	console.log($('div').is('.div1'));	
+		//找不到是负一
+		//里面只能是Dom对象
+		var oDiv3=document.querySelector('.div3');
+		console.log($('div').index());
+		console.log($('div').index(oDiv3));
+		console.log($('div').index(document.querySelector('.div2')));
+		$('div').each(function(index,element){
+			console.log(index,element);
+		});
+		$('.div1').data('kuazhu','text');//行内没有
+		console.log($('.div1').data('kuazhu'));
+		console.log($('div').is('.div1'));	
 	});
 	
 </script>

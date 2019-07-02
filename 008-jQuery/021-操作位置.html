@@ -36,16 +36,17 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 	$(function(){
-				// console.log($('.son').offset());//相对于body
+				console.log($('.son').offset());//相对于body
 				// console.log($('.son').offset({top:100,left:100}));
+				// console.log($('.son').offset());//此时变成 100 100
 				// console.log($('.son').position());//只能获取不能设置（相对于父元素）
 				// $('.son').css({left:100,top:100});//用此方法设置
 				var oBtn=$('#btn')[0];
 				oBtn.onclick=function(){
 					console.log($('.father').scrollLeft());
 					console.log($('.father').scrollTop());
-					// $('.father').scrollLeft(400);
-					// $('.father').scrollTop(300);
+					$('.father').scrollLeft(400);
+					$('.father').scrollTop(300);
 				}
 			});
 </script>

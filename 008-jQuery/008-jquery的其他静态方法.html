@@ -21,8 +21,8 @@
 	console.log($.isFunction(function(){}));//判断是不是函数；
 	var obj1={name:'leo',age:18};
 	var obj2={name:'tom',major:'ass'};
-	// var reg=$.extend(obj1,obj2)//会改变obj1
-	var reg=$.extend({},obj1,obj2);//不会改变obj1
+	var reg=$.extend(obj1,obj2)//会改变obj1
+	// var reg=$.extend({},obj1,obj2);//不会改变obj1
 	console.log(reg);
 	console.log(obj1);
 	function show(){

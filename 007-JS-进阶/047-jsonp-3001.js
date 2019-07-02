@@ -6,7 +6,7 @@ var url = require('url');
 var server = http.createServer(function(req,res){
 	var parm = url.parse(req.url,true).query;
 	var handleBack = parm.getData;
-	console.log(111);
+	console.log(parm);
 	var data = '{name:"tom",age:18}';
 	// console.log();
 	res.end(handleBack + "(" +data+ ")");

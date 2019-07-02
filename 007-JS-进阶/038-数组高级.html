@@ -26,18 +26,18 @@
 		return value>20;//此处写返回的条件
 	})
 	 	console.log(reslute)//因为有返回值（一个新数组）
-	// 全真判断
-	// var reslute=arr.every(function(value,index){
-	// 	console.log("value,index",value,index)
-	// 	return value>20;//此处写判断条件
-	// })
-	//  	console.log(reslute)//数组到判断为false
-	// 有真判断
-	// var reslute=arr.some(function(value,index){
-	// 	console.log("value,index",value,index)
-	// 	return value>20;//此处写判断条件
-	// })
-	//  	console.log(reslute)//数组到判断为true
+	//全真判断（返回值为一个布尔值）
+	var reslute=arr.every(function(value,index){
+		console.log("value,index",value,index)
+		return value>20;//此处写判断条件
+	})
+	 	console.log(reslute)//数组到判断为false
+	//有真判断（返回值为一个布尔值）
+	var reslute=arr.some(function(value,index){
+		console.log("value,index",value,index)
+		return value>20;//此处写判断条件
+	})
+	 	console.log(reslute)//数组到判断为true
 
 </script>
 </html>

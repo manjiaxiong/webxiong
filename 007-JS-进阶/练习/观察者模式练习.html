@@ -17,6 +17,11 @@
 			constructor:Teacher,
 			regist:function(student){
 				this.students.push(student);
+			},
+			public:function(msg){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listener(msg);
+				}
 			}
 		}
 		w.Teacher=Teacher;
@@ -24,18 +29,22 @@
 	(function(w){
 		function Student(name,teacher){
 			this.name=name;
-			teacher.regist(name);
+			teacher.regist(this);
 		}
 		Student.prototype={
-			constructor:Student
+			constructor:Student,
+			listener:function (msg){
+				console.log(this.name +msg);
+			}
 		}
 		w.Student=Student;
 	})(window)
 	var t1=new Teacher('XIONG');
-	var s1=new Student('jiaman',t1);
-	console.log(t1);
+	var s1=new Student('jiaman1',t1);
+	var s2=new Student('jiaman2',t1);
+	var s3=new Student('jiaman3',t1);
+	t1.public('去吃饭');
+	console.log(s1);
 </script>
-<script>
-	
-</script>
+
 </html>

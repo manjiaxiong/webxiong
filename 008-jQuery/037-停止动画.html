@@ -26,15 +26,15 @@
 	$(function(){
 		
 		$('button').eq(0).on('click',function(){
-			$('div').animate({width:300},2000)
-			$('div').animate({height:300},2000)
-			$('div').animate({opacity:1},2000)
+			$('div').animate({width:300},2000);
+			$('div').animate({height:300},2000);
+			$('div').animate({opacity:1},2000);
 		})
 		$('button').eq(1).on('click',function(){
 			// $('div').stop();
-			// $('div').stop(true,false);
+			$('div').stop(true,false);
 			// $('div').stop(false,true);
-			$('div').stop(false,false);
+			// $('div').stop(false,false);
 			// $('div').stop(true,true);
 			/*
 			第一个参数true表示后面动画不执行

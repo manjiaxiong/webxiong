@@ -25,7 +25,7 @@
 			//2.建立连接(拨号)
 			oAjax.open(method,url,true);
 			//3.发送消息(问问题)
-			oAjax.send();
+			oAjax.send(); 
 		}
 		//4.服务器接收并相应(听电话回答问题)
 		oAjax.onreadystatechange = function(){
@@ -36,6 +36,7 @@
 						//获取响应头信息
 						// console.log(oAjax.getResponseHeader('Date'));
 						console.log(oAjax.getResponseHeader('Content-Type'));
+						console.log(oAjax.getResponseHeader('Connection'));
 						// console.log(oAjax.getResponseHeader("kuazhu-com"));
 						var strToObj  =  JSON.parse(oAjax.responseText);
 						typeof fnSucc == "function" && fnSucc(strToObj);

@@ -14,7 +14,7 @@ var server = http.createServer(function(req,res){
 	res.setHeader("kuazhu-com","kuazhu-content");
 	if(req.url == "/favicon.ico"){
 		res.end("favicon.ico");
-	}
+	} 
  
 	if(req.method == "POST"){
 		var body = "";
