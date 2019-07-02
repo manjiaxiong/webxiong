@@ -30,12 +30,13 @@
 		enumerable:false
 	})
 	Student.prototype=Object.create(Person.prototype)//使Student.prototype指向一个空对象然后这个对象的————proto————是Person.prototype;
-	// Student.prototype.constuctor=Studen
+	Student.prototype.constuctor=Student;
 	Student.prototype.SayMajor=function(){
 		console.log("I am"+this.major);
 	}
 	var p1=new Student("xiong",18,"食品");
 	console.log(Student.prototype);
+	// console.log(Object.create(Person.prototype));
 	// console.log(p1);
 	p1.SayMajor();
 	

@@ -29,8 +29,8 @@
 				},
 		enumerable:false
 	})
-	// Student.prototype=new Person();//使Student.prototype指向Person的实例;打印两次111
-	Student.prototype.__proto__=Person.prototype;//打印一次111
+	Student.prototype=new Person();//使Student.prototype指向Person的实例;打印两次111
+	// Student.prototype.__proto__=Person.prototype;//打印一次111
 	Student.prototype.constructor=Student;
 	Student.prototype.SayMajor=function(){
 		console.log("I am"+this.major);

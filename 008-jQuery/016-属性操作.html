@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-属性操作.html</title>
+</head>
+<body>
+	<input type="text" name="test1" value="aa">
+	<input type="text" name="test2" value="bb">
+	<input type="checkbox" checked>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//获取(默认第一个元素)
+		console.log($('input').attr("checked"));//默认返回第一个input的name值因为第一个没有checked所以是undefined
+		console.log($('input').prop("name"));//默认返回第一个input的name值
+		console.log($('input').eq(1).attr("name"));
+		console.log($('input').eq(1).prop("name"));
+		//设置(所有元素)
+		console.log($('input').eq(0).attr("name","test1111111"));
+		console.log($('input').eq(1).prop("name","test2222222"));
+		//删除(所有元素)
+		console.log($('input').removeAttr("value"));//删除掉属性
+		// console.log($('input').removeProp("value"));//只删除值
+			});
+</script>
+</html>

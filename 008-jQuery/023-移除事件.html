@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-移除事件.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-bottom: 10px;
+		}
+		#btn{
+			margin-bottom: 200px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">移除事件</button>
+	<div>1</div>
+	<div>2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+
+		function fn(){
+			alert('fnfn')
+		}
+		$('div').click(function(){
+			alert('click');
+		})
+		//方法二(范围广)
+		$('div').on('click',function(){
+			alert('on div');
+		});
+		$('div').on('click',fn);
+			
+		$('div').hover(function(){
+			alert('hoverin')
+		},function(){
+			alert('hoverout')
+		});
+		$('#btn').click(function(){
+			// $('div').off();
+			// $('div').off('hover');
+			// $('div').off('click');
+			$('div').off('click',fn);//不能移除匿名事件
+		})
+	});
+</script>
+</html>

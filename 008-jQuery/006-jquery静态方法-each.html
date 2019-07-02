@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-jquery静态方法-each.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var likeArr={0:'aaa',1:'bbb',2:'ccc',length:3};
+	var tArr=[1,2,3,4]
+	tArr.forEach(function(value,index){
+		console.log("value,index",value,index);
+	});//无返回结果
+	var res= $.each(tArr,function(index,value){
+		console.log(index,value)
+	});//有返回结果（就是这个数组）
+	console.log(res);
+	var res= $.each(likeArr,function(index,value){
+		console.log(index,value)
+	});//可以遍历这个伪数组
+	console.log(res);
+	
+	likeArr.forEach(function(value,index){
+		console.log(value,index);//不能遍历伪数组
+	});
+</script>
+</html>
