@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-ajax2.html</title>
+</head>
+<body>
+	<button>请求数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+				$.ajax({
+					url:"044-data.json",
+					// type:"POST",
+					type:"GET",
+					// data:'{"name":"xiong","age":18}',
+					data:{"name":"xiong","age":18},
+					dataType:"json",
+					success:function(data,statusMsg,jqXHR){
+						console.log("1:::::");
+						console.log(data);
+						console.log(statusMsg)
+						console.log(jqXHR)
+					},
+					error:function(statusMsg,jqXHR){
+						console.log('2::::');
+						console.log(statusMsg)
+						console.log(jqXHR)
+					},
+					complete:function(statusMsg,jqXHR){
+						console.log('3::::');
+						console.log(statusMsg)
+						console.log(jqXHR)
+					},
+					timeout:1000,
+					statusCode:{
+						200:function(){
+							console.log("statusCode::::200");
+						},
+						404:function(){
+								console.log("statusCode::::404");
+						}
+					},
+					headers:{'kuazhu':"kuazhu-text"}
+				});
+			})
+		
+	});
+</script>
+</html>
