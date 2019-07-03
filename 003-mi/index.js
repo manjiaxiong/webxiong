@@ -130,7 +130,7 @@ endTime();
 function endTime(){
 	var timerList=document.querySelectorAll('.timer-num');
 	var timers=null;
-	var endingTimer=new Date('2019-6-8 12:00:00');
+	var endingTimer=new Date('2019-6-30 22:00:00');
 	function TheTime(){
 		var allSecondes=Math.round(((endingTimer.getTime()-Date.now())/1000));
 		var Hours=parseInt(allSecondes/3600);
