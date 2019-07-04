@@ -8,6 +8,7 @@
 	height: 40px;
 	line-height: 40px;
 	margin-right: 10px;
+
 }
 .top-left li a{
 	color: #3c4972;
@@ -15,17 +16,45 @@
 .link:hover{
 	color: #e34f48;
 }
+.dropdown-li{
+	position: relative;
+}
+.dropdown-li:hover a{
+background-color: #fff;
+}
+
+.dropdown-layer{
+	position: absolute;
+	top: 40px;
+	left: 0px;	
+	border: 1px solid #f0f2f5;
+	border-top: none;
+	display: none;
+}
+.dropdown-layer li{
+	height: 30px;
+	line-height: 30px;
+	background-color: #fff;
+	padding: 0px 5px;
+	white-space: nowrap;
+}
 .top-right li a{
 	color: #3c4972;
 }
 .dropdown-a{
 	display: block;
+	height: 40px;
+	line-height: 40px;
+	padding: 0px 5px;
 }
-.dropdown .dropdown-a:hover i{
-	transform: rotateX(180deg);
+.menu-active i{
+	transform: rotateZ(180deg);
 }
-.dropdown .dropdown-a i{
-	transition: all 1s;
+.menu-active .dropdown-layer{
+	display: block;
+}
+.menu-active a{
+background-color: #fff;
 }
  /*顶部导航区域结束*/
 
