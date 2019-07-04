@@ -1,0 +1,58 @@
+/* 顶部导航区域开始*/
+.top{
+	height: 40px;
+	background-color: #f0f2f5;
+	border-bottom: 1px #c2c5cb solid;
+}
+.top-li{
+	height: 40px;
+	line-height: 40px;
+	margin-right: 10px;
+}
+.top-left li a{
+	color: #3c4972;
+}
+.link:hover{
+	color: #e34f48;
+}
+.top-right li a{
+	color: #3c4972;
+}
+.dropdown-a{
+	display: block;
+}
+.dropdown .dropdown-a:hover i{
+	transform: rotateX(180deg);
+}
+.dropdown .dropdown-a i{
+	transition: all 1s;
+}
+ /*顶部导航区域结束*/
+
+ /*头部搜索区域开始*/
+ .header{
+ 	height: 126px;
+ 	background-color: red;
+ }
+/* 头部搜索区域结束*/
+
+ /* 焦点区域开始*/
+ .foucs{
+ 	height: 568px;
+ 	background-color: green;
+ }
+ /*焦点区域结束*/
+
+ /* 今日热销区域开始*/
+ .todays{
+ 	height: 200px;
+ 	background-color: blue;
+ }
+ /*今日热销区域结束*/
+
+ /* 楼层区域开始*/
+ .floor{
+ 	height: 200px;
+ 	background-color: skyblue;
+ }
+/* 楼层区域结束*/

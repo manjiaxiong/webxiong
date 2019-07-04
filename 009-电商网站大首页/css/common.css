@@ -1,0 +1,29 @@
+body{
+	font-size: 14px;
+}
+.container{
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+a{
+	text-decoration: none;
+}
+/*浮动共同样式开始*/ 
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:after{
+	height: 0;
+	visibility: hidden;;
+	clear: both;
+	display: block;
+	content: "";
+}
+.clearfix{
+	*zoom: 1;
+}
+/*浮动共同样式结束*/
