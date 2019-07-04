@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>049-拓展自己的插件2.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button>变化</button>
+	<div>div1</div>
+	<div>div2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	// console.log($.prototype===$.fn);
+	// $.fn.setColor=function(options){
+	// 	var DEFAULTE={color:"blue"};//默认蓝色
+	// 	// console.log(this);
+	// 	var options= $.extend({},DEFAULTE,options);
+	// 	return this.each(function(){//把这个jquery对象返回出去
+	// 		// console.log(this);//这个this里面是每个dom节点
+	// 		this.style.color=options.color;
+	// 	})
+		
+	// }
+	$.fn.extend({
+		setColor:function(options){
+			var DEFAULT={color:"blue"};//默认蓝色
+			// console.log(this);
+			var options= $.extend({},DEFAULTE,options);
+			return this.each(function(){//把这个jquery对象返回出去
+				// console.log(this);//这个this里面是每个dom节点
+				this.style.color=options.color;
+			})
+		}
+	});
+</script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$('div').setColor({color:'red'}).animate({width:400});
+			
+		})
+	});	
+</script>
+</html>
