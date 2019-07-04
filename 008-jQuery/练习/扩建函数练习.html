@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>扩建函数练习.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<button>变化</button>
+	<div>div</div>
+	<div>div</div>
+	<div>div</div>
+	<div>div</div>
+</body>
+<script src="../js/jquery-1.12.4.js"></script>
+<script>
+	$.fn.extend({
+		setColor:function(options){
+			var Default={color:'red'};
+			var options=$.extend({},Default,options);
+			return	this.each(function(index){//each里面每个this是DOM节点
+				this.style.color=options.color;
+				console.log(this)
+			})
+		}
+	})
+	
+</script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$('div').setColor({color:'blue'});
+		})
+			});
+</script>
+</html>

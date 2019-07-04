@@ -62,31 +62,55 @@
 					}
 				}
 			}
-			// else{
-			// 	 var err=[];
-			// 	 for(var i=0;i<this.length;i++){
-			// 	 	err[i]=this[i];
-			// 	 }
-			// 	 return err;
-			// }
+			else{
+				 var err=[];
+				 for(var i=0;i<this.length;i++){
+				 	err[i]=this[i];
+				 }
+				 return err;
+			}
+		}
+	}
+	//extend方法
+	Kquery.extend=Kquery.prototype.extend=function(options){
+		for(key in options){
+			this[key]=options[key];
 		}
 	}
 	//Kquery的静态方法
-	Kquery.isFunction=function(str){//函数
-		return typeof str=="function";
-	}
-	Kquery.isString=function(str){//字符串
-		return  typeof str=="string"
-	}
-	Kquery.isHTML=function(str){//标签
-		return /<[^<>]+>/.test(str);
-	}
-	Kquery.isArray=function(str){//数组
-		return  typeof str=='object'&&(length in str);
-	}
-	Kquery.isNumber=function(str){
-		return typeof str=='number';
-	}
+	Kquery.extend({
+		isFunction:function(str){//函数
+			return typeof str=="function";
+		},
+		isString:function(str){//字符串
+			return  typeof str=="string"
+		},
+		isHTML:function(str){//标签
+			return /<[^<>]+>/.test(str);
+		},
+		isArray:function(str){//数组
+			return  typeof str=='object'&&(length in str);
+		},
+		isNumber:function(str){//判断是否为数字
+			return typeof str=='number';
+		},
+		
+	})
+	// Kquery.isFunction=function(str){//函数
+	// 	return typeof str=="function";
+	// }
+	// Kquery.isString=function(str){//字符串
+	// 	return  typeof str=="string"
+	// }
+	// Kquery.isHTML=function(str){//标签
+	// 	return /<[^<>]+>/.test(str);
+	// }
+	// Kquery.isArray=function(str){//数组
+	// 	return  typeof str=='object'&&(length in str);
+	// }
+	// Kquery.isNumber=function(str){//判断是否为数字
+	// 	return typeof str=='number';
+	// }
 
 	Kquery.prototype.init.prototype=Kquery.prototype;
 	w.Kquery=w.$=Kquery;
