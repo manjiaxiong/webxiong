@@ -12,7 +12,7 @@
 	Dropdown.prototype={
 		constructor:Dropdown,
 		init:function(){
-			//初始化
+			//1初始化下拉层
 			this.layer.showHide(this.options);
 			//监听自定义事件
 			this.layer.on('show shown hide hidden',function(ev){
@@ -33,6 +33,7 @@
 		},
 		show:function(){
 			if(this.options.delay){
+				clearTimeout(this.timer);
 				this.timer=setTimeout(function(){
 					this.layer.showHide('show');
 					this.$elem.addClass(this.activeClass);
@@ -57,15 +58,23 @@
 		mode:'fade'
 	}
 	//暴露
-	$.fn.extend({
-		dropdown:function(options){
-			//隐式迭代
-			return this.each(function(){
-				var $elem=$(this);
-				options=$.extend({},DEFAULT,options)
-				new Dropdown($elem,options);
-			})
-			
-		}
-	})
+$.fn.extend({
+	dropdown:function(options){
+		//1.实现隐式迭代
+		return this.each(function(){//实现单例模式
+			var $elem = $(this);
+			var dropdown = $elem.data('dropdown');
+			if(!dropdown){
+				options = $.extend({},Dropdown.DEFAULTS,options);
+				dropdown = new Dropdown($elem,options);
+				//将实例信息存储在当前dom节点上
+				$elem.data('dropdown',dropdown);
+			}
+			//第二次调用dropdown则是调用实例上的方法
+			if(typeof dropdown[options] == 'function'){
+				dropdown[options]();
+			}
+		})
+	}
+})
 })($)

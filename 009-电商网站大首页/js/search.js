@@ -50,14 +50,15 @@ Search.prototype = {
 			}
 			// this.searchInput.on('input',$.proxy(this.getData,this));
 		}
-		//点击别处消失
-		$(document).on('click',function(){
-			this.hideLayer();
-		}.bind(this))
 		//清除冒泡
 		this.searchInput.on('click',function(ev){
 				ev.stopPropagation()
 		})
+		//点击别处消失
+		$(document).on('click',function(){
+			this.hideLayer();
+		}.bind(this))
+		
 		//点击获取数据且跳转
 		var _this=this;
 		this.$elem.on('click','.search-Li',function(){
@@ -140,6 +141,7 @@ Search.prototype = {
 	},
 	hideLayer:function(){
 		this.searchLayer.showHide('hide');
+		console.log('hide')
 	}
 	
 }

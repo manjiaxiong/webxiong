@@ -193,7 +193,7 @@
 					showHideObj = getShowHide($elem,options);
 					$elem.data('showHideObj',showHideObj);
 				}
-				//第二次进入该函数则是调用显示隐藏的动画方法
+				//第一次之后进入该函数则是调用显示隐藏的动画方法
 				if(typeof showHideObj[options] == 'function'){
 					
 					showHideObj[options]($elem);

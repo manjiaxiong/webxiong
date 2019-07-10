@@ -36,7 +36,7 @@
 	//加载数据
 	$dropdownLi.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
 		if(ev.type=='dropdown-show'){
-			var $elem=$(this);
+			// var $elem=$(this);
 			// var $layer=$elem.find('.dropdown-layer');
 			// var url=$elem.data('load');//得到数据地址
 			// var isLoadin=false;//是否加载完毕
@@ -56,9 +56,9 @@
 			// 			})
 			// 		}
 			// 	}
-				loadHtmlContebnt($elem,function(data){
+				loadHtmlContebnt($(this),function(data){
 					// console.log(data);
-					var $layer=$elem.find('.dropdown-layer');
+					var $layer=$(this).find('.dropdown-layer');
 					var html="";
 					for(var i=0;i<data.length;i++){
 						html+="<li><a href="+data[i].url+">"+data[i].name+"</a></li>"
@@ -67,7 +67,7 @@
 						$layer.html(html);
 						isLoadin=true;
 					},1000)
-				});
+				}.bind(this));
 			}
 			
 	})
@@ -90,6 +90,7 @@
 			}
 	 })
 	 $search.on('getNodata',function(ev){
+	 	var $elem=$(this);
 	 	$elem.search('appendLayer','');
 		$elem.search('hideLayer');
 	 })
@@ -116,7 +117,7 @@
 	 //数据加载
 	 $focusDropdownLi.on('dropdown-show dropdown-shown dropdown-hide dropdown-hidden',function(ev){
 		if(ev.type=='dropdown-show'){
-			var $elem=$(this);
+			// var $elem=$(this);
 			// var $layer=$elem.find('.dropdown-layer');
 			// var url=$elem.data('load');//得到数据地址
 			// var isLoadin=false;//是否加载完毕
@@ -145,9 +146,9 @@
 			// 			})
 			// 		}
 			// 	}
-				loadHtmlContebnt($elem,function(data){
+				loadHtmlContebnt($(this),function(data){
 					// console.log(data);
-					var $layer=$elem.find('.dropdown-layer');
+					var $layer=$(this).find('.dropdown-layer');
 					var html="";
 					// console.log(data);
 					for(var i=0;i<data.length;i++){
@@ -166,9 +167,11 @@
 						$layer.html(html);
 						isLoadin=true;
 					},1000)
-				});
+				}.bind(this));
 			}
-			
-			
-	})
+		});
+	 //轮播图逻辑开始
+	 var $coursel=$('.carousel .carousel-wrap');
+	 $coursel.coursel({});
+	 //轮播图逻辑结束
 })($)

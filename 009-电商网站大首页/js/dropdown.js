@@ -37,6 +37,7 @@ Dropdown.prototype = {
 	},
 	show:function(){
 		if(this.options.delay){
+			clearTimeout(this.timer);
 			this.timer=setTimeout(function(){
 				this.$layer.showHide('show');
 				//显示时添加对应class
@@ -75,10 +76,11 @@ Dropdown.DEFAULTS = {
 // 		})
 // 	}
 // })
+//单例方法
 $.fn.extend({
 	dropdown:function(options){
 		//1.实现隐式迭代
-		this.each(function(){//实现单例模式
+		return this.each(function(){//实现单例模式
 			var $elem = $(this);
 			var dropdown = $elem.data('dropdown');
 			if(!dropdown){
