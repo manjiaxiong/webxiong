@@ -1,5 +1,5 @@
 (function($){
- //缓存数据
+ //缓存数据 
  var cache={
  	data:{},
  	count:0,
@@ -29,14 +29,14 @@ function Search($elem,options){
 Search.prototype = {
 	constructor:Search,
 	init:function(){
-		//初始化下拉
+		//初始化下拉菜单
 		this.searchLayer.showHide(this.options);
 		//监听提交事件
 		this.searchSub.on('click',$.proxy(this.submit,this));
 		//监听input请求事件
 	
 		if(this.options.autocomplete){	//(判断是否有下拉层)
-			if(this.options.delayGetData){
+			if(this.options.delayGetData){//请求延时
 				this.searchInput.on('input',function(){
 					clearTimeout(this.timer);//清除定时器
 					this.timer= setTimeout(function(){
@@ -141,7 +141,7 @@ Search.prototype = {
 	},
 	hideLayer:function(){
 		this.searchLayer.showHide('hide');
-		console.log('hide')
+		// console.log('hide')
 	}
 	
 }

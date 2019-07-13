@@ -27,16 +27,12 @@
 		},
 		show:function($elem){
 				show($elem,function(){
-					$elem.show(function(){
-						$elem.trigger('shown').data('status','shown');	
-					});
+					$elem.show().trigger('shown').data('status','shown');;
 				});
 		},
 		hide:function($elem){
 			hide($elem,function(){
-				$elem.hide(function(){
-					$elem.trigger('hidden').data('status','hidden');
-				});
+				$elem.hide().trigger('hidden').data('status','hidden');
 			})
 		}
 	};
@@ -74,7 +70,7 @@
 				})
 			},
 			show:function($elem){
-				console.log(11)
+				// console.log(11)
 				js._customshow($elem);
 			},
 			hide:function($elem){
@@ -146,7 +142,7 @@
 		show($elem,function(){
 			$elem
 			.stop()
-			.animate($elem.data('styles'),function(){
+			.animate($elem.data('styles'),100,function(){
 				$elem.trigger('shown').data('status','shown');
 			})
 		});
@@ -155,17 +151,32 @@
 		hide($elem,function(){
 			$elem
 			.stop()
-			.animate(options,function(){
+			.animate(options,100,function(){
 				$elem.trigger('hidden').data('status','hidden');
 			})
 		})
 	}
 		//获取显示隐藏动画的方法
+	// function getShowHide($elem,options){
+	// 	var showhideFn = slient;
+	// 	if(options.js){
+	// 		showhideFn = js[options.mode]
+	// 	}
+	// 	//初始化
+	// 	showhideFn.init($elem);
+
+	// 	//返回对应的显示隐藏方法
+	// 	return {
+	// 		show:showhideFn.show,
+	// 		hide:showhideFn.hide
+	// 	}
+	// }
 	function getShowHide($elem,options){
 		var showhideFn = slient;
 		if(options.js){
 			showhideFn = js[options.mode]
 		}
+
 		//初始化
 		showhideFn.init($elem);
 
@@ -177,7 +188,7 @@
 	}
  
 	var DEFAULTS = {
-		js:true,
+		js:false,
 		mode:'fade'
 	}
 
@@ -193,10 +204,9 @@
 					showHideObj = getShowHide($elem,options);
 					$elem.data('showHideObj',showHideObj);
 				}
-				//第一次之后进入该函数则是调用显示隐藏的动画方法
+				//第二次进入该函数则是调用显示隐藏的动画方法
 				if(typeof showHideObj[options] == 'function'){
-					
-					showHideObj[options]($elem);
+					showHideObj[options]($elem)
 				}
 			})
 		}

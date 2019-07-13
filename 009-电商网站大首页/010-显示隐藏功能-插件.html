@@ -40,9 +40,10 @@
 		var $div=$('div')
 		$div.showHide(
 			{
-				js:true,
+				js:false,
 				mode:'slideLeftRight'
 			});
+		// $div.removeClass('transition')
 		$('button').eq(0).on('click',function(){
 				$div.showHide('show');
 			});

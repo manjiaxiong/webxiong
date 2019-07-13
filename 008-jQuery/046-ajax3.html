@@ -24,7 +24,7 @@
 			//data不写成json格式返回类型必须写成text
 		});
 		$('button').eq(2).on('click',function(){
-			$.getJSON("044-data.json",function(data){
+			$.getJSON("https://suggest.taobao.com/sug?_tb_token_=5eb3eeb61e57e&__ajax__=1&pid=mm_46714769_45242704_740290430&unid=&clk1=&code=utf-8&q=a&callback=jQuery112407201992620923845_1562719192859&_=1562719192860",function(data){
 				console.log(data);
 			});
 		})
