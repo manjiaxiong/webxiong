@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>008-数组的扩展运算.html</title>
+</head>
+<body>
+	<ul->
+		<li>li1</li>
+		<li>li2</li>
+		<li>li3</li>
+		<li>li4</li>
+		<li>li5</li>
+		<li>li6</li>
+		<li>li7</li>
+		<li>li8</li>
+		<li>li9</li>
+		<li>li10</li>
+	</ul->
+</body>
+<script>
+	var arr=[11,22,33];
+	/*
+	// console.log(arr);
+	// console.log(...arr);//console.log(11,22,33);
+	function sum(n1,n2){
+		return n1+n2
+	}
+	function sum1(...arr){
+		return arr
+	}
+	console.log(sum1(arr))
+	var arr1=[3,4];
+	// console.log(sum(...arr1));
+	// console.log(sum.apply(null,arr1));
+	//找最大值
+	const arr2=[11,22,33,44,55];
+	console.log(Math.max.apply(null,arr2));//方法一调用apply方法
+	console.log(Math.max(...arr2));//方法二把数组拓展运算
+	*/
+	//深copy方法1//遍历数组
+	// var arr1=[];
+	// for(var i=0;i<arr.length;i++){
+	// 	arr1.push(arr[i]);
+	// }
+	// console.log(arr1);
+	//深copy方法2//复制地址
+	// const arr1=arr;
+	// arr1.push(44);
+	// console.log(arr)
+	// console.log(arr1)
+	//深copy方法3//利用数组方法
+	// const arr1=arr.concat();
+	// const arr2=arr.slice();
+	// arr1.push(44);
+	// console.log(arr)
+	// console.log(arr1)
+	// console.log(arr2)
+	//深copy方法4//利用数组扩展
+	// const arr1=[...arr];
+	// arr1.push(44);
+	// console.log(arr)
+	// console.log(arr1)
+	//利用数组扩展把伪数组变成真数组
+	var aLi=document.getElementsByTagName('li');
+	aLi=[...aLi];
+	console.log(aLi)
+</script>
+</html>

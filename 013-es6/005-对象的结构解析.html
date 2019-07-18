@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-对象的结构解析.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let options={//根据属性名解析即位置可以颠倒
+		interval:500,
+		mode:'js'
+	}
+	//普通方法
+	console.log(options.interval);
+	console.log(options.mode);
+	//结构解析方法
+	// let {interval:interval1,mode:mode1}=options;
+	//如果名称一致可以省略
+	// let {interval,mode}=options;
+	//可以设置默认值
+	let {interval=700,mode,age=18}=options;
+	console.log(interval,mode,age);
+</script>
+</html>

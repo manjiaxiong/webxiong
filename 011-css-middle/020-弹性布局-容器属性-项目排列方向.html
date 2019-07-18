@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-弹性布局-容器属性-项目排列方向.html</title>
+	<style>
+		.father{
+			width: 1000px;
+			margin-top: 50px;
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid #000;
+			display: flex;
+			/*flex-direction: row;水平排版从左到右（默认）*/
+			/*flex-direction: row-reverse;/*水平排版从右到左*/
+			/*flex-direction: column;/*垂直排版 从上到下*/
+			flex-direction: column-reverse;/*垂直排版 从下到上*/
+		}
+		.father div{
+			height: 50px;
+		}
+		.son1{
+			width: 100px;
+			background-color: red;
+		}
+		.son2{
+			width: 200px;
+			background-color: blue;
+		}
+		.son3{
+			width: 300px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>

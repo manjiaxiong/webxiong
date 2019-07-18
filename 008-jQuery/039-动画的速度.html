@@ -25,9 +25,11 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 	$(function(){
-		
+		//回调函数放在最后
 		$('button').on('click',function(){
-			$('div:eq(0)').animate({width:300},2000,'swing');//默认是swing
+			$('div:eq(0)').animate({width:300},2000,'swing',function(){
+				console.log(111)
+			});//默认是swing
 			$('div:eq(1)').animate({width:300},2000,'linear');
 		})
 			});

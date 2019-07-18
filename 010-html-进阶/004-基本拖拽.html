@@ -27,13 +27,45 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 	$(function(){
+		$('#little').on('dragstart',function(){
+			//当元素开始拖动时触发
+		// console.log('little::::dragstart')
+		})
+		.on('drag',function(){
+			//被拖动元素拖动时触发
+			// console.log('little::::drag')
+		})
+		.on('dragend',function(){
+			//拖拽时松开鼠标时触发
+			// console.log('little::::dragend')
+		})
 		$('#big')
 			.on('drop',function(){
-				console.log('drop');
-				$('#big').append($('#little'))
+				//当放置被拖动元素时触发
+				// console.log('drop');
+				$(this).append($('#little'))
 			})
 			.on('dragover',function(ev){
+				//被拖动元素正在到放置到容器时触发,默认无法把元素放置到其他元素中,如果需要设置允许放置,我们必须阻止对元素的默认处理方式。
+				// console.log('dragover')
 				ev.preventDefault()
+			})
+			.on('dragenter',function(){
+				//当被拖动元素进入容器时触发
+				//离开当前位置一次 动的时候一次
+				// console.log('Big::::drafenter')
+			})
+			.on('dragleave',function(){
+				//当被拖动元素离开容器时触发
+				// console.log('Big::::dragleave')
+			})
+			.on('dragend',function(){
+				//被拖动元素在容器中松开鼠标时触发
+				// console.log('Big::::dragend')
+			})
+			.on('drag',function(){
+				//容器中的被拖动元素拖动时触发
+				// console.log('Big::::drag')
 			})
 
 			});

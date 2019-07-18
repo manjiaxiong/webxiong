@@ -31,11 +31,11 @@
 			alert('div click');
 		})
 		$('button').eq(0).on('click',function(){
-			var $div= $('div').remove();
+			var $div= $('div').remove();//删除元素且移除事件
 			$('body').append($div);
 		});
 		$('button').eq(1).on('click',function(){
-			var $div= $('div').empty();
+			var $div= $('div').empty();//清空元素内容不移除事件
 			console.log($div);
 		});
 		$('button').eq(2).on('click',function(){

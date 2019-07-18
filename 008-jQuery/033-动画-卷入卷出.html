@@ -27,9 +27,7 @@
 <script>
 	$(function(){
 		$('button:eq(0)').on('click',function(){
-			$('div').slideDown(1000,function(){
-				console.log('show');
-			})
+			$('div').slideDown()//自己有默认时间
 		})
 		$('button').eq(1).on('click',function(){
 			$('div').slideUp(1000,function(){

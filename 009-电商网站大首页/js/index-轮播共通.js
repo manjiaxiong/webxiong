@@ -39,7 +39,7 @@
 		})
 		$elem.on('coursel-load',function(ev,index,elem){
 			console.log('loadimg222');
-			var $elem=$(elem);
+			var $elem=$(elem);``
 			var $imgs=$elem.find('.carousel-img');
 			// console.log($imgs)
 			$imgs.each(function(){

@@ -28,9 +28,7 @@
 <script>
 	$(function(){
 		$('button:eq(0)').on('click',function(){
-			$('div').show(1000,function(){
-				console.log('show');
-			})
+			$('div').show()//有回掉函数会自动添加一个事件
 		})
 		$('button').eq(1).on('click',function(){
 			$('div').hide(1000,function(){

@@ -20,6 +20,7 @@ function Coursel($elem,options){
 Coursel.prototype = {
 	constructor:Coursel,
 	init:function(){
+		var _this=this;
 		this.$elem.trigger('courselShow',[this.now,this.$courselItems.eq(this.now)]);
 			if(this.options.slide){//左右滑动
 				//1显示默认图片，移出所有图片
@@ -53,7 +54,7 @@ Coursel.prototype = {
 					ev.stopPropagation();
 				}.bind(this));
 				//5自动轮播
-				_this=this;
+				
 				if(this.options.autotime){//判断是否轮播
 					this.autoplay();
 					this.$elem.hover(function(){//存值方法只能用用匿名回掉函数方法
@@ -100,7 +101,6 @@ Coursel.prototype = {
 					ev.stopPropagation();
 				}.bind(this));
 				//5自动轮播
-				_this=this;
 				if(this.options.autotime){//判断是否轮播
 					this.autoplay();
 					this.$elem.hover(function(){//存值方法只能用用匿名回掉函数方法
