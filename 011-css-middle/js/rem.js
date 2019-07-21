@@ -3,7 +3,7 @@
 	// console.log(root);
 	function refresh(){
 		var width=doc.documentElement.clientWidth||doc.body.clientWidth;
-		// console.log(width)
+		console.log(width,window.innerWidth);
 		var fontSize=width/10+'px';
 		root.style.fontSize=fontSize;
 	}

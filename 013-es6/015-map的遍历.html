@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-map的遍历.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//普通方法不能属性是对象
+	// const obj={};
+	// const obj1={id:1001};
+	// const obj2={id:1002};
+	// obj['name']='Tom';
+	// console.log(obj)
+	//可以属性是对象
+	const m=new Map();
+	const obj1={id:1001};
+	const obj2={id:1002};
+	m.set(obj1,'xiong');
+	m.set(obj2,'man');
+	m.set('name','jia');
+	for(let key of m.keys()){
+		console.log('key:',key)
+	}
+	for(let value of m.values()){
+		console.log('value:',value)
+	}
+	for(let entry of m.entries()){
+		console.log('entry:',entry)
+	}
+	m.forEach(function(value,key){
+		console.log(value,key)
+	})
+
+</script>
+</html>

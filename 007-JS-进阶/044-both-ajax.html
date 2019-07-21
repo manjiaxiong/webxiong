@@ -36,7 +36,7 @@
 						// console.log(oAjax.responseText);
 						var strToObj  =  JSON.parse(oAjax.responseText);
 						typeof fnSucc == "function" && fnSucc(strToObj);
-					}catch(e){
+					}catch(err){
 						console.log(e);
 					}
 				}else{
@@ -49,8 +49,8 @@
 	oBtn.onclick =  function(){
 		ajax(
 			"get",
-			"http://127.0.0.1:3000",
-			'name=top',
+			"http://127.0.0.1:3000/042-data2.json",
+			'',
 			function(data){
 				console.log(data);
 			},

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>025-Promise的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//当new Promise时里面的回调函数会立即执行
+	const promise= new Promise((resolve,reject)=>{
+		//异步处理逻辑
+		//如果异步处理成功，调用resolve此时Promise实例由pending变成fulfilled
+		//如果异步处理失败，调用reject此时Promise实例由pending变成rejected
+		//resolve('ok')
+		// reject('error');
+		console.log('in Promise')
+		setTimeout(()=>{
+			resolve('ok');
+			// reject('error');
+		},0)
+	});
+	console.log(promise);
+	promise
+	.then(data=>{//成功时
+		console.log(data);
+		console.log(promise);
+	},err=>{//失败时（可省略）
+		console.log(err);
+		console.log(promise);
+	})
+</script>
+</html>

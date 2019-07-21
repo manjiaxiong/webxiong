@@ -122,6 +122,7 @@ Search.prototype = {
 			// }else{
 			// 	this.showLayer();
 			// }
+			console.log(data);
 			this.$elem.trigger('getData',data);
 			cache.addData(this.getVal(),data);
 		}.bind(this))

@@ -59,15 +59,16 @@
 <script>
 	$(function(){
 		var drag=null;
-		$('.target-list').on('dragstart',function(ev){
-			drag=$(ev.target).clone(false);
+		$('.target-list').on('dragstart','.target',function(ev){
+			drag=this;
 		})
 		$('.container').on('drop',function(ev)
 		{
-			ev.preventDefault();
+			$(this).append(drag)
 		})
 		.on('dragover',function(ev){
-			$(this).append(drag)
+			
+			ev.preventDefault();
 		})
 			});
 </script>

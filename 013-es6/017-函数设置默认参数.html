@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>017-函数设置默认参数.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+// 直接在参数定义的时候赋值来为为函数的参数设置默认值
+		//方法一
+		// function show(name,age){
+		// 	name=name||'Tom';
+		// 	age=age||18;
+		// }
+// 参数默认值不是传值的,而是每次都重新计算默认值表达式的值		
+		// function show(name,age=18){
+		// 		console.log(name,age);
+		// 	}
+		// show('tom');
+		// let i=1;
+		// function show (x=++i){
+		// 	console.log(x)
+		// }
+		// i=5
+		// show();
+// 结构解析和默认参数结合
+	function request(url,{method='get',data='id:3000'}={}){
+		console.log(url,method,data)
+	}
+	request('http://api.kuazhu.com',{method:'post',data:'name=熊家满'});
+	request('http://api.kuazhu.com');
+// rest参数
+	function show(...arr){
+		console.log(arr);
+	}
+	show([11,22,33])
+</script>
+</html>
