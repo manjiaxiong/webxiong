@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-async-fn-await-sequence.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	const getAjaxData=(url)=>new Promise((resolve,reject)=>{
+		//异步逻辑处理
+		$.ajax({
+			url:url,
+			dataType:'json'
+			// type:"GET"
+		})
+		.done((data)=>{
+			resolve(data);
+		})
+		.fail(()=>{
+			reject('notdefind');
+		})
+	})
+	//模拟:指定用户->获取用户信息->根据用户信息的订单号再获取订单信息
+	//继发关系
+	async function fn(username){
+		const user=await getAjaxData('./data/'+username+'.json');
+		console.log(user)
+		const order=await getAjaxData('./data/'+user.orderNo+'.json');
+		return order;
+	}
+	fn('a')
+	.then(data=>{
+		console.log(data);
+	})
+	//模拟：获取用户A和用户B的信息
+	//没有继发关系
+	//同时获取promiseA和promiseB（new Promise立即执行）
+	async function getUser(){
+		// const userA=await getAjaxData('data/a.json');
+		// const userB=await getAjaxData('data/b.json');
+		const promiseA=getAjaxData('data/a.json');
+		const promiseB=getAjaxData('data/b.json');
+		const userA=await promiseA
+		const userB=await promiseB
+		return [userA,userB];
+	}
+	getUser()
+	.then(data=>{
+		console.log(data);
+	})
+</script>
+</html>

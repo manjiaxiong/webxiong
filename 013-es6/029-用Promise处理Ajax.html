@@ -27,7 +27,7 @@
 		})
 	})
 	//2用函数生产promise
-	getAjaxData('https://api.github.com/users/manjiaxiong')
+	getAjaxData('https://api.github.com/users/kuazhu')
 	.then(data=>{
 		// console.log(data.followers_url)
 		return getAjaxData(data.followers_url);

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>043-class面向对象.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+			constructor(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			sayName(){//原型上的方法 （实例方法）
+				console.log('My Name is :'+this.name);
+			}
+			sayAge(){
+				console.log('My age is :'+this.age);
+			}
+			static sayHi(){//静态方法如果不操作只能构造函数调用
+				console.log('hello')
+			}
+	}
+	class Student extends Person{
+		constructor(name,age,major){
+			super(name,age);//必须super
+			this.major=major;
+		}
+		sayMjor(){
+			console.log('My major is :'+this.major)
+		}
+	}
+	const p1=new Person('Tom',18);
+	p1.sayHi=Person.sayHi;
+	// Person();//不能用不是new的方法调用
+	console.log(p1);
+	p1.sayHi();
+	const s1=new Student('熊家满',18,'Computer');
+	s1.sayName();
+	s1.sayAge();
+	s1.sayMjor();
+	Student.sayHi();//Student把静态方法也继承了
+</script>
+</html>
