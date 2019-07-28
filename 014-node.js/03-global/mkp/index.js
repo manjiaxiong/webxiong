@@ -20,3 +20,4 @@ function mkp(){
 	fs.mkdirSync(pathName+'/images');
 }
 module.exports=mkp;
+mkp();

@@ -22,4 +22,4 @@ const buf4=Buffer.alloc(3)
 buf4[0]=0xe5; 
 buf4[1]=0xa5; 
 buf4[2]=0xbd;
-console.log(buf4.toString('utf-8'));
+console.log(buf4.toString());

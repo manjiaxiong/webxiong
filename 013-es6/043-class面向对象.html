@@ -34,7 +34,7 @@
 	}
 	const p1=new Person('Tom',18);
 	p1.sayHi=Person.sayHi;
-	// Person();//不能用不是new的方法调用
+	// Person();//class创建的函数不能用不是new的方法调用
 	console.log(p1);
 	p1.sayHi();
 	const s1=new Student('熊家满',18,'Computer');
