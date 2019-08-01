@@ -8,12 +8,11 @@
 	
 </body>
 <script>
-	function Person(name){
-		console.log(name);
-	}
-	class Student extends Person{
+	async function show(){
+		await setTimeout(()=>{console.log(11)})
+		console.log(222)
 
 	}
-	new Student('熊')
+	show();
 </script>
 </html>
