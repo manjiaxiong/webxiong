@@ -8,7 +8,7 @@ const BlogSchema = new mongoose.Schema({//定义Schema
 	  },
 	  author:{
 	  	type:mongoose.Schema.Types.ObjectId,
-	  	ref:'user'
+	  	ref:'user'//跟user集合联系
 	  }
 	});
 BlogSchema.statics.findBlogs=function(query){

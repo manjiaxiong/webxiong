@@ -25,15 +25,15 @@ db.once('open',()=>{
 		}
 	}
 	*/
-	/*
+	
 	BlogModel.findOne({title:"best blog"})
 	.populate('author',"name -_id")//关联的字段
 	.then(data=>{
 		console.log(data)
 	})
-	*/
-	BlogModel.findBlogs({title:"best blog"})
-	.then(data=>{
-		console.log(data)
-	})
+	
+	// BlogModel.findBlogs({title:"best blog"})
+	// .then(data=>{
+	// 	console.log(data)
+	// })
 })

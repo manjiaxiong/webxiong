@@ -2,27 +2,32 @@ const {get:getItem,add:addItem,del:delItem}=require('./../model/item.js');
 const path=require('path');
 const swig=require('swig');
 const querystring=require('querystring')
+const UserModel=require('./../modules/users.js')
 class Controller{
-	 index(req,res,...args){
-	 	getItem()
+	index(req,res,...args){
+        //1.获取数据
+        getItem()
         .then(data=>{
-			const filePath = path.normalize(__dirname+'/../view/item/index.html');
-			//引入模板()
-			const template=swig.compileFile(filePath);
-			const html=template({
-				data:data
-			})
-			// console.log(html)
-			res.setHeader('Content-type',"text/html;charset=UTF-8")
-			res.end(html);
-		})
-		.catch(err=>{
-			res.setHeader('Content-type',"text/html;charset=UTF-8")
-			res.statusCode = 404
-			res.end('<h1>请求出错</h1>')
-		})
+            //将数据分配到页面并返回页面
+            const filePath = path.normalize(__dirname+"/../View/Item/index.html")
+            //引入模版
+            const template = swig.compileFile(filePath)
+            
+            const html = template({
+                data:data
+            })
+            res.setHeader('Content-type',"text/html;charset=UTF-8")
+            res.end(html) 
+        })
+        .catch(err=>{
+            console.log('err:',err)
+            res.setHeader('Content-type',"text/html;charset=UTF-8")
+            res.statusCode = 404
+            res.end('<h1>请求出错了</h1>')
+        })
     }
-     add(req,res,...args){
+    
+    add(req,res,...args){
         //1.获取参数
         let body = ''
         req.on('data',(chunk)=>{

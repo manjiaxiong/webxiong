@@ -1,0 +1,37 @@
+*{	
+	margin: 0;
+	padding: 0;
+}
+.App{
+	width: 960px;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.App input{
+	width: 900px;
+	height: 40px;
+	outline: none;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	font-size: 18px;
+	vertical-align: middle;
+}
+.App button{
+	width: 40px;
+	height: 50px;
+}
+.App ul{
+	list-style: none;
+	margin-top: 20px;
+}
+.App ul li{
+	line-height: 30px;
+	border-bottom: 1px dashed black;
+	margin-bottom: 10px;
+	border-left: 2px solid red
+}
+.App ul li:hover{
+	background-color: #ccc;
+	cursor: pointer;
+}

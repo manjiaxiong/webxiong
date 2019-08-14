@@ -34,7 +34,7 @@ const UserSchema = new mongoose.Schema({//定义Schema
 		},
 		friends:{
 			type:Array//默认有一个空数组
-		}
+		} 
 	});
 //注意不能用箭头函数因为要用到调用时的对象
 UserSchema.methods.findBlogs=function(cb){//在UserSchema上定义一个实例函数

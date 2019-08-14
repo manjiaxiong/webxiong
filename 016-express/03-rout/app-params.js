@@ -9,7 +9,7 @@ app.get('/users/:userId/books/:bookId', (req, res,next) => {//get 返回根 如�
 	console.log(req.params);
 	next();
 },(req,res)=>{
-	res.send('get response B')
+	res.send('get response A')
 });
 app.get('/',(req,res)=>{
 	console.log(req.query);

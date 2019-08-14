@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 
 app.use(express.static('public'))//默认找到public下面的index.html
-app.use('/static',express.static('public'))
+app.use('/static',express.static('public'))//默认找到public下面的index.html
 app.all("/",(req,res,next)=>{
 	console.log("do something.....");
 	next();//有next才继续向下直行

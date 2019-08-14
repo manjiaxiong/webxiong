@@ -5,8 +5,8 @@ app.use(express.static('public'))//默认找到public下面的index.html
 // app.use('/static',express.static('public'))
 //开发阶段设置不走缓存
 swig.setDefaults({
-	// cache:'memory'
-  cache: false
+	// cache:'memory'(设置缓存)
+  	cache: false
 })
 
 
