@@ -8,11 +8,9 @@
 	
 </body>
 <script>
-	async function show(){
-		await setTimeout(()=>{console.log(11)})
-		console.log(222)
-
+	function show({a:as}){
+		console.log(as)
 	}
-	show();
+	show({a:9})
 </script>
 </html>

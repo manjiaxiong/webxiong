@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-08-12 10:29:05
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-08-14 10:59:53
-*/
+
 import * as types  from './actionTypes.js'
 import { fromJS } from 'immutable'
 const defaultState = fromJS({
