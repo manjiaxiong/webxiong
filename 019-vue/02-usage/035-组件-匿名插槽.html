@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>035-组件-匿名插槽.htm</title>
+</head>
+
+<body>
+    <div id="app1">
+        <layout>
+            首页主要内容
+        </layout>
+    </div>
+    <!-- 把模板写在外面 通过id联系  -->
+    <template id="layout">
+        <div>
+            <nav>顶部导航</nav>
+            <slot>主要内容</slot>
+            <slot>主要内容</slot>
+            <footer>底部</footer>
+        </div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+// 定义一个名为 layout 的新组件
+//注意1：全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+//注意2：组件的data选项必须是一个函数
+//注意3：可以在任何新创建的 Vue 根实例 (new Vue) 的模板中使用
+Vue.component('layout', {
+    template: '#layout'
+})
+
+
+
+//vm就是Vue的一个实例
+//vm是（ViewModel）的缩写
+var vm1 = new Vue({
+    el: '#app1',
+    data: {
+        total: 0
+    }
+})
+</script>
+
+</html>

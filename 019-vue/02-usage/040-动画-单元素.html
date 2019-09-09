@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>040-动画-单元素.html</title>
+    <style>
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+    /*
+    .v-enter-active,
+    .v-leave-active {
+        transition: opacity .5s;
+    }
+
+    .v-enter,
+    .v-leave-to {
+        opacity: 0;
+    }*/
+
+    </style>
+</head>
+
+<body>
+    <div id="app1">
+        <button @click="show=!show">切换</button>
+        <transition name="fade" appear>
+            <p v-if="show">hellow</p>
+        </transition>
+    </div>
+    <!-- 把模板写在外面 通过id联系  -->
+</body>
+<script src="js/vue.js"></script>
+<script>
+//vm就是Vue的一个实例
+//vm是（ViewModel）的缩写
+var vm1 = new Vue({
+    el: '#app1',
+    data: {
+        show: true
+    }
+})
+</script>
+
+</html>

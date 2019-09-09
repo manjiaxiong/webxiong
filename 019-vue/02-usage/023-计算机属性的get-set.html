@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>023-计算机属性的get-set.html</title>
+</head>
+<body>
+	<div id="app">
+        <input type="text" v-model="fullName">
+		<p>firstName:{{firstName}}</p>
+        <p>lastName:{{lastName}}</p>
+        <p>fullName:{{fullName}}</p>
+	</div>
+		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//vm就是Vue的一个实例
+	//vm是（ViewModel）的缩写
+    var vm = new Vue({
+        el:'#app',
+        data:{
+           firstName:"熊",
+           lastName:"家满"
+        },
+        methods:{},
+        computed:{
+            fullName:{
+                get(){
+                    return this.firstName+' '+this.lastName
+                },
+                set(newName){//newName代表get方法的值
+                    // console.log(111)
+                    var names=newName.split(' ');
+                    this.firstName=names[0];
+                    this.lastName=names[names.length-1]
+                }
+                
+            }
+        }
+    })
+</script>
+</html>

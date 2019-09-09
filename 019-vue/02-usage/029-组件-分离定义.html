@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-组件-分离定义.html</title>
+</head>
+<body>
+  <div id="app1">
+       <button-counter> </button-counter>
+       <button-counter> </button-counter>
+       <button-counter> </button-counter>
+  </div>
+  <div id="app2">
+       <button-counter> </button-counter>
+       <button-counter> </button-counter>
+       <button-counter> </button-counter>
+  </div> 
+  <script type="text/x-template" id="button-counter">
+
+        <button v-on:click="count++">我被点击了{{ count }} 次.</button>
+
+   </script> 
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+    // 定义一个名为 button-counter 的新组件
+    //注意1：全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+    //注意2：组件的data选项必须是一个函数
+    //注意3：可以在任何新创建的 Vue 根实例 (new Vue) 的模板中使用
+
+    //定义
+    /*
+    var ButtonCount={
+       data: function () {
+            return {
+              count: 0
+            }
+        },
+      template: '#button-counter'
+    }
+    */
+     var ButtonCount=Vue.extend({
+         data: function () {
+            return {
+              count: 0
+            }
+          },
+        template: '#button-counter'
+     })
+    //注册
+    Vue.component('button-counter',ButtonCount)
+
+
+
+  //vm就是Vue的一个实例
+  //vm是（ViewModel）的缩写
+    var vm1 = new Vue({
+        el:'#app1',
+        
+    })
+   var vm2 = new Vue({
+        el:'#app2',
+        
+    })
+   
+</script>
+</html>

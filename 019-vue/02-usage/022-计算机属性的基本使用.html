@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-计算机属性的基本使用.html</title>
+</head>
+<body>
+	<div id="app">
+		<p>firstName:{{firstName}}</p>
+        <p>lastName:{{lastName}}</p>
+        <p>fullName:{{getfullName()}}</p>
+        <p>fullName:{{fullName}}</p>
+	</div>
+		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//vm就是Vue的一个实例
+	//vm是（ViewModel）的缩写
+    var vm = new Vue({
+        el:'#app',
+        data:{
+           firstName:"熊",
+           lastName:"家满"
+        },
+        methods:{
+            getfullName(){
+                return this.firstName+this.lastName
+            }
+        },
+        computed:{//计算机属性
+            fullName(){
+                return this.firstName+this.lastName
+            }
+        }
+    })
+</script>
+</html>

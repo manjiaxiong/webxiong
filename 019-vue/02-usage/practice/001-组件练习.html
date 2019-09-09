@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>001-组件练习.html</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model='message'>
+		<p ref='p'>{{message}}</p>
+		<p ref='p' v-text='message'></p>
+		<!-- <p>{{rowHtml}}</p> -->
+		<p v-html='rowHtml'></p>
+	</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+	//创建Vue实例
+var vm=new Vue({
+	el:'#app',
+	data:{
+		message:'熊家满',
+		rowHtml:"<h1>我是标题</h1>"
+	}
+})
+// console.log(vm.$refs.p)
+// console.log(vm.$el.children)
+// // console.log()
+// vm.$watch('message',function(){
+// 	console.log('message is change')
+// })
+// vm.$destroy()
+</script>
+</html>

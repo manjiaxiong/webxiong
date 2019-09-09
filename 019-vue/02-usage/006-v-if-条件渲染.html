@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-v-if-条件渲染.html</title>
+</head>
+<body>
+	<div id="app">
+        <input type="text" v-model='score'>
+		<p ref="p">你的成绩是{{score}}</p>
+        <p v-if="score>=60">及格</p>
+        <p v-if="score<60">不及格</p>
+	</div>
+		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//vm就是Vue的一个实例
+	//vm是（ViewModel）的缩写
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            score:'',
+        }
+    })
+</script>
+</html>

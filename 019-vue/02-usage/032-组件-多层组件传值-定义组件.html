@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>032-组件-多层组件传值-定义组件.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <todo-item> </todo-item>
+    </div>
+    <template id="todo-item">
+        <div>
+            <task></task>
+            <dateline></dateline>
+        </div>
+    </template>
+    <template id="task">
+        <span>{{tag}}：吃饭</span>
+    </template>
+    <template id="dateline">
+        <span>{{tag}}：中午</span>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+//定义组件
+var Task = Vue.extend({
+    template: '#task',
+    data() {
+        return {
+            tag: '任务'
+        }
+    },
+})
+var Dateline = Vue.extend({
+    template: '#dateline',
+    data() {
+        return {
+            tag: '截止时间'
+        }
+    },
+})
+
+
+//定义组件
+var TodoItem = Vue.extend({
+    template: '#todo-item',
+    data: function() {
+        return {}
+    },
+    components: { //注册局部组件
+        task: Task,
+        dateline: Dateline
+    }
+
+})
+//注册
+Vue.component('todo-item', TodoItem) //全局组件
+
+
+
+//vm就是Vue的一个实例
+//vm是（ViewModel）的缩写
+var vm = new Vue({
+    el: '#app',
+    data: {
+        task: "喝水",
+    }
+})
+</script>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>046-过滤器-局部.html</title>
+    <link rel="stylesheet" href="animate.css">
+</head>
+
+<body>
+    <div id="app1">
+       <p :title="price | formatPrice">{{price | formatPrice}}</p>
+    </div>
+    <div id="app2">
+       <p :title="price | formatPrice">{{price | formatPrice}}</p>
+    </div>
+    <!-- 把模板写在外面 通过id联系  -->
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.filter('formatPrice',price=>{
+        return "¥"+price.toFixed(2);
+    })
+
+// 注册一个全局自定义指令 `v-focus`
+var vm1 = new Vue({
+    el: '#app1',
+    data: {
+        price:10
+    },
+    filters:{//局部
+        formatPrice(price){
+             return "¥"+price.toFixed(3);
+        }
+    }
+})
+var vm2 = new Vue({
+    el: '#app2',
+    data: {
+        price:30
+    }
+})
+</script>
+
+</html>

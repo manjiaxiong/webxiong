@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-v-bind-属性绑定.html</title>
+</head>
+<body>
+	<div id="app">
+           <a href="http://www.taobao.com">淘宝</a>
+           <a v-bind:href="taobaoUrl">淘宝</a>
+           <a :href="taobaoUrl">淘宝</a>
+	</div>
+		
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//vm就是Vue的一个实例
+	//vm是（ViewModel）的缩写
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            taobaoUrl:"http://www.taobao.com"
+        }
+    })
+</script>
+</html>

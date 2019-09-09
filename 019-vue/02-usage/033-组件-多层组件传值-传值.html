@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>033-组件-多层组件传值-传值.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <todo-item v-for="(item,index) in items" :key="index" :task="item.task" :dateline="item.dateline"> </todo-item>
+    </div>
+    <template id="todo-item" >
+        <div>
+            <task  :task="task"></task>
+            <dateline :dateline="dateline"></dateline>
+        </div>
+    </template>
+    <template id="task">
+        <span>{{tag}}：{{task}}</span>
+    </template>
+    <template id="dateline">
+        <span>{{tag}}：{{dateline}}</span>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+//定义组件
+var Task = Vue.extend({
+    template: '#task',
+    data() {
+        return {
+            tag: '任务'
+        }
+    },
+    props:{
+        task:String,
+    },
+})
+var Dateline = Vue.extend({
+    template: '#dateline',
+    data() {
+        return {
+            tag: '截止时间'
+        }
+    },
+    props:{
+        dateline:String
+    },
+})
+
+
+//定义组件
+var TodoItem = Vue.extend({
+    template: '#todo-item',
+    data: function() {
+        return {}
+    },
+    props:{
+        task:String,
+        dateline:String
+    },
+    components: { //注册局部组件
+        task: Task,
+        dateline: Dateline
+    }
+
+})
+//注册
+Vue.component('todo-item', TodoItem) //全局组件
+
+
+
+//vm就是Vue的一个实例
+//vm是（ViewModel）的缩写
+var vm = new Vue({
+    el: '#app',
+    data: {
+        task: "喝水",
+        items:[
+             {
+              // id:1,
+              dateline:"今天中午",
+              task:"喝水",
+            },
+            {
+              dateline:"明天中午",
+              task:"吃饭",
+            }
+
+        ]
+    }
+})
+</script>
+
+</html>

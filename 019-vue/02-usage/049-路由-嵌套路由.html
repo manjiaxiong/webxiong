@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>049-路由-嵌套路由.html</title>
+    <link rel="stylesheet" href="animate.css">
+</head>
+
+<body>
+    <div id="app1">
+        <nav>
+            <!-- 生成链接 -->
+           <router-link to="/home"> home</router-link>
+           <router-link to="/about"> about</router-link>
+           <router-link to="/articles"> articles</router-link>
+        </nav>
+        <div>
+            <!-- 路由出口 -->
+            <!-- 路由匹配到的组件将渲染在这里 -->
+            <router-view></router-view>
+        </div>
+    </div>
+    <!-- 把模板写在外面 通过id联系  -->
+    <template id="home">
+        <div>
+            home page
+        </div>
+    </template>
+    <template id="about">
+        <div>
+            <div>
+               <router-link to="/about/like"> like</router-link>
+               <router-link to="/about/tech"> tech</router-link>
+            </div>
+           <!-- 路由出口 -->
+            <!-- 路由匹配到的组件将渲染在这里 -->
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="articles">
+        <div>
+            articles page
+        </div>
+    </template>
+    <template id="tech">
+        <div>
+            tech page
+        </div>
+    </template>
+    <template id="like">
+        <div>
+            like page
+        </div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+    //1.定义（路由）组件
+var Home = Vue.extend({
+    template: '#home',
+    
+})
+var About = Vue.extend({
+    template: '#about',
+    
+})
+var Articles = Vue.extend({
+    template: '#articles',
+    
+})
+var Tech = Vue.extend({
+    template: '#tech',
+    
+})
+var Like = Vue.extend({
+    template: '#like',
+    
+})
+    //2.定义路由
+var routes = [
+  { path: '/home', component: Home },
+  { path: '/about', component: About ,
+      children:[
+      {path: 'tech', component: Tech},
+      {path: 'like', component: Like},
+      {path: '/', redirect: 'tech'},
+        ]
+    },
+  { path: '/articles', component: Articles },
+  { path: '/', redirect: '/home' },
+]
+
+// 3. 创建 router 实例，然后传 `routes` 配置
+// 你还可以传别的配置参数, 不过先这么简单着吧。
+var router = new VueRouter({
+  routes:routes // (缩写)routes 相当于 routes: routes
+})
+// 4. 创建和挂载根实例。
+var vm1 = new Vue({
+    el: '#app1',
+    router:router,//创建和挂载根实例。
+    data: {
+       
+    }
+}) 
+</script>
+
+</html>

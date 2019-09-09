@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-v-bind-class属性绑定.html</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .active{
+      background-color: yellow;
+    }
+    .error{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+	<div id="app">
+       <p>我是文字</p>
+       <p class="active error">class=""active error</p>
+       <p :class="{active:true,error:true}">class="active:true,error:true"</p>
+       <p :class="{active:isActive,error:isError}">{active:isActive,isError:true}</p>
+       <p :class="['active','error']">class="['active','error']"</p>
+       <p :class="[isActive ? 'active' : '',isError? 'error' : '']">class="[isActive ? 'active' : '',isError? 'error' : '']"</p>
+       <p :class="objClass">class="objClass"</p>
+       <p :class="arrClass">class="arrClass"</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	//vm就是Vue的一个实例
+	//vm是（ViewModel）的缩写
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            isActive:true,
+            isError:true,
+            objClass:{
+              active: true,
+              error: false
+            },
+            arrClass:['active','error']
+        }
+
+    })
+</script>
+</html>

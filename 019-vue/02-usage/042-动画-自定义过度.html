@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>042-动画-自定义过度.html</title>
+    <link rel="stylesheet" href="animate.css">
+    <style>
+    .fade-enter-active,
+    .fade-leave-active {
+        transition: opacity .5s;
+    }
+
+    .fade-enter,
+    .fade-leave-to {
+        opacity: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app1">
+        <button @click="show=!show">切换</button>
+        <transition enter-active-class="animated bounce"
+            leave-active-class="animated flash"
+           appear>
+            <p v-if="show">hellow</p>
+        </transition>
+    </div>
+    <!-- 把模板写在外面 通过id联系  -->
+</body>
+<script src="js/vue.js"></script>
+<script>
+//vm就是Vue的一个实例
+//vm是（ViewModel）的缩写
+var vm1 = new Vue({
+    el: '#app1',
+    data: {
+        show: true
+    }
+})
+</script>
+
+</html>

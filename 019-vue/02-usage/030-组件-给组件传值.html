@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>030-组件-给组件传值.html</title>
+</head>
+<body>
+  <div id="app">
+       <todo-item :task="task"> </todo-item>
+       <todo-item task="睡觉"> </todo-item>
+       
+  </div> 
+
+
+  <template  id="todo-item">
+
+    <div>{{task}}</div>   
+
+  </template> 
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+     var TodoItem=Vue.extend({
+         data: function () {
+            return {
+            }
+          },
+        template: '#todo-item',
+        // props:['task']
+        props:{//接收父组件传值的必要条件
+          task:String
+        }
+     })
+    //注册
+    Vue.component('todo-item',TodoItem)
+
+
+
+  //vm就是Vue的一个实例
+  //vm是（ViewModel）的缩写
+    var vm = new Vue({
+        el:'#app',
+        data:{
+          task:"喝水",
+        }
+    })
+ 
+   
+</script>
+</html>

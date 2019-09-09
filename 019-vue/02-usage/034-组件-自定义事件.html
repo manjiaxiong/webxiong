@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-组件-自定义事件.html</title>
+</head>
+<body>
+  <div id="app1">
+       <button-counter @to-add-total="addTotal()"> </button-counter>
+       <button-counter @to-add-total="addTotal()"> </button-counter>
+       <button-counter @to-add-total="addTotal()"> </button-counter>
+       <p>总共点击了{{total}}次</p>
+  </div>
+  <!-- 把模板写在外面 通过id联系  -->
+  <template id="button-counter">
+
+        <button v-on:click="addCount()">我被点击了{{ count }} 次.</button>
+
+  </template> 
+</body>
+<script src="js/vue.js"></script>
+<script>
+
+    // 定义一个名为 button-counter 的新组件
+    //注意1：全局注册的行为必须在根 Vue 实例 (通过 new Vue) 创建之前发生
+    //注意2：组件的data选项必须是一个函数
+    //注意3：可以在任何新创建的 Vue 根实例 (new Vue) 的模板中使用
+    Vue.component('button-counter', {
+        template: '#button-counter',
+        data: function () {
+            return {
+              count: 0
+            }
+        },
+        methods:{
+          addCount(){
+            this.count++;
+            this.$emit('to-add-total')//触发事件
+          }
+        }
+      
+    })
+
+
+
+  //vm就是Vue的一个实例
+  //vm是（ViewModel）的缩写
+    var vm1 = new Vue({
+        el:'#app1',
+        data:{
+          total:0
+        },
+        methods:{
+          addTotal(){
+            this.total++
+          }
+        }
+    })
+   
+</script>
+</html>

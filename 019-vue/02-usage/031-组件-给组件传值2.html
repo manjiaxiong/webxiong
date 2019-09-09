@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>030-组件-给组件传值.html</title>
+</head>
+
+<body>
+    <div id="app">
+        <!--
+       <todo-item v-for="item in items" :task="item.task" :key="item.id"> </todo-item>
+    -->
+        <todo-item v-for="(item,index) in items" :task="item.task" :index="index" :key="index"> </todo-item>
+    </div>
+    <template id="todo-item">
+        <div>{{index}}-{{task}}</div>
+    </template>
+</body>
+<script src="js/vue.js"></script>
+<script>
+  //定义
+var TodoItem = Vue.extend({
+    data: function() {
+        return {}
+    },
+    template: '#todo-item',
+    // props:['task']
+    props: {//
+        task: String,
+        index: Number
+    }
+})
+//注册
+Vue.component('todo-item', TodoItem)
+
+
+
+//vm就是Vue的一个实例
+//vm是（ViewModel）的缩写
+var vm = new Vue({
+    el: '#app',
+    data: {
+        task: "喝水",
+        items: [{
+                task: "喝水",
+            },
+            {
+                task: "吃饭",
+            }
+        ]
+    }
+})
+</script>
+
+</html>
