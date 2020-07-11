@@ -8,9 +8,9 @@
 	<div id="app">
 		<p ref="p">{{message}}</p>
         <p v-text="message"></p>
-        <p v-once>{{message}}</p>
+        <p v-once>{{message}}</p><!-- 用v-once绑定的不会改变 -->
         <p >{{rawHtml}}</p>
-        <p v-html="rawHtml">/p>
+        <p v-html="rawHtml"></p>
 	</div>
 		
 </body>
@@ -25,5 +25,6 @@
             rawHtml:'<h1>我是大标题</h1>'
         }
     })
+
 </script>
 </html>

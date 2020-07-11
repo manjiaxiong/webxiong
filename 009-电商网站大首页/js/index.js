@@ -323,6 +323,7 @@ function LazyLoad(options){
 		var data=$elem.data('data');
 		if(!data){//只加载一次
 			$.getJSON(url,function(resData){
+				console.log("resData:::",resData)
 				callback(resData);
 				$elem.data('data',resData);
 				// console.log(resData)

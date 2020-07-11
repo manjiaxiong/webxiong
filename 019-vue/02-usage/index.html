@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>index.html</title>
+	<style>
+		.ki{
+
+		}
+	</style>
+</head>
+<body>
+	<ul id="app">
+		<li  class="ki" @click="geti1">{{name}}</li>
+		<li  @click="geti1">{{geti}}</li>
+		<li @click="geti1">{{geti}}</li>
+		<li @click="geti1">3</li>
+		<li @click="geti1">{{num}}</li>
+	</ul>
+</body>
+<script src="js/vue.js"></script>
+<script src="jquery-1.12.4.js"></script>
+<script >
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			name:"熊家满",
+			age:18,
+			num:1
+		},computed:{
+			geti:{
+				get(){
+					return 1
+				},
+				set(){
+
+				}
+			},geti1:{
+				get(){
+					return 
+				},
+				set(newData){
+
+				}
+			}
+		}
+	})
+	$('li').click(function(){
+		$(this).addClass('ki')
+	})
+</script>
+</html>

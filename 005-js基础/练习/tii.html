@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>tii.html</title>	
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div><ul></ul></div>
+</body>
+<script>
+	async function async1(){
+		console.log('async1 start')
+		await async2()
+		console.log('async end')
+	}
+	async function async2(){
+		console.log('async2')
+
+	}
+	console.log('script start')
+	setTimeout(function(){
+		console.log('setTimeout')
+	},0)
+	async1()
+	new Promise(function(resolve){
+		console.log('Promise1')
+		resolve()
+	}).then(function(){
+		console.log('Promise2')
+	})
+	console.log('script end')
+</script>
+</html>

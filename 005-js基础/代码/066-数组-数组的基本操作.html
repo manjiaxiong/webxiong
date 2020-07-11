@@ -19,15 +19,15 @@
 	// var  result=arr.shift();//返回被删除的数组第一个元素
 	// console.log(result);
 	// console.log("2:::::::",arr);
-	// var  result=arr.unshift(100);//返回长度
+	// var  result=arr.unshift(100);//返回长度（新加到数组第一项）
 	// console.log(result);
 	// console.log("2:::::::",arr);
-	var  result=arr.splice(0,2);//返回被删除的数组
-	console.log(result);
-	console.log("2:::::::",arr);//改变了原数组
-	// var  result=arr.splice(1,0,123,321);//返回空数组
-	// console.log(result);//在下标前面插入
-	// console.log("2:::::::",arr);
+	// var  result=arr.splice(0,2);//返回被删除的数组
+	// console.log(result);
+	// console.log("2:::::::",arr);//改变了原数组
+	var  result=arr.splice(1,0,123,321);//返回空数组
+	console.log(result);//在下标前面插入
+	console.log("2:::::::",arr);
 	// var  result=arr.splice(1,2,123,321);
 	// console.log(result);//返回被替换的数组
 	// console.log("2:::::::",arr);
@@ -37,8 +37,9 @@
 	// var  result=arr.concat([11111,22222,333333]);
 	// console.log(result);
 	// console.log("2:::::::",arr);
-	// var  result=arr.slice(0,5);
-	// console.log(result);
+	// var  result=arr.slice();//不传参数相当于克隆
+	// console.log(result==arr)
+	// console.log('result,arr',result,arr);
 	// console.log("2:::::::",arr);
 	// var  result=arr.indexOf(44,0);
 	// console.log(result);

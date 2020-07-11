@@ -34,7 +34,7 @@
 <body>
 	<div id="app">
     <div class="lageBox" @click="lageBox">
-      <div class="bigBox"  @click.once="bigBox"><!--只触发一次-->
+      <div class="bigBox"  @click.once="bigBox"><!--只触发一次 但是并不阻止继续向上冒泡-->
         <div class="smallBox"  @click="smallBox"></div>
       </div>
     </div>       

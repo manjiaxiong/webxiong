@@ -46,11 +46,12 @@
     </template>
     <template id="tab-articles">
         <div class="articles-wrap">
-            <ul>
+            <ul><!-- 选择的active与进来的active一致时表示被选中 -->
                 <li
                     v-for="article in articles"
                     @click="selectedArticle = article"
                     :class="{active:selectedArticle == article}" 
+
                 >
                     {{article.title}}
                 </li>

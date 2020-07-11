@@ -16,11 +16,12 @@
 	console.log(options.interval);
 	console.log(options.mode);
 	//结构解析方法
-	// let {interval:interval1,mode:mode1}=options;
+	let {interval:interval1,mode:mode1}=options;
+	console.log("interval1",interval1)
 	//如果名称一致可以省略
 	// let {interval,mode}=options;
 	//可以设置默认值
-	let {interval=700,mode,age=18}=options;
-	console.log(interval,mode,age);
+	// let {interval=700,mode,age=18}=options;
+	// console.log(interval,mode,age);
 </script>
 </html>

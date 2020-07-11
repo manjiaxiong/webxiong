@@ -1,41 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta property="og:description" content="11111" />
+	<title>0000</title>
 	<style>
-		.father{
-			border: 1px solid #000;
-			width:200px;
-			height: 200px;
-			/*background-color: red;*/
-			position: relative;
-		}
-		.father:after{
-			width: 50px;
-			height: 50px;
-			display: block;
-			background-color: yellow;
-			content: "";
-			position: absolute;
-			left: 200px
-		}
+
 		
 	</style>
 </head>
 <body>
-	<div class="father">
-		
-	</div>
+
+
+<div class="bname fl">
+		创建时间：
+       <br> 
+       <input type="date" id="startCreatetime" max="">
+         -
+        <input type="date" id="endCreatetime" max="">
+</div>
 </body>
-<script>
-	var obj={
-		like:213,
-		name:"ziong"
-	}
-	console.log(obj.like)
-	console.log(obj.name)
-	console.log(obj['name'])
-	console.log(obj['like'])
-</script>
+<script type="text/javascript">
+		//日期设置，不可选择今日之后的日期
+		$(function() {
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = now.getMonth() + 1 < 10 ? "0" + (now.getMonth() + 1)
+					: (now.getMonth() + 1);
+			var day = now.getDate() < 10 ? "0" + now.getDate() : now.getDate();
+			$("#startCreatetime").attr("max", year + "-" + month + "-" + day);
+			$("#endCreatetime").attr("max", year + "-" + month + "-" + day);
+		})
+	</script>
 </html>

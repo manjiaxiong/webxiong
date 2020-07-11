@@ -53,7 +53,7 @@ module.exports = {
 	        filename:'index.html',//输出的文件名
 	        inject:'head',//脚本写在那个标签里,默认是true(在body结束后)
 	        hash:true,//给生成的js/css文件添加一个唯一的hash 
-	        chunks:['index','common']//引入那些文件 默认是全部被打包的文件
+	        chunks:['index']//引入那些文件 默认是全部被打包的文件
 	    }),
 	    new CleanWebpackPlugin(),//清除输出文件npm install clean-webpack-plugin --save-dev
 	],

@@ -40,11 +40,17 @@
         watch:{
             fullName(){//当fullName返回值发生改变时触发
                 console.log('fullName1111 has change')
+            },
+            firstName(){
+                console.log('firstName has change')
+            },
+            lastName(){
+                console.log('lastName has change')
             }
         }
     })
     vm.$watch('fullName',function(){
-        console.log('fullName2222 has change')
+        console.log('fullName has change')
     })
    
 </script>

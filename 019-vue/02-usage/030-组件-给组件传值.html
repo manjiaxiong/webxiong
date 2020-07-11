@@ -7,8 +7,7 @@
 <body>
   <div id="app">
        <todo-item :task="task"> </todo-item>
-       <todo-item task="睡觉"> </todo-item>
-       
+       <todo-item task="睡觉"> </todo-item>      
   </div> 
 
 
@@ -20,7 +19,7 @@
 </body>
 <script src="js/vue.js"></script>
 <script>
-
+     //定义组件
      var TodoItem=Vue.extend({
          data: function () {
             return {
@@ -42,7 +41,7 @@
     var vm = new Vue({
         el:'#app',
         data:{
-          task:"喝水",
+          task:"我是父组件传的值",
         }
     })
  

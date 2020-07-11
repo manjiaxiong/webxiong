@@ -22,11 +22,13 @@
         },
         beforeCreate(){
             console.log("beforeCreate")
+            console.log(this)
             console.log('this.$el',this.$el) //undefined
             console.log('this.$refs.p',this.$refs.p) //undefined
             console.log('this.message',this.message)//undefined
         },
         created(){
+            console.log(this)
             console.log("created")
             console.log('this.$el',this.$el) //undefined
             console.log('this.$refs.p',this.$refs.p) //undefined

@@ -21,14 +21,14 @@
             }
          },
           computed:{
-            //
+            //使用计算属性方法一
             ...mapGetters([
               'total',
               'totalDone',
             ]),
             allDone:{
                 get(){
-                    return this.$store.getters.allDone
+                    return this.$store.getters.allDone //使用计算属性方法二
                 },
                 set(value){
                     this.$store.dispatch(SELECT_ALL_TODO,value)

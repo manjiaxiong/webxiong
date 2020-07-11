@@ -5,6 +5,7 @@ const querystring=require('querystring');
 app.use(express.static('public'))//默认找到public下面的index.html
 //解析json
 app.use(bodyParser.json());
+
 //解析urlencoded内容
 app.use(bodyParser.urlencoded({ extended: false }));
 

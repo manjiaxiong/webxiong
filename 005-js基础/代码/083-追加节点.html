@@ -22,7 +22,8 @@
 	var oBtn=document.getElementById('btn');
 	var aLi=Ul1.children;
 	oBtn.onclick=function(){
-		Ul2.appendChild(aLi[0]);
+		console.log("aLi",aLi)
+		Ul2.appendChild(aLi[0]);//会从原父节点中删除
 	}
 
 </script>

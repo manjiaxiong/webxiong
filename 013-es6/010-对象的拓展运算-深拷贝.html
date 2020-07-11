@@ -40,40 +40,40 @@
 		// console.log('obj',obj);
 		// console.log('obj1',obj1);
 	//4写深拷贝程序
-		// function getDataType(data){
-		// 	if(data instanceof Array){
-		// 		return 'array';
-		// 	}else if(data instanceof Object){
-		// 		return 'object';
-		// 	}
-		// }
-		// function deepCopy(data){
-		// 	const type=getDataType(data);
-		// 	let result;
-		// 	if(type=='array'){
-		// 		result=[];
-		// 	}else if(type=='object'){
-		// 		result={};
-		// 	}else{
-		// 		return data;
-		// 	}
-		// 	//循环遍历数组或对象
-		// 	for(let key in data){
-		// 		let val=data[key];
-		// 		if(getDataType(val)== 'array' || getDataType(val)== 'object'){
-		// 			result[key]=deepCopy(val);//把data里面的引用类型数据深拷贝
-		// 		}else {
-		// 			result[key]=val;
-		// 		}
-		// 	}
-		// 	return result;
-		// }
-		// const obj1=deepCopy(obj);
-		// obj1.name='熊家满';
-		// obj1.friend.name='熊家满';
-		// obj1.pets.push('tigger');
-		// console.log('obj',obj);
-		// console.log('obj1',obj1);
+		function getDataType(data){
+			if(data instanceof Array){
+				return 'array';
+			}else if(data instanceof Object){
+				return 'object';
+			}
+		}
+		function deepCopy(data){
+			const type=getDataType(data);
+			let result;
+			if(type=='array'){
+				result=[];
+			}else if(type=='object'){
+				result={};
+			}else{
+				return data;
+			}
+			//循环遍历数组或对象
+			for(let key in data){
+				let val=data[key];
+				if(getDataType(val)== 'array' || getDataType(val)== 'object'){
+					result[key]=deepCopy(val);//把data里面的引用类型数据深拷贝
+				}else {
+					result[key]=val;
+				}
+			}
+			return result;
+		}
+		const obj1=deepCopy(obj);
+		obj1.name='熊家满';
+		obj1.friend.name='熊家满';
+		obj1.pets.push('tigger');
+		console.log('obj',obj);
+		console.log('obj1',obj1);
 	// //5利用JSON上的方法
 		// 	//需要转换的对象-->字符串-->对象
 		// const obj1= JSON.parse(JSON.stringify(obj));

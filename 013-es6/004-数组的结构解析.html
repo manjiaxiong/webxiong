@@ -22,9 +22,9 @@
 		//没有值
 		// let [a,b,c] = [1,2];c是undefined
 		//赋默认值(没有值或是undefined)默认值才生效
-		let [a,b,c=4] = [1,2];
+		// let [a,b,c=4] = [1,2];
 		// let [a,b,c=4] = [1,2,undefined];
-		// let [a,b,c=4] = [1,2,null];c就是null
+		let [a,b,c=4] = [1,2,null];//c就是null
 		// let [a,b,c=4] = {};//右边不是数组会报错
 		console.log(a,b,c);
 </script>

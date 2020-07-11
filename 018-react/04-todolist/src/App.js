@@ -16,7 +16,6 @@ class App extends Component{
 
 		handleAdd(){
 
-			
 			this.setState((preState)=>({//异步
 				list:[...preState.list,preState.task],
 				task:''

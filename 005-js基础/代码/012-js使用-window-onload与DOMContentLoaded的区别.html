@@ -17,16 +17,17 @@
 	</style>
 	<script >
 		console.log(1);
-		window.onload=function(){
+		window.onload=function(){//window.onload需要页面上所有的资源(图片,音频,视频等)被加载以后才会触发
 			console.log("in......");
 		}
 		document.addEventListener("DOMContentLoaded",function(){
+			//DOMContentLoaded的触发不需要等待所有的资源(图片,音频,视频等)加载完成
 			console.log("DOMContentLoaded");
 		})
 	</script>
 </head>
 <body >
-	<div id="box"" ></div>
-	<img src="../../css基础/代码/1.jpg" alt="">
+	<div id="box"></div>
+	<img src="1.jpg" alt="">
 </body>
 </html>

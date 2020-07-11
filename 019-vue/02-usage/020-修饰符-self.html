@@ -34,7 +34,7 @@
 <body>
 	<div id="app">
     <div class="lageBox" @click="lageBox">
-      <div class="bigBox"  @click.self="bigBox">
+      <div class="bigBox"  @click.self.stop="bigBox"><!-- 只有自己出发时才会触发  但是并不阻止冒泡(需要在后面加一个.stop)-->
         <div class="smallBox"  @click="smallBox()"></div>
       </div>
     </div>       

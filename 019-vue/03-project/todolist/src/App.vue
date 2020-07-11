@@ -37,7 +37,7 @@
             }
         },
         methods:{
-             addTodo(todo){
+            addTodo(todo){
                 this.todos.unshift(todo)
             },
             delTodo(index){

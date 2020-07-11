@@ -20,5 +20,4 @@ export default {
     },
     [DEL_ALL_TODO]({commit},value){
         commit(DEL_ALL_TODO,value)
-    }  
-}
+    }

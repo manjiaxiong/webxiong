@@ -21,5 +21,11 @@
 	console.log("Math.round(1.6)",Math.round(1.6)) //返回四舍五入后的整数.
 	console.log("Math.PI",Math.PI)
 
+	function random(lower, upper) {//产生随机整数，包含下限值，但不包括上限值
+		return Math.floor(Math.random() * (upper - lower)) + lower;
+	}
+	function random(lower, upper) {//产生随机整数，包含下限值，包括上限值
+		return Math.floor(Math.random() * (upper - lower+1)) + lower;
+	} 
 </script>
 </html>

@@ -8,11 +8,33 @@
 	
 </body>
 <script>
-	var str="ytgwifc232giw23"
-	var reg=/\d/g;
-	console.log(reg.lastIndex);
-	console.log(reg.source);
-	console.log(str.replace(reg,"*"));
-	console.log(reg.lastIndex);
+	// var arr = new Array(100);
+	var str="get1_install2_app3_list4_by5_android6"
+	var reg=/([_a-zA-Z]{0,})[02468]/g;
+	str=str.replace(/_/g,"")
+	console.log(str.replace(reg,""));
+	// var reg=/([a-zA-Z]+)/g;
+	// console.log(Array.from(arr.keys()))
+	// Array.from(arr.keys());
+	// console.log(reg.lastIndex);
+	// console.log(reg.source);
+	str=str.replace(/_/g,"")
+	console.log(str.replace(reg,""));
+	// console.log(reg.lastIndex);
+	// var arr=[];
+	// var i=0
+	// function pushKey(){
+	// 	if(i<=10){
+	// 		arr.push(i)
+	// 		++i
+			
+	// 		pushKey(i)
+	// 	}else{
+	// 		console.log(arr)
+	// 		return arr
+			
+	// 	}
+	// }
+	// pushKey(i)
 </script>
 </html>

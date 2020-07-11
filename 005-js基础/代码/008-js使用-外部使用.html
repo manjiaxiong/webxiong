@@ -21,5 +21,15 @@ s<!DOCTYPE html>
 <body id="box1">
 	<div id="box" ></div>
 </body>
-<script src="../js/008-外部使用.js"></script>
+<!-- <script src="../js/008-外部使用.js"></script> -->
+<script>
+
+	var audioElement = new Audio("https://edu-video1.oss-cn-beijing.aliyuncs.com/images/2020/06/28/665607b4587e4b04a1b43448b8bb59ed.mp4");
+            var duration;
+            audioElement.addEventListener("loadedmetadata", function(_event) {
+                duration = audioElement.duration;
+                console.log("duration",duration);
+                // console.log(duration); //单位：秒
+            });
+</script>
 </html>

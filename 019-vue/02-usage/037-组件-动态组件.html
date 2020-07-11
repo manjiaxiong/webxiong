@@ -8,7 +8,7 @@
   <div id="app1">
       <button @click="currentTab='home'">home</button>
       <button  @click="currentTab='articles'">articles</button>
-      <component :is="currentTab"></component>
+      <component :is="currentTab"></component><!--显示名字为currentTab的组件-->
   </div>
   <!-- 把模板写在外面 通过id联系  -->
   <template id="home">

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>text.html</title>
+    <style>
+    #app {
+        position: relative;
+        overflow: hidden;
+        width: 973px;
+        height: 671px;
+    }
+
+    .coorItem {
+        position: absolute;
+    }
+
+    .coorItem:hover {
+        background-color: red;
+    }
+
+    .coorItem:hover .coorItem_Content {
+        display: block;
+    }
+
+    .coorItem_Content {
+        background-color: black;
+        display: none;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-200%);
+        /*transform: ;*/
+    }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <img src="img1.png" alt="" :style="{height:height,width:width}" id="myimage">
+        <div v-for="(item,index) in coor" class="coorItem" :style="{left:item.left+'px',top:item.top+'px',fontSize:item.fontSize+'px'}" :data-index="index">
+            {{item.name}}
+            <div class="coorItem_Content" :style="{fontSize:item.fontSize+'px',padding:item.padding+'px'}">
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script src="../008-jQuery/js/jquery-1.12.4.js"></script> -->
+<script src="./js/jquery-1.12.4.js"></script>
+<script src="./js/vue.js"></script>
+<!-- <script src="附件2.json"></script> -->
+<script>
+var vm = new Vue({
+    el: '#app',
+    data: {
+        height: '',
+        width: '',
+        coor: [],
+        link:false
+    },
+    beforeCreate() {
+
+    },
+    created() {
+
+    },
+    beforeMount() {
+
+    },
+    mounted() {
+        var that = this;
+        $.ajax({
+                url: 'data.json',
+                dataType: "json",
+                type: "GET",
+            })
+            .done(function(data) {
+                // console.log(data)
+                that.height = data[2] + 'px';
+                that.width = data[1] + 'px';
+                var coor = data[3];
+                coor.forEach(function(value, index) {
+                    if (value[2].length > 1) {
+                        that.coor.push({
+                            name: value[0],
+                            left: value[2][1],
+                            top: value[3][1],
+                            fontSize: value[6],
+                            padding: value[6] / 3,
+                        })
+                    } else {
+                        that.coor.push({
+                            name: value[0],
+                            left: value[2],
+                            top: value[3],
+                            fontSize: value[6],
+                            padding: value[6] / 3,
+                        })
+                    }
+
+                })
+                // console.log(that.coor)
+
+
+                var myimage = document.getElementById("myimage");
+                var coorItem_Content = document.getElementsByClassName("coorItem_Content");
+                var coorItem = document.getElementsByClassName("coorItem");
+                if (myimage.addEventListener) {
+                    // IE9, Chrome, Safari, Opera  
+                    myimage.addEventListener("mousewheel", MouseWheelHandler, false);
+                    // Firefox  
+                    myimage.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
+                }
+                // IE 6/7/8  
+                else myimage.attachEvent("onmousewheel", MouseWheelHandler);
+                //为了让不同浏览器都能支持的处理做法,我们将对Firefox的detail值取反然后返回1或者-1的其中一个 
+                function MouseWheelHandler(e) {
+                    // cross-browser wheel delta  
+                    if(that.link==false){
+
+                    }
+                    var e = window.event || e; // old IE support  
+                    var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)));
+                    //现在我们直接决定图片的大小范围。以下代码将图片的宽度范围设置在50-800个像素之间  
+                    that.width = Math.max(data[1], Math.min(data[1] * 2, myimage.width + (30 * delta))) + "px";
+                    that.height = parseFloat(myimage.style.width) * (data[2] / data[1]) + 'px'
+
+                    // console.log(parseInt(myimage.style.width)/data[1],parseInt(myimage.style.height)/data[2])
+                    that.coor.forEach(function(value, index) {
+                        
+                        // that.coor[index].left=(parseFloat(that.width)/data[1])*that.coor[index].left;
+                        // that.coor[index].top=(parseFloat(that.width)/data[1])*that.coor[index].top;
+                        // console.log(index,that.coor[index].top)
+                        // console.log((parseInt(myimage.style.width)/data[1])*parseInt(coorItem[index].style.left))
+                        // coorItem[index].style.left=(parseInt(myimage.style.width)/data[1])*parseInt(coorItem[index].style.left)+'px';
+                        // console.log(22222,(parseInt(myimage.style.width)/data[1])*parseInt(coorItem[index].style.left))
+                        // coorItem[index].style.top=(parseInt(myimage.style.width)/data[1])*parseInt(coorItem[index].style.top)+'px'
+                        // coorItem_Content[index].style.left=(parseInt(myimage.style.width)/data[1])*parseInt(coorItem_Content[index].style.left)+'px'
+                        // coorItem_Content[index].style.top=(parseInt(myimage.style.width)/data[1])*parseInt(coorItem_Content[index].style.top)+'px'
+                        // coorItem_Content[index].style.padding=(parseInt(myimage.style.width)/data[1])*parseInt(coorItem_Content[index].style.padding)+'px'
+                        // coorItem_Content[index].style.fontSize=(parseInt(myimage.style.width)/data[1])*parseInt(coorItem_Content[index].style.fontSize)+'px'
+                    })
+                    // 最后一点，我们在方法中返回false是为了终止标准的鼠标滚轮事件处理，以防它上下滑动网页  
+                    return false;
+                }
+
+            }).fail(function(err) {
+                console.log(err);
+                // this.$elem.trigger('getNodata');
+            })
+
+    },
+    beforeUpdate() {},
+    updated() {},
+    beforeDestroy() {},
+    destroyed() {},
+})
+</script>
+
+</html>

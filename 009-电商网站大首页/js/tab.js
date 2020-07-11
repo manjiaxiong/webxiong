@@ -41,7 +41,7 @@ Tab.prototype = {
 		
 		this.$elem.on(evType,'.tab-item',function(){
 			var index=_this.tabItems.index(this);
-			// console.log(index)
+			// console.log(index) 
 			_this._toggle(index);
 		});
 		//5.是否自动轮播

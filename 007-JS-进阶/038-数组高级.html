@@ -38,6 +38,12 @@
 		return value>20;//此处写判断条件
 	})
 	 	console.log(reslute)//数组到判断为true
-
+	var arr1 = [1, 2, 3, 4];
+	var sum = arr1.reduce(function(prev, cur, index, arr) {
+	    console.log(prev, cur, index,arr);
+	    return prev + cur;
+	})
+	console.log(arr1, sum);
+	// 这里可以看出，上面的例子index是从1开始的，第一次的prev的值是数组的第一个值。数组长度是4，但是reduce函数循环3次。
 </script>
 </html>

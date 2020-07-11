@@ -39,7 +39,7 @@
                 get(){
                     return (this.total == this.totalDone) && (this.total != 0)
                 },
-                set(value){
+                set(value){//value是get的返回值
                     this.selectAllTodo(value)
                 }
             }

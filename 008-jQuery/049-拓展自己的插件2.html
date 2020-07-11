@@ -37,7 +37,7 @@
 		setColor:function(options){
 			var DEFAULT={color:"blue"};//默认蓝色
 			// console.log(this);
-			var options= $.extend({},DEFAULTE,options);
+			var options= $.extend({},DEFAULT,options);
 			return this.each(function(){//把这个jquery对象返回出去
 				// console.log(this);//这个this里面是每个dom节点
 				this.style.color=options.color;
@@ -48,7 +48,7 @@
 <script>
 	$(function(){
 		$('button').on('click',function(){
-			$('div').setColor({color:'red'}).animate({width:400});
+			$('div').setColor({color:'red'}).delay(1000).animate({width:400});
 			
 		})
 	});	
