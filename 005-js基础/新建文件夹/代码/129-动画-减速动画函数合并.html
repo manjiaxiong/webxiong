@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>121-动画的封装.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 400px;
+			height: 400px;
+			background-color: red;
+			margin-bottom: 20px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		#box3{
+			opacity: 0.2;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="box" id="box1"></div>
+		<div class="box" id="box2"></div>
+		<div class="box" id="box3"></div>
+	</div>
+</body>
+<script>
+	//获取元素
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+	
+	function toChange(obj,arry,iTage){
+		clearInterval(obj.timer)
+		var iSpeed=0;
+		obj.timer= setInterval(function(){
+			var curry=parseFloat(getComputedStyle(obj,false)[arry]);
+			if(arry=='opacity'){
+				curry=curry*100;
+			}
+			iSpeed=(iTage-curry)/10;
+			iSpeed= iSpeed<0 ? Math.floor(iSpeed) : Math.ceil(iSpeed);
+			if(!iSpeed){
+				clearInterval(obj.timer);
+			}else{
+				if(arry=='opacity'){
+					obj.style[arry]=(curry+iSpeed)/100;
+				}
+				else{
+					obj.style[arry]=curry+iSpeed+"px";
+				}
+			}	
+			console.log(curry,iSpeed)
+		},50);	
+	}
+	oBox1.onmouseover=function(){
+		toChange(oBox1,'height',100);
+		console.log(1);
+	}
+	oBox2.onmouseover=function(){
+		toChange(oBox2,'width',100);
+		console.log(2);
+	}
+	oBox3.onmouseover=function(){
+		toChange(oBox3,'opacity',100);
+		console.log(3);
+	}
+</script>
+</html>

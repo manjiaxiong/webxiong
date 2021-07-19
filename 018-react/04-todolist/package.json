@@ -26,6 +26,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "dom-to-image": "^2.6.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }

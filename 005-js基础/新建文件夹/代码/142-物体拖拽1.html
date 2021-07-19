@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>142-物体拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="../js/animation.js"></script>
+<script>
+	var oBox=document.getElementById('box');
+	oBox.onmousedown=function(ev){
+		var disT=ev.clientY-oBox.offsetTop;
+		var disL=ev.clientX-oBox.offsetLeft;
+		console.log(disL);
+		console.log(disT);
+		document.onmousemove=function(ev){
+			oBox.style.top=-disT+ev.clientY+'px';
+			oBox.style.left=-disL+ev.clientX+'px';
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>

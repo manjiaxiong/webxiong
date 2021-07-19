@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>118-动画-伸缩菜单.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#main{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			background-color: gray;
+			left: -400px;
+		}
+		#son{
+			width: 100px;
+			height: 400px;
+			background-color: red;
+			position: absolute;
+			right: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oMain=document.getElementById('main');
+	var oSon=document.getElementById('son');
+	var timer=null;
+	
+	oMain.onmouseover=function(){
+		clearInterval(timer);
+		var iSpeed=0;
+		timer= setInterval(function(){	
+			if(oMain.offsetLeft<0){
+				iSpeed=9;
+			}else{
+				iSpeed=-9;
+			}			
+			if(Math.abs(0-oMain.offsetLeft) < Math.abs(iSpeed)){
+				clearInterval(timer);
+				oMain.style.left=0+'px';
+			}else{
+				oMain.style.left=oMain.offsetLeft+iSpeed+"px";
+			}
+			console.log(timer);	
+		},50);
+	}
+	oMain.onmouseout=function(){
+		clearInterval(timer);	
+		var iSpeed=0;
+		timer= setInterval(function(){		
+			if(oMain.offsetLeft<-400){
+				iSpeed=9;
+			}else{
+				iSpeed=-9;
+			}		
+			if(Math.abs(-400-oMain.offsetLeft) < Math.abs(iSpeed)){
+				clearInterval(timer);
+				oMain.style.left='-400px';
+			}else{
+				oMain.style.left=oMain.offsetLeft+iSpeed+"px";
+			}
+			console.log(timer);	
+		},50);
+	}
+</script>
+</html>

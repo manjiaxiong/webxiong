@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>155-疯狂的小鸟.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: relative;
+			width: 600px;
+			height: 600px;
+			margin-top: 100px;
+			margin-left: 400px;
+			border: 1px solid #000;
+		}
+		#bird{
+			width: 50px;
+			height: 50px;
+			background-color: red;
+			position: absolute;
+			top: 0px;
+			left: 200px;
+		}
+		.topline{
+			width: 50px;
+			position: absolute;
+			top: 0px;
+			left: 100%;
+			background-color: green;
+		}
+		.bottomline{
+			width: 50px;
+			position: absolute;
+			bottom: 0px;
+			left: 100%;
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="bird"></div>
+	</div>
+</body>
+<script>//获取元素
+	var oWrap=document.getElementById('wrap');
+	var oBird=document.getElementById('bird');
+	var timeBird=null;
+	var iSpeed=0;
+	var isDeath=false;
+	var addLinetime=null;
+	var moveLinetime=null;
+	var space=300;
+	//柱子碰撞
+	function checkBump(obj1,obj2){
+		if(obj1.offsetLeft+obj1.offsetWidth>=obj2.offsetLeft&&obj1.offsetTop+obj1.offsetHeight>=obj2.offsetTop&&obj2.offsetLeft+obj2.offsetWidth>=obj1.offsetLeft&&obj2.offsetTop+obj2.offsetHeight>=obj1.offsetTop){
+			return true
+		}else{
+			return false
+		}
+		
+	}
+	//随机整数
+	function getRandom(min,max) {
+		return Math.round(min+(max-min)*Math.random())
+	}
+	//小鸟加速向下移动
+
+	clearInterval(timeBird);
+	timeBird=setInterval(function(){
+		iSpeed+=1;
+		var iTop=oBird.offsetTop+iSpeed;
+		if(iTop<0){
+			iTop=0;
+			death();
+			isDeath=true;
+		}else if(iTop>oWrap.offsetHeight-oBird.offsetHeight){
+			iTop=oWrap.offsetHeight-oBird.offsetHeight;
+			death();
+			isDeath=true;
+		}
+		oBird.style.top=iTop+'px';
+	},30)
+	//生成柱子
+	clearInterval(addLinetime);
+	addLinetime = setInterval(function(){
+		var h=getRandom(100,300);
+		var topLine=document.createElement('div');
+		var bottomLine=document.createElement('div');
+		topLine.leftDate=100;
+		bottomLine.leftDate=100;
+		topLine.className='topline';
+		bottomLine.className='bottomline';
+		topLine.style.height=h+'px';
+		bottomLine.style.height=600-h-space+'px';
+		oWrap.appendChild(topLine);
+		oWrap.appendChild(bottomLine);
+	},600)
+	//柱子向左移动
+	clearInterval(moveLinetime);
+	moveLinetime= setInterval(function(){
+		var atopLine=document.querySelectorAll('.topline');
+		var abottomLine=document.querySelectorAll('.bottomline');
+		for(var i=0;i<atopLine.length;i++){
+			//碰撞柱子小鸟死亡
+			if(checkBump(oBird,atopLine[i])||checkBump(oBird,abottomLine[i])){
+				death();
+			}//改变柱子的位置
+			abottomLine[i].style.left=atopLine[i].style.left=atopLine[i].leftDate-1+"%";
+			abottomLine[i].leftDate=atopLine[i].leftDate=atopLine[i].leftDate-1;
+			if(atopLine[i].leftDate<-10){//移出柱子
+				oWrap.removeChild(atopLine[i]);
+				oWrap.removeChild(abottomLine[i]);
+			}
+		}
+		
+	},50)
+	//小鸟死亡
+	function death(){
+		clearInterval(timeBird);
+		clearInterval(addLinetime)
+		clearInterval(moveLinetime)
+	}
+	//空格控制速度
+	document.onkeydown=function(ev){
+		if(isDeath){
+			return false;
+		}
+		if(ev.keyCode==32){
+			iSpeed-=10;
+		}
+	}
+</script>
+</html>

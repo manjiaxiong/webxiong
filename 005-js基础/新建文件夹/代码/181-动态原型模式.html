@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>181-动态原型模式.html</title>
+</head>
+<body>
+	
+</body><script>
+	function createPerson(name,age){
+		this.name=name;
+		this.age=age;
+		console.log(1);//调用两次打印两次
+		if(!createPerson.prototype.sayName){
+			console.log(11);//调用了两次只打印了一次，因为做出了判断不再执行
+			createPerson.prototype.sayName=function(){
+				console.log("I am "+this.name);
+					}
+		createPerson.prototype.sayAge=function(){
+			console.log("aaa");//调用两次打印两遍
+			console.log("I am "+this.age+"years old");
+		}
+		if(!createPerson.prototype.hands){
+			createPerson.prototype.hands=2;
+		}
+	}
+	}
+	var person1=new createPerson("tom",18);
+	console.log(person1);
+	console.log(person1.sayName);
+	person1.sayAge();
+	person1.sayName();
+	var person2=new createPerson("leo",20);
+	console.log(person2);
+	person2.sayName();
+	console.log(person2.sayName);
+	person2.sayAge();
+	console.log(person1.sayName==person2.sayName);//方法不被共享
+	console.log(person2.hands);
+	console.log(createPerson);
+</script>
+</html>

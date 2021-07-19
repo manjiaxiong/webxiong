@@ -40,11 +40,14 @@
 	}
 	Btn3.onclick=function(){
 		for(var i=0;i<aInput.length;i++){
-			if(aInput[i].checked==false){
-				aInput[i].checked=true;
-			}else{
-				aInput[i].checked=false;
-			}
+			aInput[i].checked=!aInput[i].checked
+			// let isAll = aInput[i]
+			// isAll.checked ==false ? isAll.checked = true :  isAll.checked = false
+			// if(aInput[i].checked==false){
+			// 	aInput[i].checked=true;
+			// }else{
+			// 	aInput[i].checked=false;
+			// }
 		}
 	}
 </script>

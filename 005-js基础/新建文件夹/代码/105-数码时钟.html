@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>105-数码时钟.html</title>
+	<style>
+		body{
+			background-color: black;
+		}
+		div{
+			text-align: center;
+			font-size: 40px;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		16:00:00
+	</div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	function tostr(num){
+				return num<10 ? "0"+num: ""+num;
+			}
+		function timer(){
+			var today=new Date();
+			var iHour=today.getHours();
+			var iMinu=today.getMinutes();
+			var iSec=today.getSeconds();
+			oBox.innerHTML=tostr(iHour)+":"+tostr(iMinu)+":"+tostr(iSec);
+		}
+		setInterval(timer,1000);
+		timer();
+</script>
+</html>

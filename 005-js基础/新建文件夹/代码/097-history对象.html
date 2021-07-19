@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>097-history对象.html</title>
+</head>
+<body>
+	<button id="btn1">后退</button>
+	<button id="btn2">前进</button>
+	<a href="https://www.kuazhu.com">跨主</a>
+</body>
+<script>
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	oBtn2.onclick=function(){
+		// window.history.go(1);
+		window.history.forward();
+	}
+	oBtn1.onclick=function(){
+		// window.history.go(-1);
+		 window.history.back();
+
+	}
+</script>
+</html>

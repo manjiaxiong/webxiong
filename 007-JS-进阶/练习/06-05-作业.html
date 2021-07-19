@@ -8,16 +8,65 @@
 	
 </body>
 <script>
-	//语法错误
-	var a=1；//中文输入错误;
-	var b=;//少打
-	var b=1;;//多打
-	var class=123;//变量名不合法;
-	functionn sda();//语句不正确
-	//运行错误
-	console.log(a);//未定义
-	var wd;
-	wd();//类型私用错误
-	function fn(){fn()};fn();//Uncaught RangeError: Maximum call stack size exceeded
+	var data = [
+    {
+        href: 'text/part0001.html',
+        label: '扉页'
+    },
+    {
+        href: 'text/part0002.html',
+        label: '前言'
+    },
+    {
+        href: 'text/part0003.html',
+        label: '目录',
+        subitems: [
+            {
+                href: 'text/part1001.html',
+                label: '目录第一页'
+            },
+            {
+                href: 'text/part1002.html',
+                label: '目录第二页'
+            },
+            {
+                href: 'text/part1003.html',
+                label: '目录第三页'
+            }
+        ]
+    },
+    {
+        href: 'text/part0004.html',
+        label: '第一章',
+        subitems: [
+            {
+                href: 'text/part0005.html',
+                label: '没有人能打败趋势',
+                subitems: [
+                    {
+                        href: 'text/part0006.html',
+                        label: '测试'
+                    }
+                ]
+            }
+        ]
+    }
+]
+
+function flattenJson(data) {
+    return data.map(e => {
+        let obj = {};
+        obj.href = [e.href];
+        obj.chapter = [e.label];
+        if (e.hasOwnProperty('subitems')) {
+            let childArr = flattenJson(e.subitems).map(e => e.chapter);
+			obj.chapter = obj.chapter.concat([].concat.apply([], childArr));
+			let hrefdArr = flattenJson(e.subitems).map(e => e.href);
+            obj.href = obj.href.concat([].concat.apply([], hrefdArr));
+        }
+        return obj;
+    });
+}
+console.log(flattenJson(data));
 </script>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>170-利用属性对象去重.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr1=[1,4,5,5,4,3,6,7,4,22,67,6];
+	// console.log(arr);
+	function uniArr(arr){
+		var result=[];
+		var obj={};
+		for(var i=0;i<arr.length;i++){
+			obj[arr[i]]="";
+		}
+		// console.log(obj);
+		for(arry in obj){
+			result.push(arry*1);
+		}
+		// console.log(result);
+		return result;
+	}
+	console.log(uniArr(arr1));
+</script>
+</html>

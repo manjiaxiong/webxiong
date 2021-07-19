@@ -128,9 +128,7 @@ Function.prototype.myapply = function(context) {
     var result = null;
 
     if (arguments[1]) {
-
         result = context.fn(...arguments);
-
     } else {
 
         result = context.fn();

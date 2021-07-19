@@ -8,18 +8,20 @@
 	
 </body>
 <script>
-	sayHello();
+	sayHello();//1
 	function sayHello(){
 		console.log('Hello');//函数声明会自动放到顶部
 	}
 	// sayHello();
 	// sayGood();
 	var sayGood=function(){
+		console.log(a);
+		console.log(this);
 		console.log('good');
-		 var a=2;
+		var a=2;
 	}
-	sayGood();
-	console.log(window);
-	console.log(a);
+	sayGood();//2
+	console.log(window);//3
+	console.log(a);//4
 </script>
 </html>

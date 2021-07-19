@@ -76,6 +76,6 @@ module.exports = {
     ],
     devServer: {
         contentBase: './dist',//内容的目录
-        port:8090,//指定服务端口
+        port:8091,//指定服务端口
     },                
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>085-按无序列表项中值对列表排序.html</title>
+</head>
+<body>
+	<ul id="ul">
+		<li>2</li>
+		<li>313</li>
+		<li>233</li>
+		<li>212</li>
+		<li>124</li>
+		<li>11</li>
+		<li>231</li>
+		<li>3</li>
+	</ul>
+	<button id="btn">排序</button>
+</body>
+<script>
+	var oUl=document.getElementById('ul');
+	var aLi=oUl.children;
+	var OBtn=document.getElementById('btn');
+	OBtn.onclick=function(){
+		var newLi=[];
+		for(var i=0;i<aLi.length;i++){//先把所有节点放入一个新数组//因为aLi不是数组
+			newLi.push(aLi[i]);
+		}
+		newLi.sort(function(newLi1,newLi2){//再排序新数组
+			return newLi1.innerHTML-newLi2.innerHTML;
+		})
+		console.log(newLi);
+		for(var j=0;j<newLi.length;j++){//最后巴新数组z
+			oUl.appendChild(newLi[j]);
+		}
+		// console.log(newLi);
+	}
+
+</script>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>186-正则-原子.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str="$1234 USD U S D";
+	var reg=/\$/;
+	var reg1=/USD/;
+	var reg2=/U S D/;
+	console.log(str.replace(reg,"￥"));
+	console.log(str.replace(reg1,"RMB"));
+	console.log(str.replace(reg2,"R M B"));
+</script>
+</html>

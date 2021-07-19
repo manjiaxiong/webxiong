@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
 	<meta charset="UTF-8">
 	<title>026-Promise的then方法.html</title>
@@ -14,23 +14,27 @@
 		setTimeout(()=>{
 			resolve('ok');
 			// reject('error');
-		},0)
+		},3000)
 		
 	});
-	/*
+	
 	//promise的then返回一个新的promise对象
-	const p1= promise
+	const p1= romise
 	.then(data=>{//成功时
 		console.log(data);
-		return data +' good';
+		return data +' pgood';
 	})
-	p1
-	.then(data=>{
-		console.log(data);
-	})
-	console.log('p1',p1)
-	console.log(p1==promise)
-	*/
+	console.log(p1)
+	setTimeout(()=>{
+		console.log(p1,'0000')
+	},4000)
+	// p1
+	// .then(data=>{
+	// 	console.log(data);
+	// })
+	// console.log('p1',p1)
+	// console.log(p1==promise)
+	
 	//连续调用
 	// promise
 	// .then(data=>{//成功时
@@ -40,27 +44,27 @@
 	// .then(data=>{
 	// 	console.log(data);//第一个then有数据返回表示第二个的状态已经改变为fulfilled
 	// })
-	let p2;
-	const p1= promise
-	.then(data=>{//成功时
-		p2=new Promise((resolve,reject)=>{
-			resolve('yes p2');
-			// reject('error')
-		})
-		return p2;
-	}).catch(err=>{
-		console.log(err)
-		p2=new Promise((resolve,reject)=>{
-			resolve('yes p2');
-			// reject('error')
-		})
-		return p2;
-	})
-	p1.then(data=>{
-		console.log(p1);
-		console.log(p2);
-		console.log('p1==p2',p1==p2)
-	})
+	// let p2;
+	// const p1= promise
+	// .then(data=>{//成功时
+	// 	p2=new Promise((resolve,reject)=>{
+	// 		resolve('yes p2');
+	// 		// reject('error')
+	// 	})
+	// 	return p2;
+	// }).catch(err=>{
+	// 	console.log(err)
+	// 	p2=new Promise((resolve,reject)=>{
+	// 		resolve('yes p2');
+	// 		// reject('error')
+	// 	})
+	// 	return p2;
+	// })
+	// p1.then(data=>{
+	// 	console.log(p1);
+	// 	console.log(p2);
+	// 	console.log('p1==p2',p1==p2)
+	// })
 	//总结1： promise的then方法返回的是否是promise对象，then方法都会返回一个新的promise对象
 	//总结2：新的promise对象的then方法的值是上一个promise方法的返回值，如果是具体的数据，返回值就是数据，如果是promise，返回值就是promise成功时的返回值。
 </script>

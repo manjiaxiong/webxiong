@@ -9,41 +9,19 @@
 <body>
 </body>
 <script>
-function handleCommands( commands ) {
-    // write code here
-    if(commands.length==0){//指令集为空
-        return false
-    }
-    let res='q1'
-    for(let i=0;i<commands.length;i++){//循环遍历
-    	console.log(res)
-        if(res==='q1'){//初始情况
-                if(commands[i]==='0'){//不变
-                    
-                }else if(commands[i]==='1'){
-                    res='q2'
-                }
-                continue
-            }
-        if(res==='q2'){//合法状态时
-        	console.log('1',commands[i])
-                if(commands[i]==='0'){//改变状态
-                    res='q3';
-                    console.log('2',commands[i])
-                }else if(commands[i]==='1'){//不变
-
-                }
-                continue
-            }
-        if(res==='q3'){
-                res='q2'
-                continue
-            }
-    }
-    // console.log(res)
-    return (res==='q2') ? true : false 
-}
-console.log(handleCommands(["1", "0", "0", "1", "0"]))
+// var string="var a=1;console.log(a);"
+// eval(string);
+// console.log(typeof a);
+// string="var a=222;console.log(a);"
+// (function(){
+//     string="var a=222;console.log(a);"
+// }())
+// console.log(typeof a);
+var string="var a=1;console.log(a);"
+(function(){
+    // eval(string);
+})()
+// eval(string);
 </script>
 
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>111-offset和client相关值.html</title>
+	<style>
+		.father{
+			position: relative;
+			width: 400px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+		#son{
+			top: 50px;
+			left: 100px;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			padding: 10px;
+			border: 5px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oBox=document.getElementById('son');
+	console.log("oBox.offsetTop:::",oBox.offsetTop);
+	console.log("oBox.offsetLeft:::",oBox.offsetLeft);
+	console.log("oBox.offsetHeight:::",oBox.offsetHeight);
+	console.log("oBox.offsetWidth:::",oBox.offsetWidth);
+	console.log("oBox.clientWidth:::",oBox.clientWidth);
+	console.log("oBox.clientHeight:::",oBox.clientHeight);
+	console.log("window.outHeight:::",window.outerHeight);
+	console.log("window.outWidth:::",window.outerWidth);
+	console.log("window.innerHeight:::",window.innerHeight);
+</script>
+</html>

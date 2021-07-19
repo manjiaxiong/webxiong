@@ -54,17 +54,22 @@
 	var Btn2=document.getElementById('tab-content');
 	var Tn1=Btn1.getElementsByTagName('li');
 	var Tn2=Btn2.getElementsByTagName('li');
-	for(var i=0;i<Tn1.length;i++){
-		Tn1[i].index=i;
-		Tn1[i].onmouseover=function(){
-			for(i=0;i<Tn1.length;i++){
-			Tn1[i].className='';
-			Tn2[i].style.display='none';
-			}
-			this.className='active';	
-			Tn2[this.index].style.display='block';
-		}
+	console.log(window);
+	var i=0
+	// for(var i=0;i<Tn1.length;i++){
+	// 	Tn1[i].index=i;
+	// 	Tn1[i].onmouseover=function(){
+	// 		for(i=0;i<Tn1.length;i++){
+	// 		Tn1[i].className='';
+	// 		Tn2[i].style.display='none';
+	// 		}
+	// 		this.className='active';	
+	// 		Tn2[this.index].style.display='block';
+	// 	}
 		
-	}
+	// }
+</script>
+<script>
+	
 </script>
 </html>

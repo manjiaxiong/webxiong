@@ -6,7 +6,7 @@ var url = require('url');
 var server = http.createServer(function(req,res){
 	console.log(req.method);
 	//允许访问源
-	res.setHeader("Access-Control-Allow-Origin",'http://127.0.0.1:3000');
+	res.setHeader("Access-Control-Allow-Origin","*");
 	//允许访问字符段 
 	res.setHeader("Access-Control-Expose-Headers",'Connection');
 	//设置自定义字符段

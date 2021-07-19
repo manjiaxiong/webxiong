@@ -4,9 +4,87 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 </head>
+<style>
+	body{
+		background-color: black;
+	}
+	img{
+		transform: rotate(-49deg);
+	}
+</style>
 <body>
-	<h1>123456</h1>
-	<h2>456789</h2>
-	<h3>4567</h3>
+	<img src="8.gif" alt="">
 </body>
+<script>
+	// let str='applyMacVerifyList,?state=10||applyInquiryList,||applyPublicList,?state=20||applyPublicPassList,?state=21||applyReviewList,?state=30'
+	// let arr=str.split('||')
+	// let obj={}
+	// for(let i=0;i<arr.length;i++){
+	// 	obj[arr[i].split(',')[0]]=arr[i].split(',')[1]?arr[i].split(',')[1].split('=')[1]:null;
+	// }
+	// console.log(obj);
+	/** 
+		有一堆桃子 每天吃一半并且挑出一个扔掉 第六天还剩一个问开始一共有多少个
+	*/
+	// function jiecheng(n){
+	// 	// console.log(1);
+	// 	if(n===0){
+	// 		return 0
+	// 	}else{
+	// 		return n+jiecheng(n-1)
+	// 	}
+	// }
+	// console.log(jiecheng(10));
+	// var lin;
+	// function singol(n){
+	// 	if(n==6){
+	// 		lin=1
+	// 	}else{
+	// 		lin= (singol(n+1)+1)*2
+	// 	}
+	// 	return lin
+	// }
+	// console.log(singol(0));
+	var outobj={};
+	var inuptobj={
+		"a.b.dd":'abcdd',
+		"a.d.xx":'edxx',
+		"a.e":"ae"
+	}
+	function change(obj,str){
+		// console.log(obj,str);
+		let arr=str.split('.')
+		for(let i=0;i<2;i++){
+			if(arr.length===1&&arr[i]){
+				// console.log(obj,str);
+				obj[arr[i]]=11
+				return false
+			}
+			if(arr[i]){
+
+			}else{
+				return false
+			}
+			if(!obj[arr[i]]){
+				obj[arr[i]]={}
+				let obj1=obj[arr[i]]
+				arr.splice(0,1)//删除第一项
+				return change(obj1,arr.join('.'))
+			}else{//已经有这个键
+				console.log(obj[arr[i]],arr[i],obj,str)
+				// debugger
+				arr.splice(0,1)//删除第一项
+				// obj[arr[i]]={}
+				let obj1=obj[arr[i]]
+				return change(obj1,arr.join('.'))
+			}
+			
+		}
+	}
+	for(let key in inuptobj){	
+		change(outobj,key)
+	}
+	
+	console.log(outobj);
+</script>
 </html>

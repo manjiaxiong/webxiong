@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>087-点击删除父元素.html</title>
+</head>
+<body>
+	<ul id="list">
+		<li>1 <a href="#">删除</a></li>
+		<li>2 <a href="#">删除</a></li>
+		<li>3 <a href="#">删除</a></li>
+		<li>4 <a href="#">删除</a></li>
+		<li>5 <a href="#">删除</a></li>
+		<li>6 <a href="#">删除</a></li>
+	</ul>
+</body>
+<script>
+	var Ul=document.getElementById('list');
+	var aA=document.querySelectorAll('a');
+	for(var i=0;i<aA.length;i++){
+		aA[i].onclick=function(){
+			Ul.removeChild(this.parentNode);
+			// Ul.removeChild(Ul.children[i]);//不能用这个 因为他的children时刻在变化
+		}
+	}
+</script>
+</html>

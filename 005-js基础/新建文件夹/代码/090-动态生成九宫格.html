@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>090-动态生成九宫格.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			position: relative;
+		}
+		#node{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生产</button>
+	<div id="box">
+		<div id="node">
+		</div>
+	</div>
+</body>
+<script>
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var oNode=oBox.children;
+	oBtn.onclick=function(){
+		var iWidth=100;
+		var iHeight=100;
+		var iMargin=15;
+		var iColl=3;
+		var newNode=oNode[0].cloneNode(true);//克隆新的node
+		oBox.appendChild(newNode);
+		for(var i=0;i<oNode.length;i++){	//node长度发生变化
+			oNode[i].style.top=parseInt(i/iColl)*(iHeight+iMargin)+"px";
+			oNode[i].style.left=parseInt(i%iColl)*(iWidth+iMargin)+"px";
+		}
+	}
+</script>
+</html>

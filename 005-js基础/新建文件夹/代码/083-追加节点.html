@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>追加节点</title>
+</head>
+<body>
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+	<button id="btn">追加</button>
+	<ul id="ul2"></ul>
+</body>
+<script>
+	var Ul1=document.getElementById('ul1');
+	var Ul2=document.getElementById('ul2');
+	var oBtn=document.getElementById('btn');
+	var aLi=Ul1.children;
+	oBtn.onclick=function(){
+		console.log("aLi",aLi)
+		Ul2.appendChild(aLi[0]);//会从原父节点中删除
+	}
+
+</script>
+</html>

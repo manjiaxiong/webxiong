@@ -1,52 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title>index.html</title>
-	<style>
-		.ki{
-
-		}
-	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
 </head>
+<style>
+	.analycis{
+  width: 100%;
+  height: 100%;
+}
+.split{
+    width: 3px;
+    height: calc(~"100% - 74px");
+    background: #ccc;
+    position: absolute;
+    left: 200px;
+    top: 74px;
+    bottom: 0;
+    cursor: e-resize;
+  }
+.right{
+    width: calc(~"100% - 203px");
+    height: calc(~"100% - 74px");
+    background: cadetblue;
+    position: absolute;
+    top: 74px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 203px;
+  }
+.left{
+    width: 200px;
+    height: calc(~"100% - 74px");
+    background: burlywood;
+    position: absolute;
+    left: 0;
+    top: 74px;
+    bottom: 0;
+  }
+</style>
 <body>
-	<ul id="app">
-		<li  class="ki" @click="geti1">{{name}}</li>
-		<li  @click="geti1">{{geti}}</li>
-		<li @click="geti1">{{geti}}</li>
-		<li @click="geti1">3</li>
-		<li @click="geti1">{{num}}</li>
-	</ul>
+	<!-- 数据分析 -->
+	<div class="analycis" id="app">
+		数据分析
+		<div class="left"></div>
+		<div class="split"></div>
+		<div class="right"></div>
+	</div>
 </body>
-<script src="js/vue.js"></script>
-<script src="jquery-1.12.4.js"></script>
-<script >
-	var vm=new Vue({
+<script src="./js/vue.js"></script>
+<script>
+	 var vm = new Vue({
 		el:'#app',
-		data:{
-			name:"熊家满",
-			age:18,
-			num:1
-		},computed:{
-			geti:{
-				get(){
-					return 1
-				},
-				set(){
-
-				}
-			},geti1:{
-				get(){
-					return 
-				},
-				set(newData){
-
+		mounted() {
+			let left = document.getElementsByClassName('left')[0]
+			let split = document.getElementsByClassName('split')[0]
+			let right = document.getElementsByClassName('right')[0]
+			this.initWidth(left, split, right)
+		},
+		methods: {
+			initWidth(left, split, right) {
+				let blleft = true
+				split.onmousedown = function (evt) {
+					let e = evt || event
+					console.log('e',e);
+					let dx = e.clientX//鼠标点击位置
+					let dw = left.offsetWidth//左边宽度
+					// 左边navbar的宽度
+					let navWidth = dx - dw
+					let disright = left.offsetLeft + left.offsetWidth
+					if (e.clientX < left.offsetLeft + 3) {
+						blleft = false
+					}
+					document.onmousemove = function (evt) {
+						let e = evt || event
+						if (!blleft) {
+							left.style.width = dw - (e.clientX - dx) + 'px'
+							left.style.left = disright - left.offsetWidth + 'px' // disright表示盒子右边框距离左边的距离，disright-当前的盒子宽度，就是当前盒子距离左边的距离
+							split.style.left = dw - (e.clientX - dx) + 'px' // disright表示盒子右边框距离左边的距
+							right.style.marginLeft =
+								disright - left.offsetWidth - 157 + 'px'
+							if (left.offsetWidth <= 10) {
+								left.style.width = '10px'
+								left.style.left = disright - left.offsetWidth + 'px' // 防止抖动
+								right.style.marginLeft =
+									disright - left.offsetWidth + 'px'
+							}
+						} else {
+							left.style.width = e.clientX - navWidth - 3 + 'px'
+							right.style.marginLeft = e.clientX - navWidth + 'px'
+							split.style.left = e.clientX - navWidth - 3 + 'px'
+							if (left.offsetWidth <= 10) {
+								left.style.width = '10px'
+							}
+						}
+					}
+					document.onmouseup = function () {
+						document.onmousedown = null
+						document.onmousemove = null
+					}
+					return false
 				}
 			}
 		}
-	})
-	$('li').click(function(){
-		$(this).addClass('ki')
 	})
 </script>
 </html>

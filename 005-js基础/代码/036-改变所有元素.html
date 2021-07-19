@@ -72,7 +72,12 @@
 	var aLi = document.getElementsByTagName('li');
 	// for(var i=0;i<l)
 	for(var i=0;i<aLi.length;i++){
-		aLi[i].style.color='red';
+		if(i%2===0){
+			aLi[i].style.color='red';
+		}else{
+			aLi[i].style.color='blue';
+		}
+		
 	}
 </script>
 </html>

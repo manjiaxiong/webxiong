@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>205-正则对象的属性-exec.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var str="d2019-05-25 f2016-04-23";
+	// var reg=/(?<years>\d{4})-(?<month>\d{2})-(?<days>\d{2})/;
+	var reg=/(?<years>\d{4})-(?<month>\d{2})-(?<days>\d{2})/g;
+	console.log(str);
+	console.log(reg.lastIndex);
+	console.log(reg.exec(str));
+	console.log(reg.lastIndex);
+	console.log(reg.exec(str));
+	console.log(reg.lastIndex);
+	console.log(reg.exec(str));
+</script>
+</html>

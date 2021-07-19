@@ -1,33 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-	
+  
 </body>
-<script>
-	var twoSum = function(nums, target) {
-    if(nums.length<2) return []
-    let Ttarget
-	let start=0
-	let end=0
-    for( let i=0;i<nums.length;i++){
-		// let start
-		end++
-        Ttarget=target-nums[i]//得到差值
-        nums.shift()//删除当前第一项
-        if(nums.indexOf(Ttarget)!=-1){//找到了
-            return [i+start,nums.indexOf(Ttarget)+end]
-        }else{//没找到
-			i-- //数组归位
-			start++
-		}
-        
-    }
-};
-console.log(twoSum([3,2,4],6));
-</script>
 </html>

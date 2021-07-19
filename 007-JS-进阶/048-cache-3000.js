@@ -20,8 +20,16 @@ var server = http.createServer(function(req,res){
 	}else if(req.method == "GET"){
 		if(/\.css$/.test(req.url)){
 			res.setHeader("Content-Type","text/css");
-			res.setHeader("Expires",new Date(Date.now()+5000));
-			res.setHeader("Cache-Control",'max-age=10');//更安全 建议使用
+			// res.setHeader("Expires",new Date(Date.now()+5000));
+			res.setHeader("Cache-Control",'max-age=1000');//更安全 建议使用
+		}
+		if(/\.html$/.test(req.url)){
+			// res.setHeader("Expires",new Date(Date.now()+5000));
+			res.setHeader("Cache-Control",'max-age=1000');//更安全 建议使用
+		}
+		if(/\.jpg$/.test(req.url)){
+			// res.setHeader("Expires",new Date(Date.now()+5000));
+			res.setHeader("Cache-Control",'max-age=1000');//更安全 建议使用
 		}
 		if(req.url.search(/\?/) != -1){
 			var parm = url.parse(req.url,true).query;
