@@ -1,46 +1,26 @@
 <template>
   <div id="app">
-    <!-- <lottie :options="defaultOptions" :height="1080" :width="1920" v-on:animCreated="handleAnimation" /> -->
-    <!-- <table-1></table-1> -->
+    <debounceButton circle type="success" ref="btn1" :auto-loading="false" @click="($event,done)=>submit($event,done,aa)" :time='400'>按钮</debounceButton>
   </div>
 </template>
 
 <script>
-// import Table1 from './components/Table.vue'
+import debounceButton from './components/debounceButton.vue'
 // import Myload from './components/Myload.vue'
-import * as animationData from "./data.json";
 export default {
   name: 'App',
+  components:{
+    debounceButton
+  },
   data(){
     return {
-      defaultOptions: { animationData: animationData.default },
-        animationSpeed: 1,
-        anim: {}
+      aa:999
     }
   },
-  created(){
-    this.query_common_credit()
-  },
-  methods:{
-     handleAnimation: function(anim) {
-        this.anim = anim;
-        console.log(anim); //这里可以看到 lottie 对象的全部属性
-    },
-    query_common_credit(){
-      var loginMode = 'msdk';//游戏内默认msdk(wx|qq|msdk)
-      var url = '/api/msdk/proxy/query_common_credit';
-      this.$axios.get(url)
-        .then(response => {
-          console.log(response,'response')
-        })
-        .catch(error => {
-          console.log(error,'error')
-        })
+  methods: {
+    submit($event,done,aa) {
+      done(()=>{})
     }
-  },
-  components: {
-    // Table1
-    // Aside
   }
 }
 </script>

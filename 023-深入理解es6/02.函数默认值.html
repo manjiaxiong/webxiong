@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02.函数默认值</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function emptyFun (timeout=200,nee){//一旦有了默认参数 无论怎么改变参数值 arguments都不会改变
+        //在es6没出来前用严格模式来实现上面那句话
+        timeout=1000
+        nee=99999
+        console.log(timeout,arguments);
+    }
+    emptyFun(1,40)//当这个值为空 undefined 时参数使用默认值
+
+</script>
+</html>
