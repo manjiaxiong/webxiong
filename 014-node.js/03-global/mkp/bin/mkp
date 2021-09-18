@@ -1,3 +1,0 @@
-#!usr/bin/env node
-const mkp =require('../index.js')
-mkp()

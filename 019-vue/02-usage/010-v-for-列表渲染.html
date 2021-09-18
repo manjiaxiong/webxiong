@@ -32,9 +32,22 @@
         el:'#app',
         data:{
             persons:[
-            {name:"张三",age:21,score:100},
-            {name:"李四",age:21,score:10},
+            {name:"张三",age:21,score:100,levl:3},
+            {name:"李阿斯顿",age:21,score:10,levl:2},
+            {name:"s奥奥",age:21,score:100,levl:3},
+            {name:"d阿萨",age:21,score:10,levl:1},
+            {name:"a十大",age:21,score:100,levl:0},
+            {name:"啊是擦",age:21,score:10,levl:2},
+            {name:"撒擦",age:21,score:100,levl:2},
+            {name:"a撒擦按时薪",age:21,score:10,levl:2},
             ]
+        },
+        mounted(){
+            //需求按照leval字段升序排序
+            this.persons.sort((n1,n2)=>{// n1.leval-n2.levl升序 n2.leval-n1.leval是降序
+                //这个方法会改变原数组 既执行完后this.persons已经排好序 视图已发生改变
+                n1.levl-n2.levl
+            })
         }
     })
 </script>
