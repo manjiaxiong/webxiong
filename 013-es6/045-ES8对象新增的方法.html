@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>045-ES8对象新增的方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const {
+		keys,
+		entries,
+		values,
+		getOwnPropertyDescriptors,
+		assign,
+		is
+	}=Object;
+	Object.prototype.text='text';
+	const obj={
+		name:'Tom',
+		age:18,
+		friend:{
+			name:'李白'
+		}
+	}
+	Object.defineProperty(obj,'contry',{
+		value:'中国'
+	})
+	
+	console.log(keys(obj))
+	console.log(entries(obj))
+	console.log(values(obj))
+	console.log(getOwnPropertyDescriptors(obj))
+	const result=assign({},obj);//浅拷贝且只能拷贝可枚举的
+	result.name='Leo';
+	result.friend.name='杜甫'
+	console.log(result)
+	console.log(obj)
+	const DEFAULT={
+		js:true,
+		time:500
+	}
+	const options={
+		js:false
+	}
+	const target={}
+	const result1= assign(target,DEFAULT,options);
+	console.log(target);
+	console.log(result);
+	console.log(result1==target);
+	console.log('+0===-0',+0===-0)
+	console.log('is(+0,-0)',is(+0,-0))
+	console.log('NaN===NaN',NaN===NaN)
+	console.log('is(NaN,NaN)',is(NaN,NaN))
+	
+</script>
+</html>

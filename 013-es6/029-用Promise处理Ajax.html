@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>029-用Promise处理Ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	//1需要一个生产promise对象的函数
+	// $.get('https://api.github.com/users/manjiaxiong',function(data){
+	// 		console.log(data);
+	// 	});
+	const getAjaxData=(url)=>new Promise((resolve,reject)=>{
+		//异步逻辑处理
+		$.ajax({
+			url:url,
+			type:"GET"
+		})
+		.done((data)=>{
+			resolve(data)
+		})
+		.fail(()=>{
+			reject('notdefind')
+		})
+	})
+	//2用函数生产promise
+	getAjaxData('https://api.github.com/users/kuazhu')
+	.then(data=>{
+		// console.log(data.followers_url)
+		return getAjaxData(data.followers_url);
+	})
+	.then(data=>{
+		console.log(data)
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+</script>
+</html>

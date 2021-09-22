@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>003-定义常量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//使用原则：常量用const，其他都用let，尽量都用const
+	var PI;
+	PI=3.14;
+	PI=44;
+	console.log(PI);//var定义变量可以改变值 也可以先定义后赋值
+	//const 定义常量 不可以改变值（地址） 也不可以先定义后赋值
+	// const i=2;
+	// i=65;
+	// console.log(i)
+	const obj={
+		name:'熊家满',
+		age:20
+	}
+	obj.name='TOM';//对象可以改变值但不能改变地址 即obj不能指向其他堆内存
+	console.log(obj);
+	if(true){
+		const PI=3.14;
+	}
+	console.log(PI);//报错 因为const是块级作用域
+
+</script>
+</html>

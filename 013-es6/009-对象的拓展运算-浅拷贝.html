@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-对象的拓展运算-浅拷贝.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	const obj={
+		name:"TOM",
+		age:18,
+		friend:{
+			name:'Peter'
+		}
+	}
+	//浅拷贝
+	const obj1={...obj};//浅copy 对象里面的对象只拷贝了他的地址
+	const obj2=obj;//直接把obj地址给了obj2
+	obj1.name='熊家满';
+	obj1.friend.name='Leo';//
+	console.log('obj',obj);
+	console.log('obj1',obj1);
+	
+</script>
+</html>

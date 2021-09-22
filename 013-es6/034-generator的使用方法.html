@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-generator的使用方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(){
+		console.log('start gen fn.....');
+		yield 'data1';
+		console.log('do something after data1')
+		yield 'data2';
+		console.log('do something after data2')
+		console.log('fn is end');
+		// return 'result data';
+	}
+	// console.log(gen());
+	const g=gen();
+	console.log(g)
+	console.log(g.next());
+	console.log(g.next());
+	console.log(g.next());
+</script>
+</html>

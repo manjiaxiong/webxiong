@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>010-对象的拓展运算-深拷贝.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	const obj={
+		name:"TOM",
+		age:18,
+		friend:{
+			name:'Peter'
+		},
+		pets:['cat','dog']
+	}
+	//1直接赋值 浅拷贝
+		// const obj1=obj;
+		// obj1.name='熊家满';
+		// console.log('obj',obj);
+		// console.log('obj1',obj1);
+	//2用拓展运算符 浅拷贝
+		// const obj1={...obj};
+		// obj1.name='熊家满';
+		// obj1.friend.name='熊家满';
+		// obj1.pets.push('tigger');
+		// console.log('obj',obj);
+		// console.log('obj1',obj1);
+	//循环遍历 浅拷贝
+		// const obj1={};
+		// for(key in obj){
+		// 	obj1[key]=obj[key];//引用类型 是地址赋值;
+		// };
+		// obj1.name='熊家满';
+		// obj1.friend.name='熊家满';
+		// obj1.pets.push('tigger');
+		// console.log('obj',obj);
+		// console.log('obj1',obj1);
+	//4写深拷贝程序
+		function getDataType(data){
+			if(data instanceof Array){
+				return 'array';
+			}else if(data instanceof Object){
+				return 'object';
+			}
+		}
+		function deepCopy(data){
+			const type=getDataType(data);
+			let result;
+			if(type=='array'){
+				result=[];
+			}else if(type=='object'){
+				result={};
+			}else{
+				return data;
+			}
+			//循环遍历数组或对象
+			for(let key in data){
+				let val=data[key];
+				if(getDataType(val)== 'array' || getDataType(val)== 'object'){
+					result[key]=deepCopy(val);//把data里面的引用类型数据深拷贝
+				}else {
+					result[key]=val;
+				}
+			}
+			return result;
+		}
+		const obj1=deepCopy(obj);
+		obj1.name='熊家满';
+		obj1.friend.name='熊家满';
+		obj1.pets.push('tigger');
+		console.log('obj',obj);
+		console.log('obj1',obj1);
+	// //5利用JSON上的方法
+		// 	//需要转换的对象-->字符串-->对象
+		// const obj1= JSON.parse(JSON.stringify(obj));
+		// obj1.name='熊家满';
+		// obj1.friend.name='熊家满';
+		// obj1.pets.push('tigger');
+		// console.log('obj',obj);
+		// console.log('obj1',obj1);
+	//6利用jQuery上的extend方法
+		obj1=$.extend(false,{},obj);
+		//true是深拷贝false是浅拷贝（里面的引用数据不能深拷贝）
+		obj1.name='熊家满';
+		obj1.age=20;
+		obj1.friend.name='熊家满';
+		obj1.pets.push('tigger');
+		console.log('obj',obj);
+		console.log('obj1',obj1);
+</script>
+</html>

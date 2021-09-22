@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function timer(id){
+		this.id=id
+		
+		this.se=function(){
+			
+			setTimeout(()=>{/*箭头函数导致this总是指向函数定义生效时所在的对象*/
+				console.log(this,this.id);//箭头函数中的this是在定义时确定的(定义时属于谁),而不是在运行时确定(谁调用)的(相当于上面bind(this);
+			},100)
+			console.log(this);
+		}
+		this.se();
+	}
+	// function timer(id){
+	// 	this.id=id
+	// 	function se(){
+	// 		setTimeout(()=>{/*箭头函数导致this总是指向函数定义生效时所在的对象*/
+	// 			console.log(this,this.id);//箭头函数中的this是在定义时确定的(定义时属于谁),而不是在运行时确定(谁调用)的(相当于上面bind(this);
+	// 		},100)
+	// 	}
+	// 	se();
+	// }
+	var id=99;
+	new timer(33);/*window 99 因为se是window调用*/
+</script>
+</html>

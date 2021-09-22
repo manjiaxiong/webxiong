@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-set的基本使用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//方法一
+	// const set = new Set();
+	// console.log(set);
+	//方法二
+	// const arr=[11,22,33]
+	// const set = new Set(arr);
+	// console.log(set);
+
+	//
+	const s= new Set();
+	s.add(1)//添加数据值唯一 即不能添加一样的数据
+	s.add(2)
+	s.add(3)
+	s.add(4)
+	s.add(5)
+	s.add(5)
+	// console.log(s.delete(1));//删除值 返回布尔值
+	// console.log('has(3)',s.has(3));//判断值 返回布尔值
+	// s.clear();//清除值没有返回值;
+	console.log(s);
+	console.log(s.size);
+	const y=new Set([1,1,1,1,1,1,1,1,])
+	console.log(y)
+</script>
+</html>

@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-用generator函数处理Ajax.html</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	const getAjaxData=(url)=>new Promise((resolve,reject)=>{
+		//异步逻辑处理
+		$.ajax({
+			url:url,
+			type:"GET"
+		})
+		.done((data)=>{
+			resolve(data)
+		})
+		.fail(()=>{
+			reject('notdefind')
+		})
+	})
+	function * gen(url){
+		const data1=yield getAjaxData(url);
+		const data2=yield getAjaxData(data1);
+		const data3=yield getAjaxData(data2);
+		console.log('use data',data3);
+	}
+	const g=gen('https://api.github.com/users/kuazhu');
+	// console.log(g.next());
+	g.next().value
+	.then(data=>{//此时的data是getAjaxData(url)成功时返回的数据
+		console.log(data.followers_url);
+		return g.next(data.followers_url).value;
+		//g.next(data.followers_url)作用是把data.followers_url(一个地址)通过next传给data1然后.value是个Promise对象用于下面then得到data
+	})
+	.then(data=>{
+		console.log(data);//此时的data是getAjaxData(data.followers_url)成功时返回的数据
+		return g.next(data[0].followers_url).value;
+		//g.next(data[0].followers_url)是把getAjaxData（data[0].followers_url）得到的数据传给data2
+	})
+	.then(data=>{
+		g.next(data);//把data3返回出去
+	})
+</script>
+</html>

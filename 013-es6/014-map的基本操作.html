@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-map的基本操作.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//不能键是对象
+	// const obj={};
+	// const obj1={id:1001};
+	// const obj2={id:1002};
+	// obj['name']='Tom';
+	// console.log(obj)
+	//可以键是对象
+	const m=new Map();
+	const obj1={id:1001};
+	const obj2={id:1002};
+	m.set(obj1,'xiong');
+	m.set(obj2,'man');
+	m.set('name','jia');
+	console.log(m)
+	//其他方法同set一致
+
+</script>
+</html>

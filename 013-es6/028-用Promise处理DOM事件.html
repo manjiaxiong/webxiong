@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>028-用Promise处理DOM事件.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1需要一个生产promise对象的函数
+	const getImgePromise=(src)=>new Promise((resolve,reject)=>{
+		//异步处理逻辑
+		const img=new Image();
+		img.onload=function(){
+			resolve(src+'    img succse')
+		}
+		img.onerror=function(){
+			reject(src+'img error')
+		}
+		img.src=src;
+	})
+	// 2用函数生产promise
+	getImgePromise('mg/0ca328b85f9e4dd333e776dfbf3ba1d1.jpeg')
+	.then(data=>{
+		console.log(data);
+	}).catch(err=>{
+		console.log(err);
+	})
+</script>
+</html>
