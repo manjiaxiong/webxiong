@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>057-局部变量.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	b=null;
+	function sh(){
+		var a=1;
+		console.log(a);
+		function sh1(){
+			console.log(a);
+		}
+		sh1();
+	}
+	sh();
+	console.log(b);
+	console.log(a);//此时程序会报错！ 因为在全局变量中 a 并未被定义（定义未赋值是undefined；定义赋空值是null）
+	
+</script>
+</html>

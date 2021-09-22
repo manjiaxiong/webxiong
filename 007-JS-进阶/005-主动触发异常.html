@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>005-主动触发异常.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function sum(n){
+		try{
+			var reslute=0;
+			if(isNaN(parseInt(n))){
+				
+				throw new Error("n不是一个数字");
+			}
+			for(var i=0;i<=n;i++){
+				reslute+=i;
+			}
+			console.log(111);
+			
+		}catch(err){
+			console.log(err);
+		}finally{
+			console.log("always do somthing...")
+		}
+		return reslute;
+	}
+	function mul(sum){
+		return sum*10
+	}
+	console.log("1::::");
+	console.log(sum("a"));
+	console.log("2:::");
+	var SDE=sum("a");
+	console.log(mul(SDE));
+	console.log("3::::")
+</script>
+</html>

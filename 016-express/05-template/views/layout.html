@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{% block title %}{% endblock  %}</title>
+	<!-- <link rel="stylesheet" href="list.css"> -->
+	 {% block head %}{% endblock  %}
+	<link rel="stylesheet" href="list.css">
+</head>
+<body>
+	<nav>我是导航</nav>
+	<div>
+		{% block content %}eeee{% endblock  %}
+	</div>
+	<footer>
+		我是底部
+	</footer>
+</body>
+{% include "./script.html" %}
+{% block end %}{% endblock  %}
+</html>

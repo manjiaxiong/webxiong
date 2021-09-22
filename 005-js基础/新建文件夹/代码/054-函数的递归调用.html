@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>054-函数的递归调用.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fact(num){
+		if(num==1){
+			return 1;
+		}
+			// return num * arguments.callee(num-1);
+			 return num  * fact(num-1);
+		
+		// console.log(arguments.callee)
+		
+		// return num  * fact(num-1);
+	}
+		
+		// function fact(n){
+		// 	if(n==1){
+		// 		return 1;
+		// 	}else{
+		// 		return n * fact(n-1);
+		// 	}
+		// }
+	// fact(5);
+	var fact2=fact;
+	// fact=1;
+	console.log(typeof fact);
+	console.log(fact2(5));
+</script>
+</html>

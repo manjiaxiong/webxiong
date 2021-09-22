@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>020-数据转换-转数值2.html</title>
+</head>
+<body>
+	<input type="text" id="box1">
+	<button id="box3">提交</button>
+</body>
+<script>
+		var oBox=document.getElementById('box1');
+		var oBtn=document.getElementById('box3');
+		oBtn.onclick=function(){
+			var vlu=parseFloat(oBox.value);
+			// alert(vlu);
+			if(isNaN(vlu)){
+				alert("不是数字");//值不是数字，但是类型是数字；
+			}
+		}
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-时间转换器.html</title>
+</head>
+<body>
+	<script>
+		var time=3680;
+		var hour=parseInt(time/3600);
+		var minu=parseInt(time%3600/60);
+		var sec=parseInt(time%3600%60);
+		if(hour<10){
+			hour="0"+hour;
+		}
+		if(minu<10){
+			minu="0"+minu;
+		}
+		if(sec<10){
+			sec="0"+sec;
+		}
+		alert(hour+":"+minu+":"+sec)
+	</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画的复合样式.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			/*animation-name: sport;
+			animation-duration: 2s;
+			animation-iteration-count: infinite;
+			animation-timing-function: linear;
+			animation-delay: 1s;
+			animation-direction: alternate;*/
+			animation: sport 2s 1s infinite linear alternate;
+		}
+		@keyframes sport{
+			from{
+				width: 100px;
+				background-color: red;
+			}
+			to{
+				width: 500px;
+				background-color:green;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

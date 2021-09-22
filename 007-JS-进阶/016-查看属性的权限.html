@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>016-查看属性的权限.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	var p1=new Person("XIONG",20);
+	Person.prototype.LEGS=2;
+	Object.defineProperties(p1,{
+		sex:{
+		value:"man",//控制值
+		enumerable:true,//控制是否可以被枚举
+		writable:true,//控制是否可以改值
+		configurable:true//控制是否可以删除
+		},
+		HANDES:{
+			value:2,//控制值
+			enumerable:false,//控制是否可以被枚举
+			writable:true,//控制是否可以改值
+			configurable:true//控制是否可以删除
+		},
+		}
+	)
+	p1.sex="female";
+	console.log(p1);
+	//只能查看自身属性的权限，不能查看原型链上的属性权限，
+	console.log(Object.getOwnPropertyDescriptor(p1,"name"));
+	console.log(Object.getOwnPropertyDescriptor(p1,"LEGS"));
+</script>
+</html>

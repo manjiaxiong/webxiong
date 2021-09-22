@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>058-作用域的决定.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	console.log(a);
+	var a=1;
+	function tn(){
+		console.log("tn::::",a);
+	}
+	function tn1(){
+		var a=2;
+		tn();
+	}
+	tn1();
+</script>
+</html>

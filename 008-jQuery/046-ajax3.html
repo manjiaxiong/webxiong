@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-ajax3.html</title>
+</head>
+<body>
+	<button>发送GET请求</button>
+	<button>发送POST请求</button>
+	<button>getJSON</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').eq(0).on('click',function(){
+			$.get("044-data.json",{name:"jaiman",age:26},function(data){
+				console.log(data);
+			},'json');
+		});
+		$('button').eq(1).on('click',function(){
+			$.post("044-data.json",'{"name":"xiong","age":21}',function(data){
+				console.log(data);
+			},'json');
+			//data不写成json格式返回类型必须写成text
+		});
+		$('button').eq(2).on('click',function(){//是$.get方法的一个封装;
+			$.getJSON("044-data.json",function(data){
+				console.log(data);
+			});
+		})
+		
+	});
+</script>
+</html>

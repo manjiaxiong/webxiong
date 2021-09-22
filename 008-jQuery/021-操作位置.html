@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin-left: 200px;
+			margin-top: 200px;
+			position: relative;
+			overflow: auto;
+		}
+		.son{
+			width: 2000px;
+			height: 2000px;
+			background-color: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+	<title>021-操作位置.html</title>
+</head>
+<body>
+	<button id="btn">scroll</button>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+				console.log($('.son').offset());//相对于body
+				// console.log($('.son').offset({top:100,left:100}));
+				// console.log($('.son').offset());//此时变成 100 100
+				// console.log($('.son').position());//只能获取不能设置（相对于父元素）
+				// $('.son').css({left:100,top:100});//用此方法设置
+				var oBtn=$('#btn')[0];
+				oBtn.onclick=function(){
+					console.log($('.father').scrollLeft());
+					console.log($('.father').scrollTop());
+					$('.father').scrollLeft(400);
+					$('.father').scrollTop(300);
+				}
+			});
+</script>
+</html>

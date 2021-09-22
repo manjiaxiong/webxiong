@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-限制拖拽.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	
+</body>
+<script>
+	function Drag(options){
+		//1罗列属性
+		this.oBox=null;
+		this.disT=0;
+		this.disL=0;
+		//2初始化页面
+		this.init();
+		this.oBox.style.height=options.height+'px';
+		this.oBox.style.width=options.width+'px';
+		this.oBox.style.background=options.background;
+		this.oBox.style.position='absolute';
+		this.oBox.style.top=0;
+		this.oBox.style.left=0;
+		//3绑定事件
+		this.bindEvent();//调用
+	}
+	Drag.prototype.init=function(){
+		 this.oBox=document.createElement('div');
+		 document.body.appendChild(this.oBox);
+	}
+	Drag.prototype.bindEvent=function(){
+		this.oBox.onmousedown=function(ev){
+			var oEvent=ev || event;
+			this.disT=oEvent.clientY-this.oBox.offsetTop;
+			this.disL=oEvent.clientX-this.oBox.offsetLeft;
+			document.onmousemove=this.fnMove.bind(this);
+			document.onmouseup=this.fnUp
+		}.bind(this);
+	}
+	Drag.prototype.fnMove=function(ev){
+		var oEvent=ev|| event;
+		this.oBox.style.top=oEvent.clientY-this.disT+'px';
+		this.oBox.style.left=oEvent.clientX-this.disL+'px';
+	}
+	Drag.prototype.fnUp=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+	}
+	new Drag({
+		height:100,
+		width:100,
+		background:'red'
+	})
+	function limDrag(options){
+		Drag.call(this,options);
+	}
+	limDrag.prototype=Object.create(Drag.prototype);
+	limDrag.prototype.constructor=limDrag;
+	limDrag.prototype.fnMove=function(ev){
+		var oEvent=ev|| event;
+		var l=oEvent.clientX-this.disL;
+		var t=oEvent.clientY-this.disT;
+		if(l<0){
+			l=0
+		}else if(l>window.innerWidth-this.oBox.offsetWidth){
+			l=window.innerWidth-this.oBox.offsetWidth
+		}
+		if(t<0){
+			t=0
+		}else if(t>window.innerHeight-this.oBox.offsetHeight){
+			t=window.innerHeight-this.oBox.offsetHeight
+		}
+		this.oBox.style.top=t+'px';
+		this.oBox.style.left=l+'px';
+	}
+	new limDrag({
+		height:300,
+		width:300,
+		background:'blue'
+	})
+</script>
+</html>

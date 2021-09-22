@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>123-中部底部.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#top{
+			height: 100px;
+			background-color: gray;
+		}
+		#nav{
+			width: 1260px;
+			/*height: 100px;*/
+			position: fixed;
+			top: 0px;
+			left: 50%;
+			margin-left: -630px;
+			background-color: red;
+		}
+		#main{
+			height: 2000px;
+			background-color: blue;
+
+		}
+	</style>
+	
+</head>
+<body>
+	<div id="top"></div>
+	<div id="nav"></div>
+	<div id="main"></div>
+</body>
+<script src="../js/toChange.js"></script>
+<script>
+	var oNav=document.getElementById('nav');
+	var cji=false;
+	window.onscroll=function(){
+		var iTop=getScrolltop();
+		if(iTop>=100){
+			if(!cji){
+				toChange(oNav,'height',100);
+				cji=true;
+				console.log('a');
+			}
+		}else{
+			if(cji){
+				toChange(oNav,'height',0);
+				cji=false;
+				console.log('b');
+			}
+		}
+	}
+</script>
+
+</html>

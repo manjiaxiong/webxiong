@@ -1,0 +1,181 @@
+/*顶部区域开始 -*/
+.top{
+		height: 40px;
+		background-color: #333;
+	}
+	.top .top-nav{
+		height: 40px;
+		float: left;
+		line-height: 40px;
+		/*width: 300px;*/
+		background-color: #333;
+	}
+	.top .top-nav li{
+		float: left;
+		text-decoration: none;
+	}
+	.top .top-nav span{
+		color: #423b36;
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+	li{
+		list-style: none;
+	}
+	a{
+		color: #b0b0b0;
+		text-decoration: none;
+	}
+	a:hover{
+		color: #ccc;
+	}
+	.top .cart{
+		height: 40px;
+		float: right;
+		line-height: 40px;
+		background-color: #424242;
+		width: 120px;
+		text-align: center;
+		/*background-color: pink;*/
+	}
+	.top .cart:hover{
+		color: #ff6700;
+		background-color: white;
+	}
+	.top .cart:hover a{
+		color: #ff6700;
+	}
+	.top .user-info{
+		height: 40px;
+		float: right;
+	
+		line-height: 40px;
+		margin-right: 24px;
+		
+	}
+	.top .user-info li{
+		float: left;
+	}
+	.top .user-info span{
+		color: #423b36;
+		margin-left: 8px;
+		margin-right: 8px;
+	}
+/*顶部区域结束 -->*/
+/*上部搜索区域开始 -*/
+	.header{
+		height: 101px;
+	}
+	.header .logo{
+		float: left;
+		width: 55px;
+		height: 55px;
+		background-color: #ff6700;
+		margin-top: 22px;
+		background-image: url(../images/logo.png);
+	}
+	.header .nav{
+		margin-left: 190px;
+	}
+	.header .nav li{
+		float: left;
+		font-size: 18px;
+		line-height: 101px;
+		text-align: center;
+		margin-right: 20px;
+		cursor: pointer;
+	}
+	.header .nav li:hover{
+		color: #ff6700;
+	}
+	.header .search{
+		float: right;
+		margin-top: 25px;
+		position: relative;
+	}
+	.header .search .ao{
+		float: left;
+		width: 245px;
+		height: 50px;
+		border: 1px solid #e0e0e0;
+		box-sizing: border-box;
+		outline: none;
+		padding-left: 10px;
+	}
+	.header .search .bo{
+		float: left;
+		width: 50px;
+		height: 50px;
+		border: 1px solid #e0e0e0;
+		box-sizing: border-box;
+		outline: none;
+		text-align: center;
+		line-height: 50px;
+		border-left: none;
+	}
+	.header .search .bo i{
+		font-size: 28px;
+		color: #61618b;
+	}
+	.header .search .tishi{
+		position: absolute;
+		top:16px;
+		right: 60px;
+	}
+	.search .tishi span{
+		font-size: 12px;
+		color: #757575;
+		background-color: #eeeeee;
+		cursor: pointer;
+	}
+	.search .tishi span:hover{
+		background-color: #ff6700;
+		color: white;
+	}
+	.search .xia{
+		position: absolute;
+		z-index: 999;
+		top: 50px;
+		border: 1px solid #FF6700;
+		display: none;
+		border-top: none;
+	}
+	 .header .search .xia li{
+		height: 30px;
+		width: 245px;
+		line-height: 30px;
+		background-color: white;
+	}
+	 .header .search .xia li:hover {
+		background-color: #eee;
+	}
+	.header .search .ao:focus ~ .xia{
+		display: block;
+	}
+	.header .search .tishi .name{
+		margin-right: 10px;
+	}
+	.header .search .xia .name{
+		color: black;
+		font-size: 12px;
+		float: left;
+		margin-left: 20px;
+	}
+	.header .search .xia .num{
+		font-size: 12px;
+		float: right;
+		margin-right: 20px;
+	}
+	.header .search .ao:focus{
+		border-color: #ff6700;
+	}
+	.header .search .ao:focus ~ .bo{
+		border-color: #ff6700;
+	}
+/*上部搜索区域结束 -->*/
+/*焦点区域开始 -*/
+/*焦点区域结束 -->*/
+/*热卖区域开始 -*/
+/*热卖区域结束 -->*/
+/*底部区域开始 -*/
+/*底部区域结束 -->*/

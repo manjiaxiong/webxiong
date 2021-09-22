@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>143-物体拖拽2-限制在可视区.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="../js/animation.js"></script>
+<script>
+	var oBox=document.getElementById('box');
+	oBox.onmousedown=function(ev){
+		var disT=ev.clientY-oBox.offsetTop;
+		var disL=ev.clientX-oBox.offsetLeft;
+		var l=0;
+		var t=0;
+		document.onmousemove=function(ev){
+			t=ev.clientY-disT;
+			l=ev.clientX-disL;
+			if(l<0){
+				l=0
+			}else if(l>window.innerWidth-oBox.offsetWidth){
+				l=window.innerWidth-oBox.offsetWidth;
+			}
+			if(t<0){
+				t=0
+			}else if(t>window.innerHeight-oBox.offsetHeight){
+				t=window.innerHeight-oBox.offsetHeight;
+			}
+			oBox.style.top=t+'px';
+			oBox.style.left=l+'px';
+		}
+		document.onmouseup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+	}
+</script>
+</html>

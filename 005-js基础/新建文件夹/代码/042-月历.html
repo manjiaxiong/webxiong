@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-月历.html</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.time{
+		width: 380px;
+		height: 600px;
+		margin: 100px auto;
+		border: 1px solid #000;
+		background-color: gray;
+	}
+	.mon{
+		overflow: hidden;
+	}
+	li{
+		width: 100px;
+		height: 100px;
+		background-color: black;
+		color: white;
+		float: left;
+		font-size: 30px;
+		list-style: none;
+		text-align: center;
+		margin-top: 20px;
+		margin-left: 20px;
+		cursor: pointer;
+		line-height: 100PX;
+	}
+	.active{
+		background-color: white;
+		color: black;
+	}
+	.tem{
+		margin-left: 20px;
+		margin-top: 20px;
+	}
+</style>
+<body>
+	<div class="time">
+		<ul class="mon" id="mon">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+		<div class="tem">
+			<!-- <h2>1月</h2>
+			<p>吃西瓜</p> -->
+		</div>
+	</div>
+</body>
+<script>
+	var Tn = document.querySelectorAll('.time li');
+	var Bn=document.querySelector('.tem')
+	var arr=["吃饭","睡觉","练功","444","555","666","吃饭","睡觉","练功","444","555","666"];
+	Bn.innerHTML="<h2>" +1 +"月</h2><p>"+ arr[0]+"</p>"
+	for(var i=0;i<Tn.length;i++){
+		Tn[i].index=i;
+		Tn[i].onmouseover = function(){
+			for(var j=0;j<Tn.length;j++){
+				Tn[j].className='';
+			}
+			this.className='active';
+			Bn.innerHTML="<h2>"+(this.index+1)+"月</h2><p>" +arr[this.index]+"</p>";
+		}
+	}
+	
+</script>
+</html>

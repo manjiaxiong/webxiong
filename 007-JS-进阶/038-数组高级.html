@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-数组高级.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var arr=[12,23,43,22,1,56];
+	//遍历
+	// var reslute=arr.forEach(function(value,index){
+	// 	console.log("value,index",value,index)
+	// })
+	// console.log(reslute)//因为forEach没有返回值所以是undefinde；
+	//映射
+	//  var reslute=arr.map(function(value,index){
+	// 	console.log("value,index",value,index)
+	// 	return value*3;//此处不写返回数组内容为undefinde
+	// })
+	//  	console.log(reslute)//因为map有返回值（一个新数组）
+	//过滤
+	var reslute=arr.filter(function(value,index){//返回数组
+		console.log("value,index",value,index)
+		return value>20;//此处写返回的条件
+	})
+	 	console.log(reslute)//因为有返回值（一个新数组）
+	//全真判断（返回值为一个布尔值）
+	var reslute=arr.every(function(value,index){//返回布尔值
+		console.log("value,index",value,index)
+		return value>20;//此处写判断条件
+	})
+	 	console.log(reslute)//数组到判断为false
+	//有真判断（返回值为一个布尔值）
+	var reslute=arr.some(function(value,index){//
+		console.log("value,index",value,index)
+		return value>20;//此处写判断条件
+	})
+	 	console.log(reslute)//数组到判断为true
+	var arr1 = [1, 2, 3, 4];
+	var sum = arr1.reduce(function(prev, cur, index, arr) {
+	    console.log(prev, cur, index,arr);
+	    return prev + cur;
+	})
+	console.log(arr1, sum);
+	// 这里可以看出，上面的例子index是从1开始的，第一次的prev的值是数组的第一个值。数组长度是4，但是reduce函数循环3次。
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>022-事件的绑定.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//方法1,2都不会被覆盖
+		function fn(){
+			alert('on2222')
+		}
+		//方法一
+		$('div').click(function(){
+			alert('click');
+		})
+		//方法二(范围广)
+		$('div').on('click',function(){
+			alert('on');
+		});
+		//方法三
+		$('div').on('click',fn)
+			});
+		//hover
+		//（同样也不会被覆盖）
+		$('div').hover(function(){
+			alert('hoverin')
+		},function(){
+			alert('hoverout')
+		});
+		//此处只能用匿名函数
+		$('div').hover(function(){
+			alert('hoverin11')
+		},function(){
+			alert('hoverout11')
+		})
+</script>
+</html>

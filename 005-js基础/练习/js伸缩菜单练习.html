@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伸缩菜单</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			left: -400px;
+			background-color: gray;
+		}
+		#son{
+			width: 100px;
+			height: 400px;
+			background-color: red;
+			position: absolute;
+			right: -100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>//获取元素
+	var oFather=document.getElementById('father');
+	var oSon=document.getElementById('son');
+	var timer=null;
+	var iSpeed=0
+	//出来
+	oFather.onmouseover=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var crry=oFather.style.left;
+			if(oFather.offsetLeft<0){//判断运动方向
+				iSpeed=9;
+			}
+			else{
+				iSpeed=-9
+			}
+			if(Math.abs(oFather.offsetLeft)<Math.abs(iSpeed)){
+				oFather.style.left='0px';
+				clearInterval(timer);
+			}
+			else{
+				oFather.style.left=oFather.offsetLeft + iSpeed+'px';
+			}
+		},40)
+	}
+	oFather.onmouseout=function(){
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var crry=oFather.style.left;
+			if(oFather.offsetLeft<-400){//判断运动方向
+				iSpeed=9;
+			}
+			else{
+				iSpeed=-9
+			}
+			if(Math.abs(-400-oFather.offsetLeft)<Math.abs(iSpeed)){
+				oFather.style.left='-400px';
+				clearInterval(timer);
+			}
+			else{
+				oFather.style.left=oFather.offsetLeft + iSpeed+'px';
+			}
+		},40)
+	}
+</script>
+</html>

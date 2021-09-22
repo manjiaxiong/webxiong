@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>040-操作DOM-添加节点.html</title>
+</head>
+<body>
+	<button>添加1</button>
+	<button>添加2</button>
+	<button>添加3</button>
+	<button>添加4</button>
+	<button>添加5</button>
+	<button>添加6</button>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+	</ul>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//插入到父节点后面
+		$('button').eq(0).on('click',function(){
+			var oLi=$('<li>我是动态添加的里li</li>');
+			$('ul').append(oLi);
+		});
+		$('button').eq(1).on('click',function(){
+			var oLi=$('<li>我是动态添加的里li</li>');
+			oLi.appendTo($('ul'));
+		});
+		//插入到父节点前面
+		$('button').eq(2).on('click',function(){
+			var oLi=$('<li>我是动态添加的里li</li>');
+			$('ul').prepend(oLi);
+		});
+		$('button').eq(3).on('click',function(){
+			var oLi=$('<li>我是动态添加的里li</li>');
+			oLi.prependTo($('ul'));
+		});
+		//外部插入
+		$('button').eq(4).on('click',function(){
+			var oLi=$('<li>我是动态添加的里li</li>');
+			$('ul ').after(oLi);
+		});
+		$('button').eq(5).on('click',function(){
+			var oLi=$('<li>我是动态添加的里li</li>');
+			$('ul ').before(oLi);
+			});
+		});
+</script>
+</html>

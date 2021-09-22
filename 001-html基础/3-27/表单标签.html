@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单标签</title>
+</head>
+<body>
+	<form action="http://baidu.com" method="get">
+		<p>
+			<label for="username">用户名</label>
+			<input type="text" name="username"  value="" id="username" autocomplete="on">
+		</p>
+		<p><label for="password">密码:</label>
+			<input type="password" name="password" value="123456" id="password" autocomplete="on">
+		</p>
+		<p>性别：
+			男：<input type="radio" name="sex" id="man" value="man">
+			女：<input type="radio" name="sex" id="feman" checked value="feman">
+			不确定：<input type="radio" name="sex" id="none" value="none">
+		</p>
+		<p>爱好：
+			篮球:<input type="checkbox" name="hobby" value="basktable">
+			足球:<input type="checkbox" name="hobby" value="basktable">
+			乒乓球球:<input type="checkbox" name="hobby" checked value="basktable">
+			
+		</p>
+		<p>
+			<input type="hidden" name="hidden"  value="我是偷偷来的">
+		</p>
+		<p><input type="submit" value="提交">
+			<input type="reset" value="清空">
+		</p>
+   	</form>
+	
+</body>
+</html>

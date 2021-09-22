@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-替换节点.html</title>
+</head>
+<body>
+	<button>替换1</button>
+	<button>替换2</button>
+	<button>替换3</button>
+	<div>
+		<p>我是内容</p>
+	</div>
+	<div>
+		<p>我是内容</p>
+	</div>
+	<div>
+		<p>我是内容</p>
+	</div>
+	<div>
+		<p>我是内容</p>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//方法一
+		$('button').eq(0).on('click',function(){
+			var $h2=$('<h2>我是标题</h2>');
+			$('div p').replaceWith($h2);
+		});
+		$('button').eq(1).on('click',function(){
+			$('div p').replaceWith('<h2>我是标题</h2>');
+		});
+		//方法二
+		$('button').eq(2).on('click',function(){
+			var $h2=$('<h2>我是标题</h2>');
+			$($h2).replaceAll('div p');
+		});
+	});
+</script>
+</html>

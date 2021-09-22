@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>034-观察者模式-发布作业.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name){
+			this.name=name;
+			this.students=[];
+		}
+		Teacher.prototype={
+			constructor:Teacher,
+			regist:function(student){
+				this.students.push(student);
+			},
+			public:function (msg){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listeren(msg);
+				}
+			}
+		}
+		w.Teacher=Teacher;
+	})(window);
+	(function(w){
+		function Student(name,teacher){
+			this.name=name;
+			teacher.regist(this);
+		}
+		Student.prototype={
+			constructor:Student,
+			listeren:function(msg){
+				console.log(this.name+'got msg::::'+msg);
+			}
+
+		}
+		w.Student=Student;
+	})(window);
+	var T1=new Teacher('XIONG');
+	var S1=new Student('JIA',T1);
+	var S2=new Student('MAN',T1);
+	var S3=new Student('HAO',T1);
+	T1.public('去吃饭');
+	// console.log(T1)
+</script>
+</html>

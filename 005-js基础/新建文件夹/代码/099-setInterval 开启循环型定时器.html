@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>099-setInterval 开启循环型定时器.html</title>
+</head>
+<body>
+	<button id="btn">关闭</button>
+</body>
+<script>
+	// setInterval("console.log('1111')",2000);
+	// var result=setInterval("console.log('1111')",2000);
+	var i=0;
+	 var timer=setInterval(function(){
+		console.log(i++);
+	},2000);
+	// console.log(result);
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		clearInterval(timer);
+	}
+</script>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>浮动布局案例.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			height: 600px;
+			width: 800px;
+			border: 1px solid #000;
+			margin:  0px auto;
+		}
+		.clearfix:after{
+			display: block;
+			visibility: hidden;
+			height: 0px;
+			clear: both;
+			content: "";
+		}
+		.clear{
+			*zoom: 1;
+		}
+		header{
+				/*height: 100px;*/
+				/*background-color: gray;*/
+		}
+		header .logo{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			float: left;
+		}
+		header .son1{
+			width: 200px;
+			height: 50px;
+			background-color: gray;
+			float: right;
+		}
+		header .son2{
+			width: 600px;
+			height: 50px;
+			background-color: purple;
+			float: right;
+		}
+		section{
+			/*height: 400px;*/
+			/*background-color: red;*/
+			margin-top: 10px;
+		}
+
+		section .left {
+			width: 600px;
+			height: 350px;
+			/*background-color: gray;*/
+			float: left;
+		}
+		section .lefttop{
+			float: left;
+		}
+		section .leftbottom{
+			height: 50px;
+			background-color: red;
+			float: left;
+		}
+		section .left .lefttopleft{
+			float: left;
+		}
+		section .left .lefttop .son1{
+			width: 400px;
+			height: 180px;
+			background-color: yellow;
+			/*float: left;*/
+		}
+		section .left .lefttop .son2{
+			margin-top: 10px;
+			width: 400px;
+			height: 120px;
+			background-color: yellow;
+			/*float: left;*/
+		}
+		section .lefttopright{
+			margin-left: 10px;
+			width: 180px;
+			height: 310px;
+			background-color: pink;
+			float: right;
+		}
+		section .right{
+		width: 190px;
+		height: 350px;
+		background-color: skyblue;
+		float: right;
+		margin-left: 10px;
+		}
+		footer{
+			height: 50px;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<header class="clearfix">
+			<h1 class="logo"></h1>
+			<div class="user">
+				<div class="son1"></div>
+				<div class="son2"></div>
+			</div>
+		</header>
+		<section>
+			<div class="left">
+				<div class="lefttop">
+					<div class="lefttopleft" >
+						<div class="son1"></div>
+						<div class="son2"></div>
+						</div>
+					<div class="lefttopright">
+						<div class="son3"></div>
+					</div>
+				</div>
+				<div class="leftbottom"></div>
+			</div>
+			<div class="right"></div>
+		</section>
+		<footer></footer>
+	</div>
+</body>
+</html>

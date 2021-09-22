@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>042-click.html</title>
+</head>
+<body>
+	<button id="btn">请求</button>
+</body>
+<script>
+	var oBtn=document.querySelector('#btn');
+	oBtn.onclick=function(){
+		//1创建ajax对象（创建电话）；（客户端创建）
+		var oAjax =new XMLHttpRequest();
+		//2拨号（取得联系）；
+		oAjax.open('GET','http://127.0.0.1:3000/042-data2.json',true);
+		oAjax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		//3发送请求到服务端（）
+		oAjax.send();
+		//4接收服务端发来的数据
+		oAjax.onreadystatechange=function(){
+			// console.log(oAjax.readyState);
+			if(oAjax.readyState==4){//到第四步
+				if(oAjax.statusCode=200){//且接受的数据正确
+					var strToObj=JSON.parse(oAjax.responseText);
+					console.log(strToObj)
+				}
+			}
+		}
+	}
+</script>
+</html>

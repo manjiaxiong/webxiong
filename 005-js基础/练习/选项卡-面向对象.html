@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	选项卡-面向对象.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+		}
+		.active{
+			color: #ff6700;
+			border: 1px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<div id="box1"></div>
+	<div id="box2"></div>
+</body>
+<script src="../js/animation.js"></script>
+<script>
+	function Tab(id,amount){
+		//1.罗列属性
+		this.box=document.getElementById(id);
+		this.oUlBtn=null;
+		this.oUlCon=null;
+		this.amount=amount;
+		//2.初始化页面
+		this.init();
+		//3.绑定点击事件
+		this.bandEvent();
+	}
+	//初始化页面函数
+	Tab.prototype.init=function(){
+		//1.初始化oUlBtn
+		this.oUlBtn=document.createElement('ul');//创建oUlBtn
+		this.oUlBtn.style.overflow="hidden";//防止高度塌陷
+		this.box.appendChild(this.oUlBtn);//插入oUlBtn
+		for(var i=0;i<this.amount;i++){//创建并插入LI
+			var oLi=document.createElement('li');
+			oLi.innerHTML=i+1;
+			oLi.style.fontSize=30+'px';
+			oLi.style.float="left";
+			oLi.style.width=70+"px";
+			oLi.style.textAlign="center";
+			oLi.style.cursor="pointer"
+			if(i==0){//默认第一个li的属性
+				oLi.className="active";
+			}
+			this.oUlBtn.appendChild(oLi);
+		}//2.初始化oUlCon
+		this.oUlCon=document.createElement('ul');//创建oUlCon
+		this.oUlCon.style.position="relative";//使他的li定位参照点为他
+		this.oUlCon.style.width=304+"px";//设置宽度防止塌陷
+		this.oUlCon.style.height=304+"px";//设置高度防止塌陷
+		this.box.appendChild(this.oUlCon);//插入oUlCon
+		for(var i=0;i<this.amount;i++){//设置并插入li
+			var oLi=document.createElement('li');
+			oLi.innerHTML=i+1;
+			oLi.style.fontSize=60+'px';
+			oLi.style.position="absolute";
+			oLi.style.top=0;
+			oLi.style.left=0;
+			oLi.style.display="none";
+			oLi.style.border="2px solid black"
+			if(i==0){//默认第一个li的属性
+				oLi.style.display="block";
+				oLi.style.border="2px solid #ff6700"
+			}
+			oLi.style.width=300+"px";
+			oLi.style.height=300+"px";
+			oLi.style.textAlign="center";
+			this.oUlCon.appendChild(oLi);
+		}
+	}//绑定事件
+	Tab.prototype.bandEvent=function(){
+		var _this=this;//保存this
+		for(var i=0;i<this.amount;i++){
+			this.oUlBtn.children[i].index=i;
+			this.oUlBtn.children[i].onclick=function(){
+				for(var j=0;j<_this.amount;j++){//清空属性
+					_this.oUlBtn.children[j].className="";
+					_this.oUlCon.children[j].style.border="2px solid black"
+					_this.oUlCon.children[j].style.display="none";
+					_this.oUlCon.children[j].style.height=0;
+					_this.oUlCon.children[j].style.opacity=0;
+				}//设置点击属性
+				this.className="active"
+				_this.oUlCon.children[this.index].style.border="2px solid #ff6700";
+				_this.oUlCon.children[this.index].style.display="block";
+				animation(_this.oUlCon.children[this.index],{height:304,opacity:100},true);//设置动画
+			}
+		}
+	}
+	new Tab("box",4);
+	new Tab("box1",8);
+	new Tab("box2",5);
+</script>
+</html>

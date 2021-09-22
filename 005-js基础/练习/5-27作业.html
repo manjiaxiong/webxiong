@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5-27作业.html</title>
+</head>
+<body>
+	<textarea  id="txt" cols="30" rows="10"></textarea>
+	<button id="btn1">介绍</button>
+</body>
+<script>
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn1');
+	function person(options){
+		this.name=options.name;
+		this.age=options.age;
+		this.major=options.major;
+		this.intro=options.intro;
+	}
+	var person1=new person({
+		name:"tom",
+		age:18,
+		major:"食品",
+		intro:"根据国家学科分类，食品科学与工程学科属国家一级学科，与数学、物理、生物、天文、化工等基础学科属同等地位，具有多学科交叉渗透的特点，涉及化学、物理、生物、农学、医学、机械、环境、管理等多个学科领域。"
+	});
+	oBtn.onclick=function(){
+		oTxt.value="我叫"+person1.name+"我今年"+person1.age+"岁"+"我的专业是"+person1.major+"    nbsp;    "+person1.intro;
+	}
+	console.log(person1)
+</script>
+</html>

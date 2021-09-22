@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡练习.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.top{
+			overflow: hidden;
+		}
+		.top li{
+			float: left;
+			width: 40px;
+			line-height: 40px;
+			text-align: center;
+			
+		}
+		.bottom li{
+			width: 200px;
+			height: 200px;
+			text-align: center;
+			border: 1px solid #000;
+			margin-top: 20px;
+			display: none;
+		}
+		li{
+			list-style: none;
+		}
+		.active{
+			border: 2px solid #ff6700;
+			color: #ff6700;
+		}
+		
+		.bottom .show{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="big">
+		<ul class="top">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul class="bottom">
+			<li class="show">001</li>
+			<li>002</li>
+			<li>003</li>
+			<li>004</li>
+			<li>005</li>
+		</ul>
+	</div>
+</body>
+<script>
+	var oTop=document.querySelectorAll('.top li');
+	var oBottom=document.querySelectorAll('.bottom li');
+	for(var i=0;i<oTop.length;i++){
+		oTop[i].index=i;
+		oTop[i].onmouseover=function(){
+			for(var j=0;j<oTop.length;j++){
+				oTop[j].className='';
+				oBottom[j].style.display='none';
+			}
+			this.className='active';
+			oBottom[this.index].style.display='block';
+		}
+	}
+</script>
+</html>

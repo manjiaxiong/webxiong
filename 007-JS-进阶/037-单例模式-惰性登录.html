@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>037-惰性登录.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#btn{
+			position: relative;
+			z-index: 999;
+		}
+		#login{
+			width: 200px;
+			height: 300px;
+			background-color: blue;
+			position: absolute;
+			top: 200px;
+			left: 600px;
+			z-index: 999;
+			/*display: none;*/
+		}
+		#mask{
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0,0.2);
+			/*display: none;*/
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">登录</button>
+	<!-- <div id="login"></div> -->
+	<!-- <div id="mask"></div> -->
+</body>
+<script>
+	var oBtn=document.querySelector('#btn');
+	// var oLogin=document.querySelector('#login');
+	// var oMask=document.querySelector('#mask');
+	// console.log(oBtn);
+	function ElementSingle(fn){
+		var obj=null;
+		// console.log(111)
+		return function(){
+			console.log(obj)
+				if(!obj){
+					obj=fn();
+				}
+		}
+	}
+	function createLogin(){
+		var oLogin=document.createElement('div');
+		oLogin.id='login';
+		document.body.appendChild(oLogin);
+		return oLogin;
+	}
+	function createMask(){
+		var oMask=document.createElement('div');
+		oMask.id='mask';
+		document.body.appendChild(oMask);
+		return oMask;
+	}
+	var createSingeoLogin=ElementSingle(createLogin);
+	var createSingeoMask=ElementSingle(createMask);
+	oBtn.onclick=function(){
+		// oLogin.style.display='block';
+		// var oLogin=document.createElement('div');
+		// oLogin.id='login';
+		// document.body.appendChild(oLogin);
+		// oMask.style.display='block';
+		createSingeoLogin();
+		createSingeoMask();
+		// ElementSingle(createLogin)();
+	}
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>039-动画的速度.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			opacity: 0.1;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<button>开始动画</button>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//回调函数放在最后
+		$('button').on('click',function(){
+			$('div:eq(0)').animate({width:300},2000,'swing',function(){
+				console.log(111)
+			});//默认是swing
+			$('div:eq(1)').animate({width:300},2000,'linear');
+		})
+			});
+</script>
+</html>

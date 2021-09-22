@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>009-jquery对象常见方法.html</title>
+</head>
+<body>
+	<div class="div1">1</div>
+	<div class="div2">2</div>
+	<div class="div3">3</div>
+	<div class="div4">4</div>
+	<div class="div5">5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//什么也不传是0
+		//找不到是负一
+		//里面只能是Dom对象
+		var oDiv3=document.querySelector('.div3');
+		console.log($('div').index());
+		console.log($('.div2').index());
+		console.log($('div').index(oDiv3));
+		console.log($('div').index(document.querySelector('.div2')));
+		$('div').each(function(index,element){
+			console.log(index,element);
+		});
+		$('.div1').data('kuazhu','text');//行内没有
+		console.log($('.div1').data('kuazhu'));
+		console.log($('div').is('.div1'));	
+	});
+	
+</script>
+</html>

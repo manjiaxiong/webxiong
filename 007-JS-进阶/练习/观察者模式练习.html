@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>观察者模式练习.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	(function(w){
+		function Teacher(name){
+			this.students=[];
+			this.name=name;
+		}
+		Teacher.prototype={
+			constructor:Teacher,
+			regist:function(student){
+				this.students.push(student);
+			},
+			public:function(msg){
+				for(var i=0;i<this.students.length;i++){
+					this.students[i].listener(msg);
+				}
+			}
+		}
+		w.Teacher=Teacher;
+	})(window);
+	(function(w){
+		function Student(name,teacher){
+			this.name=name;
+			teacher.regist(this);
+		}
+		Student.prototype={
+			constructor:Student,
+			listener:function (msg){
+				console.log(this.name +msg);
+			}
+		}
+		w.Student=Student;
+	})(window)
+	var t1=new Teacher('XIONG');
+	var s1=new Student('jiaman1',t1);
+	var s2=new Student('jiaman2',t1);
+	var s3=new Student('jiaman3',t1);
+	t1.public('去吃饭');
+	console.log(s1);
+</script>
+
+</html>

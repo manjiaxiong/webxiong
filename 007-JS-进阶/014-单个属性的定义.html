@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>014-单个属性的定义.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	// Person.prototype.showName=function(){
+	// 	console.log("I am "+this.name);
+	// }
+	// Person.prototype.showAge=function(){
+	// 	console.log("I am "+this.age+"years old");
+	// }
+	// Person.prototype.LEGS=2;
+	// p1.male="sex";
+	// p1.name="jia"//
+	// p1.LEGS=4;
+	var p1=new Person("XIONG",20);
+	Object.defineProperty(p1,'sex',{
+		value:"man",//控制值
+		enumerable:true,//控制是否可以被枚举,默认为false
+		writable:true,//控制是否可以改值,默认为false
+		configurable:false//控制是否可以删除,默认为false
+	})
+	p1.sex="female";
+	delete p1.sex;//因为configurable是false所以删除不掉
+	// console.log(p1.sex);
+	for(attr in p1){
+		console.log(attr,p1[attr]);
+	}
+	console.log(p1)
+</script>
+</html>

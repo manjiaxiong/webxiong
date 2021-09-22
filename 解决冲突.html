@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>git解决冲突</title>
+</head>
+<body>
+	解决方案一（强制覆盖本地代码，你自己修改的代码即将被远程库的代码所覆盖）
+把你修改的代码进行备份，然后执行命令：
+git reset --hard origin/master
+git pull
+从你备份好的文件当中把你写的代码拿过去，修改完成再进行git push
+解决方案二
+（合并远程库和你本地的代码）执行命令：
+git fetch 更新远程仓库文件
+git diff master origin/master 本地文件和远程仓库文件进行对比
+git merge origin/master 自动合并
+根据需求手动删除不必要的代码，修改完成git push到远程仓库
+
+</body>
+<script>
+	function aa(){
+		console.log(q)
+		q=0;
+	}
+	aa()
+</script>
+</html>

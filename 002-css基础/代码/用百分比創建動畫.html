@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用百分比創建動畫.html</title>
+	<style>
+		*{margin: 0;
+		padding: 0;}
+		.father{
+			position: relative;
+			width: 600px;
+			height: 400px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+		.son{
+			position: absolute;
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			animation: sport 4s infinite linear;
+			left: 0px;
+			top: 0px;
+		}
+		@keyframes sport{
+			0%{
+				left :0px;
+				top: 0px;
+				background-color: red;
+			}
+			25%{
+				left :500px;
+				top: 0px;
+				background-color: pink;
+			}
+			50%{
+				left :500px;
+				top: 300px;
+				background-color: black;
+			}
+			75%{
+				left :0px;
+				top: 300px;
+				background-color: green;
+			}
+			100%{
+				left :0px;
+				top: 0px;
+				background-color: red;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son"></div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>015-多个属性的定义.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+	}
+	var p1=new Person("XIONG",20);
+	// Object.defineProperties(p1,"sex",{
+	// 	value:"man",//控制值
+	// 	enumerable:true,//控制是否可以被枚举
+	// 	writable:true,//控制是否可以改值
+	// 	configurable:true//控制是否可以删除
+	// })
+	Object.defineProperties(p1,{
+		'sex':{
+		value:"man",//控制值
+		enumerable:true,//控制是否可以被枚举
+		writable:true,//控制是否可以改值
+		configurable:true//控制是否可以删除
+		},
+		LEGS:{//没必要变成字符串因为自动变
+			value:2,//控制值
+			enumerable:true,//控制是否可以被枚举
+			writable:true,//控制是否可以改值
+			configurable:true//控制是否可以删除
+		},
+		HANDES:{
+			value:2,//控制值
+			enumerable:false,//控制是否可以被枚举
+			writable:true,//控制是否可以改值
+			configurable:true//控制是否可以删除
+		},
+		}
+	)
+	p1.sex="female";
+	// delete p1.sex;
+	for(attr in p1){
+		console.log(attr,p1[attr]);
+	}
+	console.log(p1)
+</script>
+</html>

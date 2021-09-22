@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>115-动画-匀速动画.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			top: 50px;
+			background-color: red;
+			/*transition: all 1s;*/
+		}
+		#line{
+			width: 1px;
+			height: 400px;
+			background-color: black;
+			position: absolute; 
+			left: 400px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">运动</button>
+	<div id="box"></div>
+	<div id="line"></div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	var oBtn=document.getElementById('btn');
+	var timer=null;
+	oBtn.onclick=function(){
+		//防止用户多点
+		clearInterval(timer);		
+		timer= setInterval(function(){
+			if(oBox.offsetLeft==400){
+				clearInterval(timer);
+			}else{
+				oBox.style.left=oBox.offsetLeft+10+"px";
+			}
+			console.log(timer);	
+		},50);
+	}
+</script>
+</html>

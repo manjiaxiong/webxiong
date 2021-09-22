@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TEST.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 800px;
+			background-color: yellow;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		p{/*贴靠兄弟元素够宽*/
+			width: 52px;
+			height: 200px;
+			background-color: red;
+			float: left;
+		}
+		p:nth-child(5){
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+</body>
+</html>

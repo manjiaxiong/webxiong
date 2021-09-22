@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>139-物体随鼠标移动.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			width: 3000px;
+			height: 3000px;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script src="../js/animation.js"></script>
+<script>
+	var oBox=document.getElementById('box');
+	document.onmousemove=function(ev){
+		oBox.style.left=getScrollLeft() +ev.clientX +'px';
+		oBox.style.top=getScrollTop()+ev.clientY +'px';
+	}
+</script>
+</html>

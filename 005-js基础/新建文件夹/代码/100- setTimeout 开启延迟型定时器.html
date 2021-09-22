@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>100- setTimeout 开启延迟型定时器.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function haha(){
+		console.log("haha");
+	}
+	var timer=setTimeout(function(){
+		console.log("huyuy");
+	},2000);
+	setTimeout("console.log('1111')",2000);
+	setTimeout("console.log('2222')",2000);
+	setTimeout(haha,2000);
+	clearTimeout(1);
+	console.log("1111",timer);
+</script>
+</html>

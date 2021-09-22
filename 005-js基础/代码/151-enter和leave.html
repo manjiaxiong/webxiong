@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>151-enter和leave.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			width: 400px;
+			height: 400px;
+			background-color: blue;
+			margin: 50px auto;
+			overflow: hidden;
+		}
+		#son{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin: 150px auto;
+		}
+	</style>
+</head>
+<body>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var  oFather=document.getElementById('father');
+	var  oSon=document.getElementById('son');
+	oFather.onmouseover=function(){
+		console.log('onmouseover');
+	}
+	oFather.onmouseout=function(){
+		console.log('onmouseout');
+	}
+	// oFather.onmouseenter=function(){
+	// 	console.log('onmouseenter');
+	// }
+	// oFather.onmouseleave=function(){
+	// 	console.log('onmouseleave');
+	// }
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-拖拽实践.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.form{
+			height: 1000px;
+			width: 1000px;
+		}
+		.container{
+			width: 500px;
+			height: 1000px;
+			float: left;
+
+		}
+		.target-list{
+			min-height: 600px;
+			width: 500px;
+			float: right;
+			border-left: 1px solid #ff6700;
+			box-sizing: border-box;
+		}
+		.target{
+			width: 100%;
+			height: 60px;
+			border: 1px solid #000;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		<div class="container">
+			调查问卷
+		</div>
+		<div class="target-list">
+			<div class="target"  draggable=true>
+				<span>姓名</span>
+				<input type="text">
+			</div>
+			<div class="target"  draggable=true>
+				<span>性别</span>
+				<input type="text">
+			</div>
+			<div class="target"  draggable=true>
+				<span>爱好</span>
+				<input type="checkbox" value="篮球">
+				<input type="checkbox" value="足球">
+			</div>
+		</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		var drag=null;
+		$('.target-list').on('dragstart','.target',function(ev){
+			drag=this;
+		})
+		$('.container').on('drop',function(ev)
+		{
+			$(this).append(drag)
+		})
+		.on('dragover',function(ev){
+			
+			ev.preventDefault();
+		})
+			});
+</script>
+</html>

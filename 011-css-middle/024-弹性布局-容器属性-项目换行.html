@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>024-弹性布局-容器属性-垂直对齐方式.html</title>
+	<style>
+		.father{
+			width: 1000px;
+			height: 400px;
+			margin-top: 50px;
+			margin-left: auto;
+			margin-right: auto;
+			border: 1px solid #000;
+			display: flex;
+			flex-wrap: wrap;
+			/*align-items: stretch;*/
+			/*align-items: flex-start;*/
+			/*align-items: flex-end;*/
+			/*align-items: center;*/
+			/*align-content 对单行不起作用*/
+			/*align-content: stretch;*/
+			/*align-content: flex-start;*/
+			/*align-content: flex-end;*/
+			align-content: center;
+		}
+		.father div{
+			height: 50px;
+		}
+		.son1{
+			width: 200px;
+			background-color: red;
+		}
+		.son2{
+			width: 400px;
+			background-color: blue;
+		}
+		.son3{
+			width: 600px;
+			background-color: pink;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son1">son1</div>
+		<div class="son2">son2</div>
+		<div class="son3">son3</div>
+	</div>
+</body>
+</html>

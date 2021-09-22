@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>521-作业.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 77px;
+			height: 67px;
+			background:no-repeat url(../代码/网易云.png) center center;
+			position: absolute;
+			top:0px;
+			left: 0px;
+		    
+		}
+
+		.shadow{
+			opacity: 0.2;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+
+	</div>
+</body>
+<script>
+	var oBox=document.getElementById('box');
+	oBox.onmousedown=function(ev){
+		var disT=ev.clientY-oBox.offsetTop;
+		var disL=ev.clientX-oBox.offsetLeft;
+		var l=0;
+		var h=0;
+		var oShadow=document.createElement('div');
+		oShadow.className='shadow';
+		oShadow.style.top=oBox.offsetTop;
+		oShadow.style.left=oBox.offsetLeft;
+		document.body.appendChild(oShadow);
+		oBox.onmouseout=null;//点击盒子时清除out事件
+		oBox.style.backgroundColor='rgba(0,0,0,0)';//点击是清除背景
+		oBox.style.border="none";
+		ev.stopPropagation();//防止盒子冒泡
+		document.onmousemove=function(ev){//移动
+			h=ev.clientY-disT;
+			l=ev.clientX-disL;
+			if(h<20){
+				h=0;
+			}else if(h>window.innerHeight-oShadow.offsetHeight){
+				h=window.innerHeight-oShadow.offsetHeight;
+			}
+			if(l<20){
+				l=0;
+			}else if(l>window.innerWidth-oShadow.offsetWidth){
+				l=window.innerWidth-oShadow.offsetWidth;
+			}
+			oShadow.style.top=h+'px';
+			oShadow.style.left=l+'px';
+		}
+		document.onmouseup=function(){
+			oBox.style.top=oShadow.offsetTop+'px';
+			oBox.style.left=oShadow.offsetLeft+'px';
+			document.body.removeChild(oShadow);
+			document.onmousemove=null;
+			document.onmouseup=null;	
+		}
+	}
+		//盒子未点击时的背影事件
+		oBox.onmouseover=function(){
+			oBox.style.backgroundColor='#1e3d5e';
+			oBox.style.border="1px solid black";
+		}
+		oBox.onmouseout=function(){
+			oBox.style.backgroundColor='rgba(0,0,0,0)';
+			oBox.style.border="none";
+		}
+		//点击外界时重启背景事件
+		document.onmousedown=function(){
+			oBox.style.backgroundColor='rgba(0,0,0,0)';
+			oBox.style.border="none";
+			oBox.onmouseover=function(){
+				oBox.style.backgroundColor='#1e3d5e';
+				oBox.style.border="1px solid black";
+		}
+			oBox.onmouseout=function(){
+				oBox.style.backgroundColor='rgba(0,0,0,0)';
+				oBox.style.border="none";
+			}
+		}
+
+</script>
+</html>

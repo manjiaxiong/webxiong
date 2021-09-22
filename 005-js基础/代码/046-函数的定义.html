@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>046-函数的定义.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+	sayHello();//1
+	function sayHello(){
+		console.log('Hello');//函数声明会自动放到顶部
+	}
+	// sayHello();
+	// sayGood();
+	var sayGood=function(){
+		console.log(a);
+		console.log(this);
+		console.log('good');
+		var a=2;
+	}
+	sayGood();//2
+	console.log(window);//3
+	console.log(a);//4
+</script>
+</html>

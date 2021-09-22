@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性形变练习-圣杯布局.html</title>
+	<style>
+		/*横向排布项目高默认是100%，纵向排布宽默认是100%*/
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			display: flex;
+			height: 100vh;
+			/*align-items: center;*/
+			flex-direction: column;
+		}
+		header,footer{
+			flex: 0 0 10vh;
+			background-color: red;
+		}
+		section{
+			flex-grow: 1;
+			display: flex;
+		}
+		.main{
+			flex-grow: 1;
+			background-color: gray;
+		}
+		aside,nav{
+			flex: 0 0 20vw;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<header>header</header>
+	<section>
+		<nav>nav</nav>
+		<div class="main">main</div>
+		<aside>aside</aside>
+	</section>
+	<footer>footer</footer>
+</body>
+</html>

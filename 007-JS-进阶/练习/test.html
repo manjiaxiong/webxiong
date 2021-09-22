@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<p>练习</p>
+</body>
+<script>
+	function show(n1,n2){
+		console.log(this,n1,n2)
+		console.log(11);
+	}
+	var arr=[]
+	show.apply({'name':2},...arr);//window
+</script>
+</html>

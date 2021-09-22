@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>206-字符串处理方法1.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+		var str1="day day is a good day";
+		console.log(str1);
+		var reg1=/is/g;
+		console.log("str1.search(reg1)",str1.search(reg1));//不区分全局非全局
+		console.log("str1.search('is')",str1.search("is"));//不区分全局非全局
+		var str2="today is 2019-05-30bb 2019-05-31";
+		console.log(str2);
+		// var reg2=/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/g;
+		var reg2=/(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
+		console.log("str2.match(reg2):::",str2.match(reg2));
+		var str3="asd faf wefe fghj"
+		var reg3=/\s/;
+		console.log(str3.split(reg3));
+</script>
+</html>

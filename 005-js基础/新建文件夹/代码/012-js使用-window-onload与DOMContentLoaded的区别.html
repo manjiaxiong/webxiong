@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>012-js使用-window-onload与DOMContentLoaded的区别.html</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+	</style>
+	<script >
+		console.log(1);
+		window.onload=function(){//window.onload需要页面上所有的资源(图片,音频,视频等)被加载以后才会触发
+			console.log("in......");
+		}
+		document.addEventListener("DOMContentLoaded",function(){
+			//DOMContentLoaded的触发不需要等待所有的资源(图片,音频,视频等)加载完成
+			console.log("DOMContentLoaded");
+		})
+	</script>
+</head>
+<body >
+	<div id="box"></div>
+	<img src="1.jpg" alt="">
+</body>
+</html>

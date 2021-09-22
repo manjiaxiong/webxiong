@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>018-操作代码-文本-值.html</title>
+</head>
+<body>
+	<div>我是div
+		<p>我是段落</p>
+	</div>
+	<div>
+		我是内容
+	</div>
+	<input type="text" id="text" value="111"><button id="btn">按钮</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div').html());//html里面为空时是读取(只读取第一个div)显示里面的标签
+		console.log($('div').html('<h2>我是标题</h2>'));		
+		// console.log($('div').text());//读取全部div 不显示里面的标签
+		// $('div').text('<h2>我是标题</h2>');	//里面的标签不起作用
+		// var oBtn=document.getElementById('btn');
+		// var oText=document.getElementById('text');
+		// oBtn.onclick=function(){
+		// 	// console.log($(oText).val(222));
+		// 	// console.log($(oText).attr('value',222));
+		// 	console.log($(oText).prop('value',222));
+		// 	;
+		// }
+	});
+</script>
+</html>

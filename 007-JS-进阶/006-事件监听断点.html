@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>006-事件监听断点.html</title>
+</head>
+<body>
+	<input type="text" id="txt">
+	<button id="btn">测试</button>
+</body>
+<script>
+	function sum(n){
+		try{
+			var reslute=0;
+			if(isNaN(parseInt(n))){
+				
+				throw new Error("n不是一个数字");
+			}
+			for(var i=0;i<=n;i++){
+				reslute+=i;
+			}
+		}catch(err){
+			console.log(err);
+		}finally{
+			console.log("always do somthing...")
+		}
+		return reslute;
+	}
+	function mul(sum){
+		return sum*10
+	}
+	var oTxt=document.getElementById('txt');
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function(){
+		var sVal=oTxt.value;
+		console.log(sVal)
+		console.log(mul(sum(sVal)));
+	}
+</script>
+</html>

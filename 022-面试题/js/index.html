@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>tii.html</title>
+    <style>
+    /**{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+		}*/
+    </style>
+</head>
+
+<body>
+    <!-- <div><ul></ul></div> -->
+</body>
+<script>
+/*同步异步先同步后异步再微队列再宏队列
+		async function async1(){
+			console.log('async1 start')
+			await async2()
+			console.log('async end')
+		}
+		async function async2(){
+			console.log('async2')
+
+		}
+		console.log('script start')
+		setTimeout(function(){
+			console.log('setTimeout')
+		},0)
+		async1()
+		new Promise(function(resolve){
+			
+			
+			resolve()
+		}).then(function(){
+			console.log('Promise2')
+		})
+		console.log('script end')
+		*/
+/*转换
+var a=?
+if(a==1&&a==2&&a==3){
+	console.log('成立')
+}*/
+/*对象与其他比较时(==)会先调用toString方法*/
+//方法一
+// var a={
+// 	i:0,
+// 	toString(){//或valueOf方法
+// 		return ++this.i
+// 	}
+// }
+// if(a==1&&a==2&&a==3){
+// 	console.log('成立')
+// }
+//方法2运用object.defineProperty('监听对象','属性',{get('获取时调用'){},set('设置时调用'){}})
+var i = 0;
+Object.defineProperty(window, 'a', { //
+    get() {
+        console.log('调用')
+        return ++i //不能用a因为每次用a都会触发这个函数
+    },
+    set() {
+        console.log('设置')
+    }
+})
+// a=1
+if (a == 1 && a == 2 && a == 3) {
+    console.log('成立')
+}
+//方法3运用数组方法
+// var a=[1,2,3]
+// a.toString=a.shift;
+// if(a==1&&a==2&&a==3){
+// 	console.log('成立')
+// }
+//有效括号问题 利用栈解决
+// 	var isValid = function(s) {
+//     var rightSymbols = [];
+//     for (var i = 0; i < s.length; i++) {
+//         if(s[i] == "("){
+//             rightSymbols.push(")");
+//         }else if(s[i] == "{"){
+//             rightSymbols.push("}");
+//         }else if(s[i] == "["){
+//             rightSymbols.push("]");
+//         }else if(rightSymbols.pop() != s[i] ){
+//             return false;
+//         }
+//     }
+//     return !rightSymbols.length;
+// };
+// var obj={
+// 	name:'qwq',
+// 	age:18
+// }
+// // var arr=[...obj]
+// // console.log(arr)
+// obj2={...obj}
+// console.log(obj2)
+//实现call
+
+Function.prototype.mycall = function(context) {
+    if (typeof this !== 'function') {
+        throw new TypeError('not funciton')
+    }
+    context = context || window
+    context.fn = this
+    let arg = [...arguments].slice(1)
+    let result = context.fn(...arg)
+    delete context.fn
+    return result
+}
+//实现apply
+Function.prototype.myapply = function(context) {
+    var context = context || window;
+
+    context.fn = this;
+
+    var result = null;
+
+    if (arguments[1]) {
+        result = context.fn(...arguments);
+    } else {
+
+        result = context.fn();
+
+    }
+
+    delete context.fn;
+
+    return result;
+}
+
+//实现bind
+Function.prototype.mybind = function() {
+    if (typeof this !== 'function') {
+        throw new TypeError('not funciton')
+    }
+    var self = this; // 保存原函数
+    context = [].shift.call(arguments), // 保存需要绑定的this上下文
+        outArgs = [].slice.call(arguments); // 剩余的参数转为数组
+    return function() { // 返回一个新函数
+        let inArgs = [].slice.call(arguments);
+        console.log('inArgs', inArgs)
+        return self.apply(context, outArgs.concat(inArgs));
+    }
+}
+//数组降维
+const arr = [11, [22, 33],
+    [44, 55], 66
+];
+const flatArr = arr.join().split(','); // ["11", "22", "33", "44", "55", "66"]
+[1, [2, [3]]].flat(3); // [1, 2, 3]
+const arr = [11, [22, 33],
+    [44, 55], 66
+];
+const flatArr = arr.join().split(','); // ["11", "22", "33", "44", "55", "66"]
+//去重
+function arrRemove(arr) {
+    return [...new Set(arr)];
+}
+//或者Array.from
+function arrRemove(arr) {
+    var temp = new Set(arr);
+    return Array.from(temp);
+}
+//实现instanceof
+function instance_of(L, R) { //L 表示左表达式，R 表示右表达式 
+    var O = R.prototype; // 取 R 的显示原型 
+    L = L.__proto__; // 取 L 的隐式原型
+    while (true) {
+        if (L === null)
+            return false;
+        if (O === L) // 当 O 显式原型 严格等于  L隐式原型 时，返回true
+            return true;
+        L = L.__proto__;
+    }
+}
+//事件委托
+window.onload = function() {
+    var box = document.getElementById("box");
+    box.addEventListener('click', function(event) {
+        switch (event.target.id) {
+            case 'box':
+                console.log("点击了box");
+                break;
+            case 'bbox':
+                console.log("点击了bbox");
+                break;
+            case 'bbbox':
+                console.log("点击了bbbox");
+                break;
+            default:
+        }
+    }, false)
+}
+//将ajax封装成promise
+function ajaxpro(path) {
+    return new Promise(resolve, reject) {
+        var xhr = open('get', path);
+        xhr.send();
+        xhr.onreadystatechange = function() {
+            if (xhr.state == 4) {
+                if (xhr.readyState == 200) {
+                    resolve(xhr.responseText)
+                }
+            } else {
+                reject("出错了" + xhr.status);
+            }
+        }
+    }
+}
+//数组快排
+var quickSort = function(arr) {
+
+    if (arr.length <= 1) { return arr; }
+
+    var pivotIndex = Math.floor(arr.length / 2);
+
+    var pivot = arr.splice(pivotIndex, 1)[0];
+
+    var left = [];
+
+    var right = [];
+
+    for (var i = 0; i < arr.length; i++) {
+
+        if (arr[i] < pivot) {
+
+            left.push(arr[i]);
+
+        } else {
+
+            right.push(arr[i]);
+
+        }
+
+    }
+
+    return quickSort(left).concat([pivot], quickSort(right));
+
+};
+</script>
+
+</html>
