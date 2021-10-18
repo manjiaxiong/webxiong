@@ -6,6 +6,34 @@
   <title>Document</title>
 </head>
 <body>
-  
+<button id="btn">点击</button>
 </body>
+<script>
+  function userResit (){ // 重置userStatus
+    let userStatus = {
+        date: new Date().toLocaleDateString(),
+        count: 1
+      }
+    localStorage.setItem('userStatus', JSON.stringify(userStatus))
+  }
+  var btn = document.getElementById('btn')
+  btn.addEventListener('click',() =>{
+    if (!localStorage.getItem('userStatus')) {// 第一次进入还没有userStatus这个储存对象
+      userResit()
+    } else { // 内存中已经有userStatus字段
+      let userStatus = JSON.parse(localStorage.getItem('userStatus'))
+      let now = new Date().toLocaleDateString() // 获得今天的日期
+      if (userStatus.date < now) {//新的一天第一次点击
+        userResit()
+      }
+      if (userStatus.date === now){ // 日期相等为今天的点击次数 并且点击次数不超过2
+        userStatus.count < 2 ?  userStatus.count +=1 : alert('点击次数过多')
+        localStorage.setItem('userStatus', JSON.stringify(userStatus))
+      }
+      if (userStatus.date > now) { // 用户私自修改时间
+        alert('时间格式不对请重新设置手机时间')
+      }
+    }
+  })
+</script>
 </html>

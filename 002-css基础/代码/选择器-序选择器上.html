@@ -4,24 +4,27 @@
 	<meta charset="UTF-8">
 	<title>序选择器</title>
 	<style>
-		h1:first-child{
+		/* h1:first-child{
 			color: red
-		}
+		} */
 		/*p:last-child{
 			color: red;
 		}*/
-		p:nth-child(2){
+		/* p:nth-child(2){
 			color: red;
-		}
+		} */
 		/*p:nth-last-child(2){
 			color: red;
 		}*/
 		/*p:nth-child(odd){
 			color: red;
 		}*/
-        h1:only-child{
+        /* h1:only-child{
         	color: red;
-        }
+        } */
+		p:last-of-type{
+			color: red;
+		}
 	</style>
 </head>
 <body>
@@ -36,4 +39,25 @@
 	<div class="qw"><h1>我是标题二</h1>
 		<p>hgiu</p></div>
 </body>
+<script>
+	let timing = performance.timing,
+    start = timing.navigationStart,
+    dnsTime = 0,
+    tcpTime = 0,
+    firstPaintTime = 0,
+    domRenderTime = 0,
+    loadTime = 0;
+	console.log(timing)
+dnsTime = timing.domainLookupEnd - timing.domainLookupStart;
+tcpTime = timing.connectEnd - timing.connectStart;
+firstPaintTime = timing.responseStart - start;
+domRenderTime = timing.domContentLoadedEventEnd - start;
+loadTime = timing.loadEventEnd - start;
+
+console.log('DNS解析时间:', dnsTime, 
+            '\nTCP建立时间:', tcpTime, 
+            '\n首屏时间:', firstPaintTime,
+            '\ndom渲染完成时间:', domRenderTime, 
+            '\n页面onload时间:', loadTime);
+</script>
 </html>

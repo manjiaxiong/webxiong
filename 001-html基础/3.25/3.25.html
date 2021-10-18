@@ -3,7 +3,7 @@
 	<head>
 
 				<meta charset="utf-8">
-				<meta http-equiv="Refresh" content="5;url=https://www.kuazhu.com" />
+				<!-- <meta http-equiv="Refresh" content="5;url=https://www.kuazhu.com" /> -->
 			<title>Docment</title>
 	</head>
 
@@ -11,4 +11,19 @@
 	<body>
 		你好
 	</body>
+	<script>
+		var vm = {}
+		Object.defineProperty(vm,'msg',{
+			enumerable: true,
+			configurable: true,
+			get (){
+				console.log(1);
+				return vm.msg
+			},
+			set (newvAlue){
+				console.log(2);
+				return newvAlue
+			}
+		})
+	</script>
 	</html>
