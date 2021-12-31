@@ -33,18 +33,19 @@ export default {
     },
     methods:{
         addTodo: function(todo) {
-        this.todos.unshift(todo)
+            this.todos.unshift(todo)
       },
       delTodo:function(index){
            this.todos.splice(index,1)
       },
-      selectAllTodo(value){
+      selectAllTodo(value){ // footer里的选中状态
            this.todos.forEach((item)=>{
               item.done = value
           })
       },
       delAllDone(){
-          this.todos = this.todos.filter(item=>!item.done)
+          this.todos = []
+        //   this.todos = this.todos.filter(item=>!item.done)
       }
     },
     watch:{
