@@ -14,5 +14,7 @@ export default {
             task:'打豆豆',
             done:false
         },                             
-    ]
+    ],
+    onmessage: () => {},
+    onsend: () => {}
 }

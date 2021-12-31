@@ -14,6 +14,7 @@
     import Header from './pages/Header.vue'
     import List from './pages/List.vue'
     import Footer from './pages/Footer.vue'
+import func from '../../../../ve-template等2个文件/ve-framework/ve-framework/components/DragTreeTable/func'
     export default {
         name:'App',
         //2.注册组件
@@ -26,6 +27,13 @@
             return {
 
             }
+        },
+        created(){
+            function sey() {
+                console.log(111);
+            }
+            this.$store.commit('SETFUN', sey)
+            console.log(this.$store.state)
         }
     }
 </script>

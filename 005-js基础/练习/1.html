@@ -1,39 +1,70 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-</head>
-<body>
-<button id="btn">点击</button>
-</body>
-<script>
-  function userResit (){ // 重置userStatus
-    let userStatus = {
-        date: new Date().toLocaleDateString(),
-        count: 1
+  <style>
+    .q {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      border: 1px solid red;
+      margin: 200px auto;
+    }
+
+    .a {
+      width: 60px;
+      height: 60px;
+      border: 1px solid rgba(248, 41, 171, 0.28);
+      background: rgba(248, 41, 171, 0.28);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      animation: identifier 2.8s infinite;
+      opacity: 0;
+    }
+
+    .a2 {
+      animation-delay: 0.5s;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    @keyframes identifier {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
       }
-    localStorage.setItem('userStatus', JSON.stringify(userStatus))
-  }
-  var btn = document.getElementById('btn')
-  btn.addEventListener('click',() =>{
-    if (!localStorage.getItem('userStatus')) {// 第一次进入还没有userStatus这个储存对象
-      userResit()
-    } else { // 内存中已经有userStatus字段
-      let userStatus = JSON.parse(localStorage.getItem('userStatus'))
-      let now = new Date().toLocaleDateString() // 获得今天的日期
-      if (userStatus.date < now) {//新的一天第一次点击
-        userResit()
-      }
-      if (userStatus.date === now){ // 日期相等为今天的点击次数 并且点击次数不超过2
-        userStatus.count < 2 ?  userStatus.count +=1 : alert('点击次数过多')
-        localStorage.setItem('userStatus', JSON.stringify(userStatus))
-      }
-      if (userStatus.date > now) { // 用户私自修改时间
-        alert('时间格式不对请重新设置手机时间')
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
       }
     }
-  })
-</script>
+  </style>
+</head>
+
+<body>
+  <div class="q">
+    <div class="a a1"></div>
+    <div class="a a2"></div>
+    <div class="btn"></div>
+  </div>
+</body>
+
 </html>

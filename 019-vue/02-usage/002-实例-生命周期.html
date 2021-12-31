@@ -20,15 +20,29 @@
         data:{
             message:'hello'
         },
+        methods: {
+            del(){
+                const promise= new Promise((resolve,reject)=>{
+                    setTimeout(()=>{
+                        resolve('ok');
+                        // reject('error');
+                    },3000)
+                });
+                promise.then(res => {
+                    console.log(res);
+                })
+            }
+        },
         beforeCreate(){
             console.log("beforeCreate")
-            console.log(this)
+            // console.log(this)
             console.log('this.$el',this.$el) //undefined
             console.log('this.$refs.p',this.$refs.p) //undefined
             console.log('this.message',this.message)//undefined
         },
-        created(){
-            console.log(this)
+        async created(){
+            const res = await this.del()
+            console.log(this, res)
             console.log("created")
             console.log('this.$el',this.$el) //undefined
             console.log('this.$refs.p',this.$refs.p) //undefined

@@ -21,5 +21,8 @@ export default {
     },
     [DEL_ALL_TODO](state){
          state.todos = state.todos.filter(item=>!item.done)       
+    },
+    ['SETFUN'](state, C){
+        state.onmessage = C
     }     
 }

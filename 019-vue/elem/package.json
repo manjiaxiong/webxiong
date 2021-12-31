@@ -1,35 +1,71 @@
 {
-  "name": "elem",
-  "version": "0.1.0",
+  "name": "doap-fe",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "start": "vue-cli-service serve",
+    "build:test": "cross-env NODE_ENV=test vue-cli-service build",
+    "build:uat": "cross-env NODE_ENV=uat vue-cli-service build",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.159",
+    "animate.css": "^4.1.1",
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
     "core-js": "^3.6.5",
-    "echarts": "^4.9.0",
-    "element-ui": "^2.13.2",
+    "driver.js": "^0.9.8",
+    "echarts": "^4.8.0",
+    "element-ui": "^2.15.6",
+    "loadsh": "0.0.4",
+    "lottie-web": "^5.7.1",
+    "moment": "^2.27.0",
+    "path-to-regexp": "^6.2.0",
+    "quill-image-resize-module": "^3.0.0",
+    "sass-resources-loader": "^2.2.4",
+    "swiper": "^3.4.2",
+    "v-viewer": "^1.5.1",
     "vue": "^2.6.11",
-    "vue-infinite-scroll": "^2.0.2",
+    "vue-class-component": "^7.2.3",
+    "vue-i18n": "^8.25.0",
     "vue-lottie": "^0.2.1",
-    "vue-router": "^3.4.5",
-    "webpack-bundle-analyzer": "^4.4.2"
+    "vue-multiple-scrollbar": "^1.0.4",
+    "vue-property-decorator": "^8.4.2",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.2.0",
+    "vue-seamless-scroll": "^1.1.21",
+    "vuedraggable": "^2.24.3",
+    "vuex": "^3.4.0",
+    "vuex-module-decorators": "^0.17.0",
+    "vuex-persistedstate": "^4.0.0-beta.1",
+    "wangeditor": "^4.7.5",
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "axios": "^0.21.1",
-    "babel-eslint": "^10.1.0",
-    "babel-plugin-component": "^1.1.1",
+    "@mdi/font": "^5.4.55",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-plugin-router": "~4.4.0",
+    "@vue/cli-plugin-typescript": "~4.4.0",
+    "@vue/cli-plugin-vuex": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "cross-env": "^5.2.0",
     "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.2.2",
-    "less": "^3.12.2",
-    "less-loader": "^7.0.1",
-    "mini-css-extract-plugin": "^0.5.0",
-    "mockjs": "^1.1.0",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "sass": "^1.26.10",
+    "sass-loader": "^9.0.2",
+    "typescript": "~3.9.3",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -39,23 +75,30 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "@vue/standard",
+      "@vue/typescript/recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint"
+      "ecmaVersion": 2020
     },
     "rules": {
-      "generator-star-spacing": "off",
-      "no-tabs": "off",
-      "no-unused-vars": "off",
-      "no-console": "off",
-      "no-irregular-whitespace": "off",
-      "no-debugger": "off"
+      "no-useless-escape": 0,
+      "no-unused-expressions": 0,
+      "new-cap": 0,
+      "template-curly-spacing": 0,
+      "array-bracket-spacing": 0,
+      "no-extra-boolean-cast": 0,
+      "no-unneeded-ternary": 0,
+      "@typescript-eslint/no-explicit-any": 0,
+      "no-new": 0,
+      "object-property-newline": 0,
+      "@typescript-eslint/camelcase": 0,
+      "no-debugger": "off",
+      "no-console": "off"
     }
   },
   "browserslist": [
     "> 1%",
-    "last 2 versions",
-    "not dead"
+    "last 2 versions"
   ]
 }

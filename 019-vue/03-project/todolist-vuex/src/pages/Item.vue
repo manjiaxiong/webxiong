@@ -26,6 +26,9 @@
                 isShow:false
             }
         },
+        created() {
+            this.$store.state.onmessage()
+        },
         methods:{
             handleShow(flag){
                 this.bgColor = flag ? '#ccc' : '#fff'

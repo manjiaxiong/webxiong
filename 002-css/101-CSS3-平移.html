@@ -1,33 +1,70 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<title>101-CSS3-平移.html</title>
-	<style>
-		*{
-			margin: 0;
-			padding: 0;
-		}
-		.father{
-			width: 200px;
-			height: 200px;
-			border: 1px solid #000;
-			margin:50px auto;
-		}
-		.son{
-			width: 200px;
-			height: 200px;
-			background: red;
-			/*transform: translate(100px,50px);*/
-			/*transform: translate(100px,200px);*/
-			/*transform: translate(-100px,-200px);*/
-			transform: translate(100%,50%);
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .q {
+      width: 300px;
+      height: 300px;
+      position: relative;
+      border: 1px solid red;
+
+    }
+
+    .a {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #000;
+      background: #000;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      animation: identifier 1s infinite;
+      opacity: 0;
+    }
+
+    .a2 {
+      animation-delay: 0.5s;
+    }
+
+    .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    @keyframes identifier {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
+
 <body>
-	<div class="father">
-		<div class="son"></div>
-	</div>
+  <div class="q">
+    <div class="a a1"></div>
+    <div class="a a2"></div>
+    <div class="btn"></div>
+  </div>
 </body>
+
 </html>
